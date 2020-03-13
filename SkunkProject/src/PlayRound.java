@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class PlayRound{
 	private static int round_dice_total = 0;
-	private static final int singleSkunkPenalty = 2;
-	private static final int doubleSkunkPenalty = 4;
+	private static final int SINGLE_SKUNK_PENALTY = 2;
+	private static final int DBL_SKUNK_PENALTY = 4;
 
 	public static Scanner playersChoice = new Scanner(System.in);	
 
@@ -17,7 +17,7 @@ public class PlayRound{
 			if (enteredOption == 1)
 				System.out.println("Current Dice Total: " + get_round_dice_total());
 			else if (enteredOption == 2)
-				System.out.println("Kitty: " + UniversalBoard.get_kitty());
+				System.out.println("Kitty: " + SkunkKitty.get_kitty());
 			else if (enteredOption == 3)
 				UniversalBoard.printPlayersSheet();
 			else if (enteredOption == 4)
@@ -78,26 +78,26 @@ public class PlayRound{
 	// skunk events
 	private static void skunkEvent(int Penalty, SkunkPlayer inputPlayer) { 
 		System.out.println("Before...");
-		System.out.println("Kitty: " + UniversalBoard.get_kitty());
+		System.out.println("Kitty: " + SkunkKitty.get_kitty());
 		UniversalBoard.printPlayersSheet();
 
 		inputPlayer.set_chips_total(-Penalty);  
-		UniversalBoard.set_kitty(Penalty);
+		SkunkKitty.set_kitty(Penalty);
 		
 		System.out.println("After...");
-		System.out.println("Kitty: " + UniversalBoard.get_kitty());
+		System.out.println("Kitty: " + SkunkKitty.get_kitty());
 		UniversalBoard.printPlayersSheet();
 		System.out.println("Ending Turn...");
 	}
 	private static void singleSkunk(SkunkPlayer inputPlayer) { 
 		System.out.println("Single Skunk Detected!");
-		skunkEvent(singleSkunkPenalty, inputPlayer);
+		skunkEvent(SINGLE_SKUNK_PENALTY, inputPlayer);
 	}
 	private static void doubleSkunk(SkunkPlayer inputPlayer){
 		System.out.println("Double Skunk Detected!");
 		System.out.println(inputPlayer.get_name()+" has lost their dice total!");
 		inputPlayer.reset_dice();
-		skunkEvent(doubleSkunkPenalty, inputPlayer);
+		skunkEvent(DBL_SKUNK_PENALTY, inputPlayer);
 	}
 	
 	private static int[] rollingDice() {

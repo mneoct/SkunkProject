@@ -21,9 +21,7 @@ import java.util.Random;
 public class UniversalBoard { // main program
 	private static final int MAX_PLAYERS = 8;
 	private static final int OVERFLOWSCORE = 100; // = 100, set lower to test games faster...
-	public final static int TOTAL_CHIPS = 400; // = 400, set lower for test games faster...
-
-	private static int kitty = 0;
+	private final static int TOTAL_CHIPS = 400; // = 400, set lower for test games faster...
 	public static Scanner myObj = new Scanner(System.in);
 	private static SkunkPlayer players_array[];
 	
@@ -122,7 +120,6 @@ public class UniversalBoard { // main program
 		System.out.println("Confirmation");
 		return arrayOfPlayers;
 	}
-
 	public static void distributeChips(SkunkPlayer[] inputPlayersArray) {
 		System.out.println("Distribution of chips to players initiated...");
 		int chips_distributed = TOTAL_CHIPS / inputPlayersArray.length;
@@ -133,7 +130,6 @@ public class UniversalBoard { // main program
 		System.out.println("Distribution of chips to players complete.");
 		System.out.println();
 	}
-
 	public static void displayDiceAll(SkunkPlayer[] arrayOfSkunkPlayers) {
 		for (SkunkPlayer player:arrayOfSkunkPlayers)
 			System.out.println("\t"+player.get_name() + ": " + player.get_dice_total());
@@ -155,7 +151,7 @@ public class UniversalBoard { // main program
 		System.out.println("Players' Dice Total in Current Game:");
 		displayDiceAll(players_array);
 	}
-	private static void play_game() { 	// break into smaller bits...
+	private static void playGame() { 	// break into smaller bits...
 		SkunkPlayer currentlyPlaying; // play_game()'s ref to current player.		
 		int CurrentPlayerIndex = randomStartPlayer(players_array.length);
 
@@ -227,7 +223,7 @@ public class UniversalBoard { // main program
 	}
 	private static void tabulateWinnings(int IndexOfWinner){
 		int currentlyEvaluating = IndexOfWinner + 1;
-		int winningsToAdd = get_kitty();
+		int winningsToAdd = SkunkKitty.get_kitty();
 		System.out.println();
 
 		while (currentlyEvaluating != IndexOfWinner){
@@ -256,17 +252,6 @@ public class UniversalBoard { // main program
 		UniversalBoard.printPlayersSheet();
 	}
 	
-	// Move to SkunkKitty.java
-	public static int get_kitty(){ 
-		return kitty; 
-	} 
-	public static void set_kitty(int value){
-		kitty = kitty + value;
-	}
-	public static void reset_kitty(){
-		kitty = 0;
-	}
-	
 	// Universal
 	private static int resetIndexOfLoopsArray(int arrayCurrentIndex, int arrayLength) {
 		if (arrayCurrentIndex >= arrayLength)
@@ -281,7 +266,7 @@ public class UniversalBoard { // main program
 	private static void startUpGameResetValues() {
 		for (SkunkPlayer player : players_array)
 			player.reset_dice();
-		reset_kitty();
+		SkunkKitty.reset_kitty();
 	}
 	
 	public static void main(String[] args){
@@ -297,7 +282,7 @@ public class UniversalBoard { // main program
 			System.out.println();
 			
 			System.out.println("Game being played...");
-			play_game();
+			playGame();
 			
 			System.out.println("Post-Game Evaluation...");
 			players_array = removePlayers(players_array);
