@@ -1,3 +1,5 @@
+import edu.princeton.cs.introcs.*;
+
 public class SkunkKitty {
 	
 	private static int kitty = 0;
@@ -13,6 +15,6 @@ public class SkunkKitty {
 		kitty = 0;
 	}
 	public static void main(String[] args)	{
-		System.out.println("hello");
+		StdOut.println("hello");
 	}
 }

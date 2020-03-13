@@ -1,4 +1,4 @@
-import edu.princeton.cs.introcs.StdOut;
+import edu.princeton.cs.introcs.*;
 
 /**
  * Dice represents a single pair of rollable Die objects, randomly generating

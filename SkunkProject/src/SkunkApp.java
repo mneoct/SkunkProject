@@ -1,5 +1,7 @@
 import java.util.Scanner;
 import java.util.Random; 
+import edu.princeton.cs.introcs.*;
+
 // TODO:
 // Should negative chips (debt) be allowed???
 // allow removal of players at beginning (i.e. undo adding players...)
@@ -18,7 +20,7 @@ import java.util.Random;
 //private int redChipsTotal = 32;
 //private int whiteChipsTotal = 80;
 
-public class UniversalBoard { // main program
+public class SkunkApp { // main program
 	private static final int MAX_PLAYERS = 8;
 	private static final int OVERFLOWSCORE = 100; // = 100, set lower to test games faster...
 	private final static int TOTAL_CHIPS = 400; // = 400, set lower for test games faster...
@@ -29,19 +31,19 @@ public class UniversalBoard { // main program
 	// addPlayerToArray() based on https://www.geeksforgeeks.org/how-to-add-an-element-to-an-array-in-java/
 	private static void add_players(){	// long, but kind of tricky to break..?
 		while (true) {
-			System.out.println("Adding New Player...");
-			System.out.println("Enter ... to continue without adding");
-			System.out.println("Enter the new player's name:");
+			StdOut.println("Adding New Player...");
+			StdOut.println("Enter ... to continue without adding");
+			StdOut.println("Enter the new player's name:");
 			String userName = myObj.nextLine();
-			System.out.println();
+			StdOut.println();
 			
 			if (userName.equals("...")) {
 				if (players_array == null || players_array.length < 2) {
-					System.out.println("Insufficient players.");
+					StdOut.println("Insufficient players.");
 					continue;
 				}
 				else {
-					System.out.println("Players have been registered.");
+					StdOut.println("Players have been registered.");
 					break;
 				}
 			}
@@ -57,25 +59,25 @@ public class UniversalBoard { // main program
 			}
 			
 			try {
-				System.out.println("Current number of players: " + players_array.length);
+				StdOut.println("Current number of players: " + players_array.length);
 				for (SkunkPlayer player:players_array) {
-					System.out.println(player.get_name());
+					StdOut.println(player.get_name());
 				}
 			}
 			catch (NullPointerException e) {
-				System.out.println("Current number of players: " + players_array.length);
+				StdOut.println("Current number of players: " + players_array.length);
 				for (SkunkPlayer player:players_array) {
-					System.out.println(player);
+					StdOut.println(player);
 				}
 			}
 			if (players_array.length >= MAX_PLAYERS) {
-				System.out.println("Max Players (" + MAX_PLAYERS + ") has been reached.");
+				StdOut.println("Max Players (" + MAX_PLAYERS + ") has been reached.");
 				break;
 			}
-			System.out.println();
+			StdOut.println();
 		}
-		System.out.println("Players Registration Complete.");
-		System.out.println("Proceeding to gameplay");
+		StdOut.println("Players Registration Complete.");
+		StdOut.println("Proceeding to gameplay");
 	}
 	public static SkunkPlayer[] addPlayerToArray(int currentPlayersCount,
 				SkunkPlayer[] CurrentSkunkPlayerArray, SkunkPlayer newPlayerToBeAdded){
@@ -99,56 +101,56 @@ public class UniversalBoard { // main program
 	    return newSkunkArray; 
 	}
 	private static SkunkPlayer[] removePlayers(SkunkPlayer[] arrayOfPlayers) {
-		System.out.println("Now checking for eliminated players...");
-		System.out.println();
+		StdOut.println("Now checking for eliminated players...");
+		StdOut.println();
 		outerloop:
 		while (true) {
 			innerloop:
 			for (int i = 0; i < arrayOfPlayers.length + 1; i++) {
 				if (i >= arrayOfPlayers.length) {
-					System.out.println("Done.");
+					StdOut.println("Done.");
 					break outerloop;
 				}
 				if (arrayOfPlayers[i].get_chips_total() <= 0) {
-					System.out.println("Removing " + arrayOfPlayers[i].get_name());
+					StdOut.println("Removing " + arrayOfPlayers[i].get_name());
 					arrayOfPlayers = removePlayerFromArray(arrayOfPlayers.length, arrayOfPlayers, i);			
-					System.out.println();
+					StdOut.println();
 					break innerloop;
 				}
 			}
 		}
-		System.out.println("Confirmation");
+		StdOut.println("Confirmation");
 		return arrayOfPlayers;
 	}
 	public static void distributeChips(SkunkPlayer[] inputPlayersArray) {
-		System.out.println("Distribution of chips to players initiated...");
+		StdOut.println("Distribution of chips to players initiated...");
 		int chips_distributed = TOTAL_CHIPS / inputPlayersArray.length;
 		for (SkunkPlayer player : inputPlayersArray) {
 			player.set_chips_total(chips_distributed);
-			System.out.println(player.get_name() + " has been given " + chips_distributed + " chips.");
+			StdOut.println(player.get_name() + " has been given " + chips_distributed + " chips.");
 		}
-		System.out.println("Distribution of chips to players complete.");
-		System.out.println();
+		StdOut.println("Distribution of chips to players complete.");
+		StdOut.println();
 	}
 	public static void displayDiceAll(SkunkPlayer[] arrayOfSkunkPlayers) {
 		for (SkunkPlayer player:arrayOfSkunkPlayers)
-			System.out.println("\t"+player.get_name() + ": " + player.get_dice_total());
+			StdOut.println("\t"+player.get_name() + ": " + player.get_dice_total());
 	}
 	public static void printPlayersSheet(){
 		for (SkunkPlayer player : players_array)
-			System.out.println(player.get_name()+":"+player.get_chips_total());
-		System.out.println();
+			StdOut.println(player.get_name()+":"+player.get_chips_total());
+		StdOut.println();
 	}
 
 	// Move to SkunkGame.java
 	private static int randomStartPlayer(int lengthOfArray) {
-		System.out.println("Choosing random player to start...");
+		StdOut.println("Choosing random player to start...");
 		Random rand = new Random(); 
 		return rand.nextInt(lengthOfArray); 
 	}
 	private static void turnSetup() {
 		PlayRound.reset_round_dice_total();
-		System.out.println("Players' Dice Total in Current Game:");
+		StdOut.println("Players' Dice Total in Current Game:");
 		displayDiceAll(players_array);
 	}
 	private static void playGame() { 	// break into smaller bits...
@@ -157,16 +159,16 @@ public class UniversalBoard { // main program
 
 		while(true) {
 			turnSetup();
-			System.out.println();
+			StdOut.println();
 			
 			currentlyPlaying = players_array[CurrentPlayerIndex];
 			PlayRound.selectMove(currentlyPlaying, players_array); 
-			System.out.println();
+			StdOut.println();
 
 			// could be a method, but tricky due to the break.
 			if (currentlyPlaying.get_dice_total() > OVERFLOWSCORE){
-				System.out.println("Dice Total of " + currentlyPlaying.get_name() + " is over " + OVERFLOWSCORE);
-				System.out.println();
+				StdOut.println("Dice Total of " + currentlyPlaying.get_name() + " is over " + OVERFLOWSCORE);
+				StdOut.println();
 				break;
 			}
 			else {
@@ -174,13 +176,13 @@ public class UniversalBoard { // main program
 				CurrentPlayerIndex = resetIndexOfLoopsArray(CurrentPlayerIndex, players_array.length);
 			}
 			
-			System.out.println("Next player's turn...");
-			System.out.println();
+			StdOut.println("Next player's turn...");
+			StdOut.println();
 		}
 		
-		System.out.println("Entering last stretch of current game...");
+		StdOut.println("Entering last stretch of current game...");
 		int WinnerOfGameIndex = lastStretch(currentlyPlaying.get_dice_total(), CurrentPlayerIndex);
-		System.out.println(players_array[WinnerOfGameIndex].get_name() + " is the winner of this game...");
+		StdOut.println(players_array[WinnerOfGameIndex].get_name() + " is the winner of this game...");
 		tabulateWinnings(WinnerOfGameIndex);
 	}
 	private static int lastStretch(int currentGoal, int incomingHillKingIndex){
@@ -188,27 +190,27 @@ public class UniversalBoard { // main program
 		int indexCurrentKingHill = incomingHillKingIndex + 0;
 		int IndexPlayerRolling = incomingHillKingIndex + 1; // start with next player...
 		
-		System.out.println("Last Stretch");
-		System.out.println("Current Top Scorer: " + players_array[indexCurrentKingHill].get_name());
-		System.out.println("Score to Defeat: " + goalToReach);
+		StdOut.println("Last Stretch");
+		StdOut.println("Current Top Scorer: " + players_array[indexCurrentKingHill].get_name());
+		StdOut.println("Score to Defeat: " + goalToReach);
 		
 		while (IndexPlayerRolling != incomingHillKingIndex+0) {
 			IndexPlayerRolling = resetIndexOfLoopsArray(IndexPlayerRolling, players_array.length);
 			PlayRound.reset_round_dice_total();
-			System.out.println();
-			System.out.println(players_array[IndexPlayerRolling].get_name() + " is now rolling...");
-			System.out.println();
+			StdOut.println();
+			StdOut.println(players_array[IndexPlayerRolling].get_name() + " is now rolling...");
+			StdOut.println();
 			
 			PlayRound.selectMove(players_array[IndexPlayerRolling], players_array);
-			System.out.println();
+			StdOut.println();
 			
-			System.out.println(players_array[IndexPlayerRolling].get_name()
+			StdOut.println(players_array[IndexPlayerRolling].get_name()
 				+ "'s score: " + players_array[IndexPlayerRolling].get_dice_total());
 			
 			if (players_array[IndexPlayerRolling].get_dice_total() > goalToReach) {
 				indexCurrentKingHill = IndexPlayerRolling + 0;
 				goalToReach = players_array[IndexPlayerRolling].get_dice_total();
-				System.out.println(players_array[IndexPlayerRolling].get_name()
+				StdOut.println(players_array[IndexPlayerRolling].get_name()
 				+ " is now the new top scorer, with " + players_array[IndexPlayerRolling].get_dice_total());
 			}
 			IndexPlayerRolling += 1;
@@ -217,20 +219,20 @@ public class UniversalBoard { // main program
 		return indexCurrentKingHill;
 	}
 	private static int plunderingDefeated(int winningsToAddinput, int valueToAdd, SkunkPlayer playerEvaluated) {
-		System.out.println("Therefore, " + valueToAdd +" chips are added to the winnings...");
+		StdOut.println("Therefore, " + valueToAdd +" chips are added to the winnings...");
 		playerEvaluated.set_chips_total(-valueToAdd);
 		return winningsToAddinput += valueToAdd;
 	}
 	private static void tabulateWinnings(int IndexOfWinner){
 		int currentlyEvaluating = IndexOfWinner + 1;
 		int winningsToAdd = SkunkKitty.get_kitty();
-		System.out.println();
+		StdOut.println();
 
 		while (currentlyEvaluating != IndexOfWinner){
 			if(currentlyEvaluating >= players_array.length)
 				currentlyEvaluating = 0;
-			System.out.println(players_array[currentlyEvaluating].get_name() + " is being evaluated...");
-			System.out.println("They have a total dice value of " + players_array[currentlyEvaluating].get_dice_total());
+			StdOut.println(players_array[currentlyEvaluating].get_name() + " is being evaluated...");
+			StdOut.println("They have a total dice value of " + players_array[currentlyEvaluating].get_dice_total());
 			
 			if (players_array[currentlyEvaluating].get_dice_total() > 0){
 				winningsToAdd = plunderingDefeated(winningsToAdd, 5, players_array[currentlyEvaluating]);
@@ -238,18 +240,18 @@ public class UniversalBoard { // main program
 			else {
 				winningsToAdd = plunderingDefeated(winningsToAdd, 10, players_array[currentlyEvaluating]);
 			}
-			System.out.println();
+			StdOut.println();
 			currentlyEvaluating += 1;
 			if(currentlyEvaluating >= players_array.length){
 				currentlyEvaluating = 0;
 			}
 		}
-		System.out.println("Total winnings for winner: " + winningsToAdd);
-		System.out.println();
+		StdOut.println("Total winnings for winner: " + winningsToAdd);
+		StdOut.println();
 		players_array[IndexOfWinner].set_chips_total(winningsToAdd);
-		System.out.println("End of Game...");
-		System.out.println("Now Showing Players Sheet");
-		UniversalBoard.printPlayersSheet();
+		StdOut.println("End of Game...");
+		StdOut.println("Now Showing Players Sheet");
+		SkunkApp.printPlayersSheet();
 	}
 	
 	// Universal
@@ -259,9 +261,9 @@ public class UniversalBoard { // main program
 		return arrayCurrentIndex;
 	}			
 	public static void startUpTournament() {
-		System.out.println("Tournament has began...");
+		StdOut.println("Tournament has began...");
 		add_players();
-		System.out.println();
+		StdOut.println();
 	}
 	private static void startUpGameResetValues() {
 		for (SkunkPlayer player : players_array)
@@ -276,36 +278,36 @@ public class UniversalBoard { // main program
 		distributeChips(players_array);
 
 		while (true) {
-			System.out.println("New Game has been started...");
-			System.out.println("Resetting Individual Dice Totals and Kitty to 0");
+			StdOut.println("New Game has been started...");
+			StdOut.println("Resetting Individual Dice Totals and Kitty to 0");
 			startUpGameResetValues();
-			System.out.println();
+			StdOut.println();
 			
-			System.out.println("Game being played...");
+			StdOut.println("Game being played...");
 			playGame();
 			
-			System.out.println("Post-Game Evaluation...");
+			StdOut.println("Post-Game Evaluation...");
 			players_array = removePlayers(players_array);
 			printPlayersSheet();
 			
-			System.out.println("Type 'end' to end the tournament, else it will continue");
+			StdOut.println("Type 'end' to end the tournament, else it will continue");
 			String tournamentContinueChoice = exitInput.nextLine();
 			
 			if (tournamentContinueChoice.toLowerCase().equals("end")) {
-				System.out.println("Understood. Tournament is shutting down...");
-				System.out.println();
+				StdOut.println("Understood. Tournament is shutting down...");
+				StdOut.println();
 				break;
 			}
 			else if (players_array.length == 1) {
-				System.out.println("We have a grand champion!");
+				StdOut.println("We have a grand champion!");
 				break;
 			}
 		}
 		
-		System.out.println("Final Report...");
+		StdOut.println("Final Report...");
 		printPlayersSheet();
 
-		System.out.println("Tournament has ended...");
+		StdOut.println("Tournament has ended...");
 		myObj.close();
 		exitInput.close();
 	}
