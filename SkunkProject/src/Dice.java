@@ -19,9 +19,6 @@ public class Dice
 
 	public Dice()
 	{
-		// initialize instance variables die1 and die2 by
-		// creating a new instance of each
-
 		this.die1 = new Die();
 		this.die2 = new Die();
 		this.roll();
@@ -36,6 +33,14 @@ public class Dice
 	// Instance methods can also be declared anywhere in body of class
 	// One convention: after the constructors
 
+	public int getLastDie1()
+	{
+		return this.die1.getLastRoll();
+	}
+	public int getLastDie2()
+	{
+		return this.die2.getLastRoll();
+	}
 	public int getLastRoll()
 	{
 		return this.lastRoll;
@@ -43,13 +48,9 @@ public class Dice
 
 	public void roll()
 	{
-		// Roll each of die1, die2, sum their last rolls,
-		// then set Dice.lastRoll to this value
-
 		die1.roll();
 		die2.roll();
 		this.lastRoll = die1.getLastRoll() + die2.getLastRoll();
-
 	}
 
 	// the following method converts the internals of

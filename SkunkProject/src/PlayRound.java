@@ -102,10 +102,16 @@ public class PlayRound{
 	}
 	
 	private static int[] rollingDice() {
+		Dice DiceRoll = new Dice();
+		DiceRoll.getLastDie1();
+		DiceRoll.getLastDie2();
+
 		int[] returnDiceResults = new int[3];
-		returnDiceResults[0] = (int) (Math.random() * 6 + 1);
-		returnDiceResults[1] = (int) (Math.random() * 6 + 1);
-		returnDiceResults[2] = returnDiceResults[0] + returnDiceResults[1];
+
+		returnDiceResults[0] = DiceRoll.getLastDie1();
+		returnDiceResults[1] = DiceRoll.getLastDie2();
+		returnDiceResults[2] = DiceRoll.getLastRoll();
+		
 		StdOut.println("Dice 1's value: " + returnDiceResults[0]);
 		StdOut.println("Dice 2's value: " + returnDiceResults[1]);
 		StdOut.println("Total: " + returnDiceResults[2]);
