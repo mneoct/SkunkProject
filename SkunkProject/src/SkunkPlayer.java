@@ -1,34 +1,34 @@
 public class SkunkPlayer {
 	private String name;
-	private int dice_total = 0; 
-	private int chips_total = 0; 
+	private int playerDiceTotal = 0; 
+	private int playerChipTotal = 0; 
 	
 	//constructor
-	public SkunkPlayer(String input_name)	{
-		set_name(input_name);
+	public SkunkPlayer(String inputName)	{
+		SetName(inputName);
 	}
 	// getters and setters
-	public String get_name() {
+	public String getName() {
         return this.name;
     }
-	public void set_name(String inputName) {
+	public void SetName(String inputName) {
         this.name = inputName;
     }
     
-	public int get_dice_total() {
-        return this.dice_total;
+	public int getPlayerDiceTotal() {
+        return this.playerDiceTotal;
     }
-    public void set_dice_total(int num) {
-        this.dice_total = dice_total + num;
+    public void setPlayerDiceTotal(int num) {
+        this.playerDiceTotal = playerDiceTotal + num;
     }
-	public void reset_dice() {
-        this.dice_total = 0;
+	public void resetDice() {
+        this.playerDiceTotal = 0;
 	}
 	
-	public int get_chips_total() {
-        return this.chips_total;
+	public int getPlayerChipsTotal() {
+        return this.playerChipTotal;
     }
-    public void set_chips_total(int num){
-        this.chips_total = chips_total + num;
+    public void setPlayerChipsTotal(int num){
+        this.playerChipTotal = playerChipTotal + num;
     }
 }

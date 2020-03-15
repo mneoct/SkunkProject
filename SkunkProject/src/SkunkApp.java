@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import java.util.Random; 
+//import java.util.Random; 
 import edu.princeton.cs.introcs.*;
 
 // TODO:
@@ -22,14 +22,14 @@ import edu.princeton.cs.introcs.*;
 
 public class SkunkApp { // main program
 	private static final int MAX_PLAYERS = 8;
-	private static final int OVERFLOWSCORE = 100; // = 100, set lower to test games faster...
-	private final static int TOTAL_CHIPS = 400; // = 400, set lower for test games faster...
+	static final int OVERFLOWSCORE = 50; // = 100, set lower to test games faster...
+	private final static int TOTAL_CHIPS = 100; // = 400, set lower for test games faster...
 	public static Scanner myObj = new Scanner(System.in);
-	private static SkunkPlayer players_array[];
+	private static SkunkPlayer playersArray[];
 	
 	// Move to skunkPlayer.java
 	// addPlayerToArray() based on https://www.geeksforgeeks.org/how-to-add-an-element-to-an-array-in-java/
-	private static void add_players(){	// long, but kind of tricky to break..?
+	private static void addPlayers(){	// long, but kind of tricky to break..?
 		while (true) {
 			StdOut.println("Adding New Player...");
 			StdOut.println("Enter ... to continue without adding");
@@ -38,7 +38,7 @@ public class SkunkApp { // main program
 			StdOut.println();
 			
 			if (userName.equals("...")) {
-				if (players_array == null || players_array.length < 2) {
+				if (playersArray == null || playersArray.length < 2) {
 					StdOut.println("Insufficient players.");
 					continue;
 				}
@@ -50,27 +50,27 @@ public class SkunkApp { // main program
 			else {
 				try { // players_array will be null at first, so exception on 1st run.
 					SkunkPlayer newPlayer = new SkunkPlayer(userName);
-					players_array = addPlayerToArray(players_array.length, players_array, newPlayer);
+					playersArray = addPlayerToArray(playersArray.length, playersArray, newPlayer);
 				}
 				catch (NullPointerException e) {
-					players_array = new SkunkPlayer[1];
-					players_array[0] = new SkunkPlayer(userName);
+					playersArray = new SkunkPlayer[1];
+					playersArray[0] = new SkunkPlayer(userName);
 				}
 			}
 			
 			try {
-				StdOut.println("Current number of players: " + players_array.length);
-				for (SkunkPlayer player:players_array) {
-					StdOut.println(player.get_name());
+				StdOut.println("Current number of players: " + playersArray.length);
+				for (SkunkPlayer player:playersArray) {
+					StdOut.println(player.getName());
 				}
 			}
 			catch (NullPointerException e) {
-				StdOut.println("Current number of players: " + players_array.length);
-				for (SkunkPlayer player:players_array) {
+				StdOut.println("Current number of players: " + playersArray.length);
+				for (SkunkPlayer player:playersArray) {
 					StdOut.println(player);
 				}
 			}
-			if (players_array.length >= MAX_PLAYERS) {
+			if (playersArray.length >= MAX_PLAYERS) {
 				StdOut.println("Max Players (" + MAX_PLAYERS + ") has been reached.");
 				break;
 			}
@@ -111,8 +111,8 @@ public class SkunkApp { // main program
 					StdOut.println("Done.");
 					break outerloop;
 				}
-				if (arrayOfPlayers[i].get_chips_total() <= 0) {
-					StdOut.println("Removing " + arrayOfPlayers[i].get_name());
+				if (arrayOfPlayers[i].getPlayerChipsTotal() <= 0) {
+					StdOut.println("Removing " + arrayOfPlayers[i].getName());
 					arrayOfPlayers = removePlayerFromArray(arrayOfPlayers.length, arrayOfPlayers, i);			
 					StdOut.println();
 					break innerloop;
@@ -124,158 +124,46 @@ public class SkunkApp { // main program
 	}
 	public static void distributeChips(SkunkPlayer[] inputPlayersArray) {
 		StdOut.println("Distribution of chips to players initiated...");
-		int chips_distributed = TOTAL_CHIPS / inputPlayersArray.length;
+		int chipDistributed = TOTAL_CHIPS / inputPlayersArray.length;
 		for (SkunkPlayer player : inputPlayersArray) {
-			player.set_chips_total(chips_distributed);
-			StdOut.println(player.get_name() + " has been given " + chips_distributed + " chips.");
+			player.setPlayerChipsTotal(chipDistributed);
+			StdOut.println(player.getName() + " has been given " + chipDistributed + " chips.");
 		}
 		StdOut.println("Distribution of chips to players complete.");
 		StdOut.println();
 	}
 	public static void displayDiceAll(SkunkPlayer[] arrayOfSkunkPlayers) {
 		for (SkunkPlayer player:arrayOfSkunkPlayers)
-			StdOut.println("\t"+player.get_name() + ": " + player.get_dice_total());
+			StdOut.println("\t"+player.getName() + ": " + player.getPlayerDiceTotal());
 	}
 	public static void printPlayersSheet(){
-		for (SkunkPlayer player : players_array)
-			StdOut.println(player.get_name()+":"+player.get_chips_total());
+		for (SkunkPlayer player : playersArray)
+			StdOut.println(player.getName()+":"+player.getPlayerChipsTotal());
 		StdOut.println();
 	}
 
-	// Move to SkunkGame.java
-	private static int randomStartPlayer(int lengthOfArray) {
-		StdOut.println("Choosing random player to start...");
-		Random rand = new Random(); 
-		return rand.nextInt(lengthOfArray); 
-	}
-	private static void turnSetup() {
-		PlayRound.reset_round_dice_total();
-		StdOut.println("Players' Dice Total in Current Game:");
-		displayDiceAll(players_array);
-	}
-	private static void playGame() { 	// break into smaller bits...
-		SkunkPlayer currentlyPlaying; // play_game()'s ref to current player.		
-		int CurrentPlayerIndex = randomStartPlayer(players_array.length);
-
-		while(true) {
-			turnSetup();
-			StdOut.println();
-			
-			currentlyPlaying = players_array[CurrentPlayerIndex];
-			PlayRound.selectMove(currentlyPlaying, players_array); 
-			StdOut.println();
-
-			// could be a method, but tricky due to the break.
-			if (currentlyPlaying.get_dice_total() > OVERFLOWSCORE){
-				StdOut.println("Dice Total of " + currentlyPlaying.get_name() + " is over " + OVERFLOWSCORE);
-				StdOut.println();
-				break;
-			}
-			else {
-				CurrentPlayerIndex += 1;
-				CurrentPlayerIndex = resetIndexOfLoopsArray(CurrentPlayerIndex, players_array.length);
-			}
-			
-			StdOut.println("Next player's turn...");
-			StdOut.println();
-		}
-		
-		StdOut.println("Entering last stretch of current game...");
-		int WinnerOfGameIndex = lastStretch(currentlyPlaying.get_dice_total(), CurrentPlayerIndex);
-		StdOut.println(players_array[WinnerOfGameIndex].get_name() + " is the winner of this game...");
-		tabulateWinnings(WinnerOfGameIndex);
-	}
-	private static int lastStretch(int currentGoal, int incomingHillKingIndex){
-		int goalToReach = currentGoal;
-		int indexCurrentKingHill = incomingHillKingIndex + 0;
-		int IndexPlayerRolling = incomingHillKingIndex + 1; // start with next player...
-		
-		StdOut.println("Last Stretch");
-		StdOut.println("Current Top Scorer: " + players_array[indexCurrentKingHill].get_name());
-		StdOut.println("Score to Defeat: " + goalToReach);
-		
-		while (IndexPlayerRolling != incomingHillKingIndex+0) {
-			IndexPlayerRolling = resetIndexOfLoopsArray(IndexPlayerRolling, players_array.length);
-			PlayRound.reset_round_dice_total();
-			StdOut.println();
-			StdOut.println(players_array[IndexPlayerRolling].get_name() + " is now rolling...");
-			StdOut.println();
-			
-			PlayRound.selectMove(players_array[IndexPlayerRolling], players_array);
-			StdOut.println();
-			
-			StdOut.println(players_array[IndexPlayerRolling].get_name()
-				+ "'s score: " + players_array[IndexPlayerRolling].get_dice_total());
-			
-			if (players_array[IndexPlayerRolling].get_dice_total() > goalToReach) {
-				indexCurrentKingHill = IndexPlayerRolling + 0;
-				goalToReach = players_array[IndexPlayerRolling].get_dice_total();
-				StdOut.println(players_array[IndexPlayerRolling].get_name()
-				+ " is now the new top scorer, with " + players_array[IndexPlayerRolling].get_dice_total());
-			}
-			IndexPlayerRolling += 1;
-			IndexPlayerRolling = resetIndexOfLoopsArray(IndexPlayerRolling, players_array.length);
-		}
-		return indexCurrentKingHill;
-	}
-	private static int plunderingDefeated(int winningsToAddinput, int valueToAdd, SkunkPlayer playerEvaluated) {
-		StdOut.println("Therefore, " + valueToAdd +" chips are added to the winnings...");
-		playerEvaluated.set_chips_total(-valueToAdd);
-		return winningsToAddinput += valueToAdd;
-	}
-	private static void tabulateWinnings(int IndexOfWinner){
-		int currentlyEvaluating = IndexOfWinner + 1;
-		int winningsToAdd = SkunkKitty.get_kitty();
-		StdOut.println();
-
-		while (currentlyEvaluating != IndexOfWinner){
-			if(currentlyEvaluating >= players_array.length)
-				currentlyEvaluating = 0;
-			StdOut.println(players_array[currentlyEvaluating].get_name() + " is being evaluated...");
-			StdOut.println("They have a total dice value of " + players_array[currentlyEvaluating].get_dice_total());
-			
-			if (players_array[currentlyEvaluating].get_dice_total() > 0){
-				winningsToAdd = plunderingDefeated(winningsToAdd, 5, players_array[currentlyEvaluating]);
-			}
-			else {
-				winningsToAdd = plunderingDefeated(winningsToAdd, 10, players_array[currentlyEvaluating]);
-			}
-			StdOut.println();
-			currentlyEvaluating += 1;
-			if(currentlyEvaluating >= players_array.length){
-				currentlyEvaluating = 0;
-			}
-		}
-		StdOut.println("Total winnings for winner: " + winningsToAdd);
-		StdOut.println();
-		players_array[IndexOfWinner].set_chips_total(winningsToAdd);
-		StdOut.println("End of Game...");
-		StdOut.println("Now Showing Players Sheet");
-		SkunkApp.printPlayersSheet();
-	}
-	
 	// Universal
-	private static int resetIndexOfLoopsArray(int arrayCurrentIndex, int arrayLength) {
+	static int resetIndexOfLoopsArray(int arrayCurrentIndex, int arrayLength) {
 		if (arrayCurrentIndex >= arrayLength)
 			arrayCurrentIndex = 0;
 		return arrayCurrentIndex;
 	}			
 	public static void startUpTournament() {
 		StdOut.println("Tournament has began...");
-		add_players();
+		addPlayers();
 		StdOut.println();
 	}
 	private static void startUpGameResetValues() {
-		for (SkunkPlayer player : players_array)
-			player.reset_dice();
-		SkunkKitty.reset_kitty();
+		for (SkunkPlayer player : playersArray)
+			player.resetDice();
+		SkunkKitty.resetKitty();
 	}
 	
 	public static void main(String[] args){
 		Scanner exitInput = new Scanner(System.in);	
 
 		startUpTournament();
-		distributeChips(players_array);
+		distributeChips(playersArray);
 
 		while (true) {
 			StdOut.println("New Game has been started...");
@@ -284,10 +172,10 @@ public class SkunkApp { // main program
 			StdOut.println();
 			
 			StdOut.println("Game being played...");
-			playGame();
+			SkunkGame.playGame(playersArray);
 			
 			StdOut.println("Post-Game Evaluation...");
-			players_array = removePlayers(players_array);
+			playersArray = removePlayers(playersArray);
 			printPlayersSheet();
 			
 			StdOut.println("Type 'end' to end the tournament, else it will continue");
@@ -298,7 +186,7 @@ public class SkunkApp { // main program
 				StdOut.println();
 				break;
 			}
-			else if (players_array.length == 1) {
+			else if (playersArray.length == 1) {
 				StdOut.println("We have a grand champion!");
 				break;
 			}

@@ -2,27 +2,27 @@ import java.util.Scanner;
 import edu.princeton.cs.introcs.*;
 
 public class PlayRound{
-	private static int round_dice_total = 0;
-	private static final int SINGLE_SKUNK_PENALTY = 2;
-	private static final int DBL_SKUNK_PENALTY = 4;
+	private static int roundDiceTotal = 0;
+	private static final int SINGLE_SKUNK_PENALTY = 2; // move to SkunkApp?
+	private static final int DBL_SKUNK_PENALTY = 4; // move to SkunkApp?
 
 	public static Scanner playersChoice = new Scanner(System.in);	
 
 	// possible moves
-	public static void selectMove(SkunkPlayer inputPlayer, SkunkPlayer[] players_array){
-		StdOut.println(inputPlayer.get_name() + "'s turn...");
+	public static void selectMove(SkunkPlayer inputPlayer, SkunkPlayer[] playersArrayRound){
+		StdOut.println(inputPlayer.getName() + "'s turn...");
 		
 		while(true){
 			int enteredOption = numericOptionSelection();
 			
 			if (enteredOption == 1)
-				StdOut.println("Current Dice Total: " + get_round_dice_total());
+				StdOut.println("Current Dice Total: " + getRoundDiceTotal());
 			else if (enteredOption == 2)
-				StdOut.println("Kitty: " + SkunkKitty.get_kitty());
+				StdOut.println("Kitty: " + SkunkKitty.getKitty());
 			else if (enteredOption == 3)
 				SkunkApp.printPlayersSheet();
 			else if (enteredOption == 4)
-				SkunkApp.displayDiceAll(players_array);
+				SkunkApp.displayDiceAll(playersArrayRound);
 			else if (enteredOption == 5){
 				int[] diceResult = rollingDice();
 				rollResult(inputPlayer, diceResult[0], diceResult[1], diceResult[2]);
@@ -42,14 +42,14 @@ public class PlayRound{
 		}
 		StdOut.println("End Turn confirmed...");
 	}
-	private static void set_round_dice_total(int addDiceToRound) {
-		round_dice_total += addDiceToRound;
+	private static void setRoundDiceTotal(int addDiceToRound) {
+		roundDiceTotal += addDiceToRound;
 	}
-	public static void reset_round_dice_total() {
-		round_dice_total = 0;
+	static void resetRoundDiceTotal() {
+		roundDiceTotal = 0;
 	}
-	private static int get_round_dice_total() {
-		return round_dice_total;
+	private static int getRoundDiceTotal() {
+		return roundDiceTotal;
 	}
 	
 	private static int numericOptionSelection() {
@@ -77,16 +77,16 @@ public class PlayRound{
 	}
 	
 	// skunk events
-	private static void skunkEvent(int Penalty, SkunkPlayer inputPlayer) { 
+	private static void skunkEvent(int penalty, SkunkPlayer inputPlayer) { 
 		StdOut.println("Before...");
-		StdOut.println("Kitty: " + SkunkKitty.get_kitty());
+		StdOut.println("Kitty: " + SkunkKitty.getKitty());
 		SkunkApp.printPlayersSheet();
 
-		inputPlayer.set_chips_total(-Penalty);  
-		SkunkKitty.set_kitty(Penalty);
+		inputPlayer.setPlayerChipsTotal(-penalty);  
+		SkunkKitty.setKitty(penalty);
 		
 		StdOut.println("After...");
-		StdOut.println("Kitty: " + SkunkKitty.get_kitty());
+		StdOut.println("Kitty: " + SkunkKitty.getKitty());
 		SkunkApp.printPlayersSheet();
 		StdOut.println("Ending Turn...");
 	}
@@ -96,21 +96,21 @@ public class PlayRound{
 	}
 	private static void doubleSkunk(SkunkPlayer inputPlayer){
 		StdOut.println("Double Skunk Detected!");
-		StdOut.println(inputPlayer.get_name()+" has lost their dice total!");
-		inputPlayer.reset_dice();
+		StdOut.println(inputPlayer.getName()+" has lost their current dice total!");
+		inputPlayer.resetDice();
 		skunkEvent(DBL_SKUNK_PENALTY, inputPlayer);
 	}
 	
 	private static int[] rollingDice() {
-		Dice DiceRoll = new Dice();
-		DiceRoll.getLastDie1();
-		DiceRoll.getLastDie2();
+		Dice diceRoll = new Dice();
+		diceRoll.getLastDie1();
+		diceRoll.getLastDie2();
 
 		int[] returnDiceResults = new int[3];
 
-		returnDiceResults[0] = DiceRoll.getLastDie1();
-		returnDiceResults[1] = DiceRoll.getLastDie2();
-		returnDiceResults[2] = DiceRoll.getLastRoll();
+		returnDiceResults[0] = diceRoll.getLastDie1();
+		returnDiceResults[1] = diceRoll.getLastDie2();
+		returnDiceResults[2] = diceRoll.getLastRoll();
 		
 		StdOut.println("Dice 1's value: " + returnDiceResults[0]);
 		StdOut.println("Dice 2's value: " + returnDiceResults[1]);
@@ -119,23 +119,23 @@ public class PlayRound{
 		return returnDiceResults;
 	}
 	private static void endTurn(SkunkPlayer inputPlayer) {
-		StdOut.println(inputPlayer.get_name()+" has chosen to end their turn...");
+		StdOut.println(inputPlayer.getName()+" has chosen to end their turn...");
 		
 		StdOut.println("Before...");
-		StdOut.println(inputPlayer.get_name() + ": " + inputPlayer.get_dice_total());
+		StdOut.println(inputPlayer.getName() + ": " + inputPlayer.getPlayerDiceTotal());
 		
-		inputPlayer.set_dice_total(round_dice_total); 
+		inputPlayer.setPlayerDiceTotal(roundDiceTotal); 
 		
 		StdOut.println("After...");
-		StdOut.println(inputPlayer.get_name() + ": " + inputPlayer.get_dice_total());
+		StdOut.println(inputPlayer.getName() + ": " + inputPlayer.getPlayerDiceTotal());
 		
 		StdOut.println("Ending Turn...");
 	}
 	private static void rollEvaluation(SkunkPlayer player){
-		StdOut.println("Current Dice in Round: " + round_dice_total);
-		StdOut.println(player.get_name()+" has in their hand a dice value of: " + player.get_dice_total());
-		int roundTotalIfQuitNow = player.get_dice_total() + round_dice_total;
-		StdOut.println("If " + player.get_name()+ " ends their turn now, their dice value in hand will be: " + roundTotalIfQuitNow);
+		StdOut.println("Current Dice in Round: " + roundDiceTotal);
+		StdOut.println(player.getName()+" has in their hand a dice value of: " + player.getPlayerDiceTotal());
+		int roundTotalIfQuitNow = player.getPlayerDiceTotal() + roundDiceTotal;
+		StdOut.println("If " + player.getName()+ " ends their turn now, their dice value in hand will be: " + roundTotalIfQuitNow);
 	}
 	private static boolean rollBooleanResult(int dice1result, int dice2result, int totalDiceResult) {
 		if (dice1result == 1 || dice2result == 1) {
@@ -152,7 +152,7 @@ public class PlayRound{
 			singleSkunk(player);
 		}
 		else
-			set_round_dice_total(totalDiceResult);
+			setRoundDiceTotal(totalDiceResult);
 	}
 	
 	public static void main(String[] args)	{
