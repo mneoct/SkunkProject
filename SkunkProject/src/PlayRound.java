@@ -6,7 +6,7 @@ public class PlayRound{
 	private static final int SINGLE_SKUNK_PENALTY = 2; // move to SkunkApp?
 	private static final int DBL_SKUNK_PENALTY = 4; // move to SkunkApp?
 
-	public static Scanner playersChoice = new Scanner(System.in);	
+	private static Scanner playersChoice = new Scanner(System.in);	
 
 	// possible moves
 	public static void selectMove(SkunkPlayer inputPlayer, SkunkPlayer[] playersArrayRound){

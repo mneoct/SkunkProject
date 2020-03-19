@@ -4,7 +4,7 @@ import edu.princeton.cs.introcs.StdOut;
 
 public class SkunkPlayerManagement {
 	public static Scanner myObj = new Scanner(System.in);
-	private static int MAX_PLAYERS = SkunkApp.MAX_PLAYERS;
+	private static int MAX_PLAYERS = SkunkApp.getMAX_PLAYERS();
 	public static SkunkPlayer[] addPlayers(){	// long, but kind of tricky to break..?
 		SkunkPlayer[] playersArray = null;
 		while (true) {

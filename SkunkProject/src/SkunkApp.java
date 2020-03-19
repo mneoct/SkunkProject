@@ -9,15 +9,25 @@ import edu.princeton.cs.introcs.*;
 // BP: resolve accessibilities after figuring out classes, methods.
 
 public class SkunkApp { // main program
-	public static final int MAX_PLAYERS = 8;
-	static final int OVERFLOWSCORE = 50; // = 100, set lower to test games faster...
+	private static final int MAX_PLAYERS = 8;
+	private static final int OVERFLOW_SCORE = 50; // = 100, set lower to test games faster...
 	private final static int TOTAL_CHIPS = 100; // = 400, set lower for test games faster...
-	public static Scanner myObj = new Scanner(System.in);
+	private static Scanner myObj = new Scanner(System.in);
 	private static SkunkPlayer[] playersArray;
+	
+	public static int getOVERFLOW_SCORE() {
+        return OVERFLOW_SCORE;
+    }
+	public static int getMAX_PLAYERS() {
+        return MAX_PLAYERS;
+    }
+	public static int getTOTAL_CHIPS() {
+        return TOTAL_CHIPS;
+    }
 	
 	public static void distributeChips(SkunkPlayer[] inputPlayersArray) {
 		StdOut.println("Distribution of chips to players initiated...");
-		int chipDistributed = TOTAL_CHIPS / inputPlayersArray.length;
+		int chipDistributed = getTOTAL_CHIPS() / inputPlayersArray.length;
 		for (SkunkPlayer player : inputPlayersArray) {
 			player.setPlayerChipsTotal(chipDistributed);
 			StdOut.println(player.getName() + " has been given " + chipDistributed + " chips.");
@@ -41,7 +51,7 @@ public class SkunkApp { // main program
 			arrayCurrentIndex = 0;
 		return arrayCurrentIndex;
 	}			
-	public static void startUpTournament() {
+	private static void startUpTournament() {
 		StdOut.println("Tournament has began...");
 		playersArray = SkunkPlayerManagement.addPlayers();
 		StdOut.println();
