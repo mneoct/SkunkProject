@@ -3,16 +3,18 @@ import java.util.Random;
 import edu.princeton.cs.introcs.StdOut;
 
 public class SkunkGame {
-	private static int OVERFLOW_SCORE = SkunkApp.getOVERFLOW_SCORE(); // make getter for overflowscore
+	private static int OVERFLOW_SCORE = SkunkApp.getOVERFLOW_SCORE();
 	static void playGame(SkunkPlayer[] playersArrayGame) { 	// break into smaller bits...
 		SkunkPlayer currentlyPlaying; // playGame()'s ref to current player.		
 		int currentPlayerIndex = randomStartPlayer(playersArrayGame.length);
-
+		SkunkKitty.resetKitty();
+		SkunkPlayerManagement.resetPlayersDice();
+		
 		while(true) {
 			// reset dice and display players' current dice.
 			PlayRound.resetRoundDiceTotal();
 			StdOut.println("Players' Dice Total in Current Game:");
-			SkunkApp.displayDiceAll(playersArrayGame);
+			SkunkPlayerManagement.displayDiceAll();
 			StdOut.println();
 			
 			// get current player, then they roll..
@@ -29,7 +31,7 @@ public class SkunkGame {
 			}
 			else {
 				currentPlayerIndex += 1;
-				currentPlayerIndex = SkunkApp.resetIndexOfLoopsArray(currentPlayerIndex, playersArrayGame.length);
+				currentPlayerIndex = resetIndexOfLoopsArray(currentPlayerIndex, playersArrayGame.length);
 			}
 			
 			StdOut.println("Next player's turn...");
@@ -56,7 +58,7 @@ public class SkunkGame {
 		StdOut.println("Score to Defeat: " + goalToReach);
 		
 		while (indexPlayerRolling != incomingHillKingIndex+0) {
-			indexPlayerRolling = SkunkApp.resetIndexOfLoopsArray(indexPlayerRolling, playersLastStretch.length);
+			indexPlayerRolling = resetIndexOfLoopsArray(indexPlayerRolling, playersLastStretch.length);
 			PlayRound.resetRoundDiceTotal();
 			SkunkPlayer playerPlaying = playersLastStretch[indexPlayerRolling];
 			StdOut.println();
@@ -75,7 +77,7 @@ public class SkunkGame {
 				StdOut.println(playerPlaying.getName() + " is now the new top scorer, with " + playerPlaying.getPlayerDiceTotal());
 			}
 			indexPlayerRolling += 1;
-			indexPlayerRolling = SkunkApp.resetIndexOfLoopsArray(indexPlayerRolling, playersLastStretch.length);
+			indexPlayerRolling = resetIndexOfLoopsArray(indexPlayerRolling, playersLastStretch.length);
 		}
 		return indexCurrentKingHill;
 	}
@@ -84,7 +86,7 @@ public class SkunkGame {
 		StdOut.println();
 
 		while (currentlyEvaluating != indexOfWinner){
-			currentlyEvaluating = SkunkApp.resetIndexOfLoopsArray(currentlyEvaluating, playersLastStretch.length);
+			currentlyEvaluating = resetIndexOfLoopsArray(currentlyEvaluating, playersLastStretch.length);
 			SkunkPlayer playerBeingEvaluated = playersLastStretch[currentlyEvaluating];
 			StdOut.println(playerBeingEvaluated.getName() + " is being evaluated...");
 			StdOut.println("They have a total dice value of " + playerBeingEvaluated.getPlayerDiceTotal());
@@ -93,14 +95,14 @@ public class SkunkGame {
 			
 			StdOut.println();
 			currentlyEvaluating += 1;
-			currentlyEvaluating = SkunkApp.resetIndexOfLoopsArray(currentlyEvaluating, playersLastStretch.length);
+			currentlyEvaluating = resetIndexOfLoopsArray(currentlyEvaluating, playersLastStretch.length);
 		}
 		StdOut.println("Total winnings for winner: " + SkunkKitty.getKitty());
 		StdOut.println();
 		playersLastStretch[indexOfWinner].setPlayerChipsTotal(SkunkKitty.getKitty());
 		StdOut.println("End of Game...");
 		StdOut.println("Now Showing Players Sheet");
-		SkunkApp.printPlayersSheet();
+		SkunkPlayerManagement.printPlayersSheet();
 	}
 	private static void plunderingDefeated(SkunkPlayer beingEvaluated) {
 		if (beingEvaluated.getPlayerDiceTotal() > 0){
@@ -115,5 +117,10 @@ public class SkunkGame {
 		StdOut.println("And, " + playerEvaluated.getName() + " has lost " + valueToAdd + " chips.");
 		playerEvaluated.setPlayerChipsTotal(-valueToAdd);
 		SkunkKitty.setKitty(valueToAdd);
+	}
+	private static int resetIndexOfLoopsArray(int arrayCurrentIndex, int arrayLength) {
+		if (arrayCurrentIndex >= arrayLength)
+			arrayCurrentIndex = 0;
+		return arrayCurrentIndex;
 	}
 }

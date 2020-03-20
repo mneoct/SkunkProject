@@ -20,9 +20,9 @@ public class PlayRound{
 			else if (enteredOption == 2)
 				StdOut.println("Kitty: " + SkunkKitty.getKitty());
 			else if (enteredOption == 3)
-				SkunkApp.printPlayersSheet();
+				SkunkPlayerManagement.printPlayersSheet();
 			else if (enteredOption == 4)
-				SkunkApp.displayDiceAll(playersArrayRound);
+				SkunkPlayerManagement.displayDiceAll();
 			else if (enteredOption == 5){
 				int[] diceResult = rollingDice();
 				rollResult(inputPlayer, diceResult[0], diceResult[1], diceResult[2]);
@@ -80,14 +80,14 @@ public class PlayRound{
 	private static void skunkEvent(int penalty, SkunkPlayer inputPlayer) { 
 		StdOut.println("Before...");
 		StdOut.println("Kitty: " + SkunkKitty.getKitty());
-		SkunkApp.printPlayersSheet();
+		SkunkPlayerManagement.printPlayersSheet();
 
 		inputPlayer.setPlayerChipsTotal(-penalty);  
 		SkunkKitty.setKitty(penalty);
 		
 		StdOut.println("After...");
 		StdOut.println("Kitty: " + SkunkKitty.getKitty());
-		SkunkApp.printPlayersSheet();
+		SkunkPlayerManagement.printPlayersSheet();
 		StdOut.println("Ending Turn...");
 	}
 	private static void singleSkunk(SkunkPlayer inputPlayer) { 
@@ -153,9 +153,5 @@ public class PlayRound{
 		}
 		else
 			setRoundDiceTotal(totalDiceResult);
-	}
-	
-	public static void main(String[] args)	{
-		StdOut.println("hello");
 	}
 }

@@ -1,7 +1,4 @@
-import edu.princeton.cs.introcs.*;
-
 public class SkunkKitty {
-	
 	private static int kitty = 0;
 
 	public static int getKitty(){ 
@@ -12,8 +9,5 @@ public class SkunkKitty {
 	}
 	public static void resetKitty(){
 		kitty = 0;
-	}
-	public static void main(String[] args)	{
-		StdOut.println("hello");
 	}
 }
