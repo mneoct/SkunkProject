@@ -1,7 +1,5 @@
 import java.util.Scanner;
-//import java.util.Random; 
 import edu.princeton.cs.introcs.*;
-
 // TODO:
 // Should negative chips (debt) be allowed???
 // allow removal of players at beginning (i.e. undo adding players...)
@@ -27,16 +25,17 @@ public class SkunkApp { // main program
 	public static void main(String[] args){
 		Scanner exitInput = new Scanner(System.in);	
 		StdOut.println("Tournament has began...");
+		StdOut.println("Now registering players...");
+		StdOut.println();
 		SkunkPlayerManagement.playersArray = SkunkPlayerManagement.addPlayers();
 		StdOut.println();
-		SkunkPlayerManagement.distributeChips();
+		// SkunkPlayerManagement.distributeChips();
 
 		while (true) {
 			StdOut.println("New Game has been started...");
 			StdOut.println("Resetting Individual Dice Totals and Kitty to 0");
 			StdOut.println();
 			SkunkGame.playGame(SkunkPlayerManagement.playersArray);
-			
 			
 			StdOut.println("Post-Game Evaluation...");
 			SkunkPlayerManagement.removePlayers();

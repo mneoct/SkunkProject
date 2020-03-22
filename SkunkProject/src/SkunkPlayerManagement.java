@@ -2,13 +2,15 @@ import java.util.Scanner;
 
 import edu.princeton.cs.introcs.StdOut;
 
-public class SkunkPlayerManagement {
+public class SkunkPlayerManagement {	
 	public static Scanner myObj = new Scanner(System.in);
 	private static int MAX_PLAYERS = SkunkApp.getMAX_PLAYERS();
 	public static SkunkPlayer[] playersArray;
 	
+	// alternative: ask how many players first so internalPlayersArray is initialized
+	// with the right number of slots, so it doesn't kill/resurrect itself.
 	public static SkunkPlayer[] addPlayers(){	// long, but kind of tricky to break..?
-		SkunkPlayer[] playersArray = null;
+		SkunkPlayer[] internalPlayersArray = null;
 		while (true) {
 			StdOut.println("Adding New Player...");
 			StdOut.println("Enter ... to continue without adding");
@@ -17,7 +19,7 @@ public class SkunkPlayerManagement {
 			StdOut.println();
 			
 			if (userName.equals("...")) {
-				if (playersArray == null || playersArray.length < 2) {
+				if (internalPlayersArray == null || internalPlayersArray.length < 2) {
 					StdOut.println("Insufficient players.");
 					continue;
 				}
@@ -29,21 +31,21 @@ public class SkunkPlayerManagement {
 			
 			else {
 				try { // playersArray will be null at first, so exception on 1st run.
-					playersArray = addPlayerToArray(playersArray.length, 
-							playersArray, new SkunkPlayer(userName));
+					internalPlayersArray = addPlayerToArray(internalPlayersArray.length, 
+							internalPlayersArray, new SkunkPlayer(userName));
 				}
-				catch (NullPointerException e) {
-					playersArray = new SkunkPlayer[1];
-					playersArray[0] = new SkunkPlayer(userName);
+				catch (NullPointerException e) { // should change to catch specific exception 
+					internalPlayersArray = new SkunkPlayer[1];
+					internalPlayersArray[0] = new SkunkPlayer(userName);
 				}
 			}
 			
-			StdOut.println("Current number of players: " + playersArray.length);
-			for (SkunkPlayer player:playersArray) {
+			StdOut.println("Current number of players: " + internalPlayersArray.length);
+			for (SkunkPlayer player: internalPlayersArray) {
 				StdOut.println(player.getName());
 			}
 			
-			if (playersArray.length >= MAX_PLAYERS) {
+			if (internalPlayersArray.length >= MAX_PLAYERS) {
 				StdOut.println("Max Players (" + MAX_PLAYERS + ") has been reached.");
 				break;
 			}
@@ -51,8 +53,9 @@ public class SkunkPlayerManagement {
 		}
 		StdOut.println("Players Registration Complete.");
 		StdOut.println("Proceeding to gameplay");
-		return playersArray;
+		return internalPlayersArray;
 	}
+	
 	private static SkunkPlayer[] addPlayerToArray(int currentPlayersCount,
 				SkunkPlayer[] CurrentSkunkPlayerArray, SkunkPlayer newPlayerToBeAdded){
         int i; 
@@ -62,6 +65,7 @@ public class SkunkPlayerManagement {
         newSkunkArray[currentPlayersCount] = newPlayerToBeAdded; 
         return newSkunkArray; 
     }
+	
 	public static SkunkPlayer[] removePlayers() {
 		StdOut.println("Now checking for eliminated players...");
 		StdOut.println();

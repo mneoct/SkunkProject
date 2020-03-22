@@ -101,6 +101,7 @@ public class PlayRound{
 		skunkEvent(DBL_SKUNK_PENALTY, inputPlayer);
 	}
 	
+	// dice result stuff -- new class, or fold into dice?
 	private static int[] rollingDice() {
 		Dice diceRoll = new Dice();
 		diceRoll.getLastDie1();

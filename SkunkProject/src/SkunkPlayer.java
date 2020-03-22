@@ -1,12 +1,14 @@
 public class SkunkPlayer {
+	
 	private String name;
-	private int playerDiceTotal = 0; 
-	private int playerChipTotal = 0; 
+	private int playerGameScoreDiceTotal = 0; 
+	private int playerChipTotal = 50; 
 	
 	//constructor
 	public SkunkPlayer(String inputName)	{
 		SetName(inputName);
 	}
+	
 	// getters and setters
 	public String getName() {
         return this.name;
@@ -16,13 +18,13 @@ public class SkunkPlayer {
     }
     
 	public int getPlayerDiceTotal() {
-        return this.playerDiceTotal;
+        return this.playerGameScoreDiceTotal;
     }
     public void setPlayerDiceTotal(int num) {
-        this.playerDiceTotal = playerDiceTotal + num;
+        this.playerGameScoreDiceTotal = playerGameScoreDiceTotal + num;
     }
 	public void resetDice() {
-        this.playerDiceTotal = 0;
+        this.playerGameScoreDiceTotal = 0;
 	}
 	
 	public int getPlayerChipsTotal() {

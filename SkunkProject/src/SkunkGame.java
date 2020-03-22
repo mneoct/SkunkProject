@@ -11,19 +11,16 @@ public class SkunkGame {
 		SkunkPlayerManagement.resetPlayersDice();
 		
 		while(true) {
-			// reset dice and display players' current dice.
 			PlayRound.resetRoundDiceTotal();
 			StdOut.println("Players' Dice Total in Current Game:");
 			SkunkPlayerManagement.displayDiceAll();
 			StdOut.println();
 			
-			// get current player, then they roll..
 			currentlyPlaying = playersArrayGame[currentPlayerIndex];
+			printRandomQuotes(currentlyPlaying);
 			PlayRound.selectMove(currentlyPlaying, playersArrayGame); 
 			StdOut.println();
 
-			// Check for overflow (i.e. dice over 100). if so, break.
-			// else, select next player.
 			if (currentlyPlaying.getPlayerDiceTotal() > OVERFLOW_SCORE){
 				StdOut.println("Dice Total of " + currentlyPlaying.getName() + " is over " + OVERFLOW_SCORE);
 				StdOut.println();
@@ -122,5 +119,13 @@ public class SkunkGame {
 		if (arrayCurrentIndex >= arrayLength)
 			arrayCurrentIndex = 0;
 		return arrayCurrentIndex;
+	}
+	private static void printRandomQuotes(SkunkPlayer playerRefText) {
+		String [] arr = {
+        	"Fortune favors the bold. Are you bold, " + playerRefText.getName() + "?",
+        	"I wonder what will " + playerRefText.getName() + " do?"};
+        Random random = new Random();
+        int select = random.nextInt(arr.length); 
+        System.out.println(arr[select]); 
 	}
 }
