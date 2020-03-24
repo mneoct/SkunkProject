@@ -18,7 +18,7 @@ public class SkunkGame {
 			
 			currentlyPlaying = playersArrayGame[currentPlayerIndex];
 			printRandomQuotes(currentlyPlaying);
-			PlayRound.selectMove(currentlyPlaying, playersArrayGame); 
+			PlayRound.playerTurn(currentlyPlaying, playersArrayGame); 
 			StdOut.println();
 
 			if (currentlyPlaying.getPlayerDiceTotal() > OVERFLOW_SCORE){
@@ -40,6 +40,7 @@ public class SkunkGame {
 		StdOut.println(playersArrayGame[winnerOfGameIndex].getName() + " is the winner of this game...");
 		tabulateWinnings(playersArrayGame, winnerOfGameIndex);
 	}
+	
 	private static int randomStartPlayer(int lengthOfArray) {
 		StdOut.println("Choosing random player to start...");
 		Random rand = new Random(); 
@@ -62,7 +63,7 @@ public class SkunkGame {
 			StdOut.println(playerPlaying.getName() + " is now rolling...");
 			StdOut.println();
 			
-			PlayRound.selectMove(playerPlaying, playersLastStretch);
+			PlayRound.playerTurn(playerPlaying, playersLastStretch);
 			StdOut.println();
 			
 			StdOut.println(playerPlaying.getName()
@@ -99,7 +100,7 @@ public class SkunkGame {
 		playersLastStretch[indexOfWinner].setPlayerChipsTotal(SkunkKitty.getKitty());
 		StdOut.println("End of Game...");
 		StdOut.println("Now Showing Players Sheet");
-		SkunkPlayerManagement.printPlayersSheet();
+		SkunkPlayerManagement.printPlayersSheet(playersLastStretch);
 	}
 	private static void plunderingDefeated(SkunkPlayer beingEvaluated) {
 		if (beingEvaluated.getPlayerDiceTotal() > 0){

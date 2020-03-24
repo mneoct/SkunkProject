@@ -39,7 +39,7 @@ public class SkunkApp { // main program
 			
 			StdOut.println("Post-Game Evaluation...");
 			SkunkPlayerManagement.removePlayers();
-			SkunkPlayerManagement.printPlayersSheet();
+			SkunkPlayerManagement.printPlayersSheet(SkunkPlayerManagement.playersArray);
 			
 			StdOut.println("Type 'end' to end the tournament, else it will continue");
 			String tournamentContinueChoice = exitInput.nextLine();
@@ -56,7 +56,7 @@ public class SkunkApp { // main program
 		}
 		
 		StdOut.println("Final Report...");
-		SkunkPlayerManagement.printPlayersSheet();
+		SkunkPlayerManagement.printPlayersSheet(SkunkPlayerManagement.playersArray);
 
 		StdOut.println("Tournament has ended...");
 		myObj.close();

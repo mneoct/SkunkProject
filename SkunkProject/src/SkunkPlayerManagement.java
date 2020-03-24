@@ -7,7 +7,7 @@ public class SkunkPlayerManagement {
 	private static int MAX_PLAYERS = SkunkApp.getMAX_PLAYERS();
 	public static SkunkPlayer[] playersArray;
 	
-	// alternative: ask how many players first so internalPlayersArray is initialized
+	// Alternative: ask how many players first so internalPlayersArray is initialized
 	// with the right number of slots, so it doesn't kill/resurrect itself.
 	public static SkunkPlayer[] addPlayers(){	// long, but kind of tricky to break..?
 		SkunkPlayer[] internalPlayersArray = null;
@@ -119,8 +119,8 @@ public class SkunkPlayerManagement {
 		for (SkunkPlayer player: playersArray)
 			StdOut.println("\t"+player.getName() + ": " + player.getPlayerDiceTotal());
 	}
-	public static void printPlayersSheet(){
-		for (SkunkPlayer player : playersArray)
+	public static void printPlayersSheet(SkunkPlayer[] playersArrayInput){
+		for (SkunkPlayer player : playersArrayInput)
 			StdOut.println(player.getName()+":"+player.getPlayerChipsTotal());
 		StdOut.println();
 	}
