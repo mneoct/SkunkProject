@@ -4,6 +4,8 @@ import edu.princeton.cs.introcs.StdOut;
 
 public class SkunkGame {
 	private static int OVERFLOW_SCORE = SkunkApp.getOVERFLOW_SCORE();
+	
+//TODO: Break into smaller bits..	
 	static void playGame(SkunkPlayer[] playersArrayGame) { 	// break into smaller bits...
 		SkunkPlayer currentlyPlaying; // playGame()'s ref to current player.		
 		int currentPlayerIndex = randomStartPlayer(playersArrayGame.length);
@@ -13,7 +15,7 @@ public class SkunkGame {
 		while(true) {
 			PlayRound.resetRoundDiceTotal();
 			StdOut.println("Players' Dice Total in Current Game:");
-			SkunkPlayerManagement.displayDiceAll();
+			SkunkPlayerManagement.displayDiceAll(playersArrayGame);
 			StdOut.println();
 			
 			currentlyPlaying = playersArrayGame[currentPlayerIndex];
@@ -46,6 +48,8 @@ public class SkunkGame {
 		Random rand = new Random(); 
 		return rand.nextInt(lengthOfArray); 
 	}
+	
+//TODO: Break into smaller bits...	
 	private static int lastStretch(SkunkPlayer[] playersLastStretch, int currentGoal, int incomingHillKingIndex){
 		int goalToReach = currentGoal;
 		int indexCurrentKingHill = incomingHillKingIndex + 0; 

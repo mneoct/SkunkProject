@@ -4,7 +4,7 @@ import edu.princeton.cs.introcs.*;
 // Should negative chips (debt) be allowed???
 // allow removal of players at beginning (i.e. undo adding players...)
 // allow quitting in middle of game??
-// BP: resolve accessibility after figuring out classes, methods.
+// Resolve accessibility after figuring out classes, methods.
 
 public class SkunkApp { // main program
 	private static final int MAX_PLAYERS = 8;
@@ -22,15 +22,8 @@ public class SkunkApp { // main program
         return TOTAL_CHIPS;
     }
 
-	public static void main(String[] args){
+	public static void SkunkTournament() {
 		Scanner exitInput = new Scanner(System.in);	
-		StdOut.println("Tournament has began...");
-		StdOut.println("Now registering players...");
-		StdOut.println();
-		SkunkPlayerManagement.playersArray = SkunkPlayerManagement.addPlayers();
-		StdOut.println();
-		// SkunkPlayerManagement.distributeChips();
-
 		while (true) {
 			StdOut.println("New Game has been started...");
 			StdOut.println("Resetting Individual Dice Totals and Kitty to 0");
@@ -54,12 +47,25 @@ public class SkunkApp { // main program
 				break;
 			}
 		}
+		exitInput.close();
+	}
+	
+	public static void main(String[] args){
+		
+		StdOut.println("Tournament has began...");
+		StdOut.println("Now registering players...");
+		StdOut.println();
+		SkunkPlayerManagement.playersArray = SkunkPlayerManagement.addPlayers();
+		StdOut.println();
+		// SkunkPlayerManagement.distributeChips();
+
+		SkunkTournament();
 		
 		StdOut.println("Final Report...");
 		SkunkPlayerManagement.printPlayersSheet(SkunkPlayerManagement.playersArray);
 
 		StdOut.println("Tournament has ended...");
 		myObj.close();
-		exitInput.close();
+		
 	}
 }

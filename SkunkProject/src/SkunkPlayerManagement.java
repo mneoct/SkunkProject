@@ -75,6 +75,7 @@ public class SkunkPlayerManagement {
 			for (int i = 0; i < playersArray.length + 1; i++) {
 				if (i >= playersArray.length) {
 					StdOut.println("Done.");
+					StdOut.println();
 					break outerloop;
 				}
 				if (playersArray[i].getPlayerChipsTotal() <= 0) {
@@ -115,10 +116,11 @@ public class SkunkPlayerManagement {
 			player.resetDice();
 	}
 	
-	public static void displayDiceAll() {
-		for (SkunkPlayer player: playersArray)
+	public static void displayDiceAll(SkunkPlayer[] playersArrayInput) {
+		for (SkunkPlayer player: playersArrayInput)
 			StdOut.println("\t"+player.getName() + ": " + player.getPlayerDiceTotal());
 	}
+	
 	public static void printPlayersSheet(SkunkPlayer[] playersArrayInput){
 		for (SkunkPlayer player : playersArrayInput)
 			StdOut.println(player.getName()+":"+player.getPlayerChipsTotal());
