@@ -83,11 +83,11 @@ public class PlayRound{
 			if (enteredOption == 1)
 				StdOut.println("Current Dice Total: " + getRoundDiceTotal());
 			else if (enteredOption == 2)
-				StdOut.println("Kitty: " + SkunkKitty.getKitty());
+				SkunkPlayerManagement.displayDiceAll(playersArrayRound);
 			else if (enteredOption == 3)
 				SkunkPlayerManagement.printPlayersSheet(playersArrayRound);
 			else if (enteredOption == 4)
-				SkunkPlayerManagement.displayDiceAll(playersArrayRound);
+				StdOut.println("Kitty: " + SkunkKitty.getKitty());
 			else if (enteredOption == 5) {
 				if (completeDieRollEvent(inputPlayer, playersArrayRound) == true)
 					break;
@@ -112,9 +112,9 @@ public class PlayRound{
 	private static int numericOptionSelection() {
 		StdOut.println("select option: \n"
 				+ "\t1. View current round's dice total\n"
-				+ "\t2. View kitty\n"
+				+ "\t2. View all players' Dice Total\n"
 				+ "\t3. View all players' chips\n"
-				+ "\t4. View all players' Dice Total\n"
+				+ "\t4. View kitty\n"
 				+ "\t5. Roll dice\n"
 				+ "\t6. End round");
 		StdOut.println();
@@ -167,6 +167,7 @@ public class PlayRound{
 		newRolledResults.setDiceTotalResult(dt);	
 		roundRollResult = addToRoundRollResultHelper(roundRollResult, roundRollResult.length, newRolledResults);
 	}
+	
 	private static RollingResults[] addToRoundRollResultHelper(
 	RollingResults[] arrayOfCurrentTurnDiceRolls, int currentSizeOfResultsArray, RollingResults newResult){
 		int i;
@@ -198,7 +199,7 @@ public class PlayRound{
 			StdOut.println("Points in Current Turn: " + roundDiceTotal);
 			StdOut.println(player.getName() + " has " + player.getPlayerDiceTotal() + " points.");
 			int personalTotalIfQuitNow = player.getPlayerDiceTotal() + roundDiceTotal;
-			StdOut.println("If " + player.getName()+ " ends their turn now, they will have " + personalTotalIfQuitNow + " points.");
+			StdOut.println("If " + player.getName() + " ends their turn now, they will have " + personalTotalIfQuitNow + " points.");
 		}
 	}
 
@@ -206,19 +207,21 @@ public class PlayRound{
 	private static void skunkEvent(int penalty, SkunkPlayer inputPlayer) { 
 		inputPlayer.setPlayerChipsTotal(-penalty);  
 		SkunkKitty.setKitty(penalty);
+		resetRoundDiceTotal();
 	}
+	
 	private static void singleSkunk(SkunkPlayer inputPlayer) { 
 		StdOut.println("Single Skunk Detected!");
 		skunkEvent(SINGLE_SKUNK_PENALTY, inputPlayer);
-		resetRoundDiceTotal();
 	}
+	
 	private static void doubleSkunk(SkunkPlayer inputPlayer, SkunkPlayer[] playersArrayInput){
 		StdOut.println("Double Skunk Detected!");
 		StdOut.println(inputPlayer.getName() + " has lost their own dice points!");
 		inputPlayer.resetDice();
 		skunkEvent(DBL_SKUNK_PENALTY, inputPlayer);
-		resetRoundDiceTotal();
 	}
+	
 	private static boolean skunkCheckToBreak(int dice1result, int dice2result) {
 		if (dice1result == 1 || dice2result == 1)
 			return true;
@@ -239,7 +242,9 @@ public class PlayRound{
 		if (roundRollResult[0] != null) {
 			for (RollingResults printResults :  roundRollResult) {
 				i++;
-				StdOut.println("Roll " + i + ": [Dice 1: " + printResults.getDice1Result() + "], [Dice 2: " + printResults.getDice2Result() + "], [Dice Total: " + printResults.getDiceTotalResult() + "]");
+				StdOut.println("Roll " + i + ": [Dice 1: " + printResults.getDice1Result() 
+				+ "], [Dice 2: " + printResults.getDice2Result() 
+				+ "], [Dice Total: " + printResults.getDiceTotalResult() + "]");
 			}
 		}
 		StdOut.println("Points Earned: " + roundDiceTotal);

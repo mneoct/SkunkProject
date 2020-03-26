@@ -24,14 +24,11 @@ public class Dice
 		this.roll();
 	}
 
-	public Dice(Die die1, Die die2) // overloaded constructor
+	public Dice(Die die1, Die die2) 
 	{
 		this.die1 = die1;
 		this.die2 = die2;
 	}
-
-	// Instance methods can also be declared anywhere in body of class
-	// One convention: after the constructors
 
 	public int getLastDie1()
 	{
@@ -53,21 +50,13 @@ public class Dice
 		this.lastRoll = die1.getLastRoll() + die2.getLastRoll();
 	}
 
-	// the following method converts the internals of
-	// this Dice object, and returns a descriptive String:
-	//
-	// Roll of 7 => 4 + 3
-	//
-
 	public String toString()
 	{
 		return "Dice with last roll: " + getLastRoll() + " => " + die1.getLastRoll() + " + " + die2.getLastRoll();
 	}
 
-	// static methods can go anywhere - but at end is one convention
-
 	public static final int NUM_TRIALS = 360;
-
+	
 	public static void main(String[] args)
 	{
 		// simulate repeated rolls of Dice, counting the many double skunks
