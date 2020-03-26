@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import edu.princeton.cs.introcs.*;
 
+//TODO: MAJOR -- getters and setters ==> implement proper accessibility.
 public class PlayRound{
 	private static int roundDiceTotal = 0;
 	private static final int SINGLE_SKUNK_PENALTY = 2;
@@ -9,28 +10,59 @@ public class PlayRound{
 	private static Scanner playersChoice = new Scanner(System.in);	
 	
 // Keeps track of all rolls in a turn
-	//TODO: make proper getter, setter, and reset for rollingResults values...
-	public static class rollingResults {
-		public int dice1; 
-		public int dice2;
-		public int total_result;
+//TODO: make proper getter, setter, and reset for rollingResults values...
+	public static class RollingResults {
+		private int dice1; 
+		private int dice2;
+		private int total_result;
 		
-		public rollingResults() {
-			dice1 = 0;
-			dice2 = 0;
-			total_result = 0;
+		public RollingResults() {
+			setDice1Result(0);
+			setDice2Result(0);
+			setDiceTotalResult(0);
+		}
+		
+		public int getDice1Result() {
+	        return this.dice1;
+	    }
+	    public void setDice1Result(int num) {
+	        this.dice1 = num;
+	    }
+		public void resetDice1() {
+	        this.dice1 = 0;
+		}
+		
+		public int getDice2Result() {
+	        return this.dice2;
+	    }
+	    public void setDice2Result(int num) {
+	        this.dice2 = num;
+	    }
+		public void resetDice2() {
+	        this.dice2 = 0;
+		}
+		
+		public int getDiceTotalResult() {
+	        return this.total_result;
+	    }
+	    public void setDiceTotalResult(int num) {
+	        this.total_result = num;
+	    }
+		public void resetDiceTotal() {
+	        this.total_result = 0;
 		}
 	}
-	private static rollingResults[] roundRollResult = new rollingResults[1];
+	
+	private static RollingResults[] roundRollResult = new RollingResults[1];
 	private static void resetRoundRollResult() {
-		roundRollResult =  new rollingResults[1]; 
+		roundRollResult =  new RollingResults[1]; 
 	}
 
 // roundDiceTotal: getter, setter, reset 
 	private static void setRoundDiceTotal(int addDiceToRound) {
 		roundDiceTotal += addDiceToRound;
 	}
-	static void resetRoundDiceTotal() {
+	public static void resetRoundDiceTotal() {
 		roundDiceTotal = 0;
 	}
 	private static int getRoundDiceTotal() {
@@ -38,13 +70,14 @@ public class PlayRound{
 	}
 	
 // A Player's Turn: Select option, see result, continue to play until player ends turn or gets skunk.
-// TODO: break into smaller bits...
+// TODO: break into smaller bits... ?? 
 	public static void playerTurn(SkunkPlayer inputPlayer, SkunkPlayer[] playersArrayRound){
 		StdOut.println(inputPlayer.getName() + "'s turn...");
 		resetRoundRollResult();
 		int chipsBefore = inputPlayer.getPlayerChipsTotal();
 		
 		while(true){
+			StdOut.println();
 			int enteredOption = numericOptionSelection();
 			
 			if (enteredOption == 1)
@@ -55,13 +88,9 @@ public class PlayRound{
 				SkunkPlayerManagement.printPlayersSheet(playersArrayRound);
 			else if (enteredOption == 4)
 				SkunkPlayerManagement.displayDiceAll(playersArrayRound);
-			else if (enteredOption == 5){
-				int[] diceResult = rollingDice();
-
-				addToRoundRollResult(diceResult[0], diceResult[1], diceResult[2]);
-				rollEvaluation(inputPlayer, playersArrayRound, diceResult[0], diceResult[1], diceResult[2]);
-				if (skunkCheckToBreak(diceResult[0], diceResult[1]) == true)
-						break;				
+			else if (enteredOption == 5) {
+				if (completeDieRollEvent(inputPlayer, playersArrayRound) == true)
+					break;
 			}
 			else if (enteredOption == 6) {
 				endTurn(inputPlayer);
@@ -71,26 +100,15 @@ public class PlayRound{
 				StdOut.println("Invalid input.");
 				StdOut.println("Please select a valid option...");
 			}
-			StdOut.println();
 		}
 		StdOut.println();
 		StdOut.println("End Turn confirmed...");
 		
-		StdOut.println("Player: " + inputPlayer.getName());
-		int i = 0;
-		if (roundRollResult[0] != null) {
-			for (rollingResults printResults :  roundRollResult) {
-				i++;
-				StdOut.println("Roll " + i + ": [Dice 1: " + printResults.dice1 + "], [Dice 2: " + printResults.dice2 + "], [Dice Total: " + printResults.total_result + "]");
-			}
-		}
-		StdOut.println("Points Earned: " + roundDiceTotal);
-		int chipsLost = chipsBefore - inputPlayer.getPlayerChipsTotal();
-		StdOut.println("Chips Lost: " + chipsLost);
+		endOfTurnEvaluation(inputPlayer, chipsBefore);
 	}
 
 // Selection menu: takes numeric user input; returning 999 renders the result invalid.
-	//TODO: Maybe break?
+//TODO: Maybe break?
 	private static int numericOptionSelection() {
 		StdOut.println("select option: \n"
 				+ "\t1. View current round's dice total\n"
@@ -115,12 +133,22 @@ public class PlayRound{
 		return optionSelected;
 	}
 	
+// Option 5: Roll dice, add results to roundRollResult,
+	// evaluate consequence (add to running total, or skunk penalty), then check if break due to skunk.
+	private static boolean completeDieRollEvent(SkunkPlayer parInputPlayer, SkunkPlayer[] parPlayersArrayRound){
+		int[] diceResult = rollingDice();
+		addToRoundRollResult(diceResult[0], diceResult[1], diceResult[2]);
+		rollEvaluation(parInputPlayer, parPlayersArrayRound, diceResult[0], diceResult[1], diceResult[2]);
+		if (skunkCheckToBreak(diceResult[0], diceResult[1]) == true)
+			return true;
+		else
+			return false;
+	}
+
 // dice rolling
 	// TODO: new class, or fold into dice?
 	private static int[] rollingDice() {
 		Dice diceRoll = new Dice();
-		diceRoll.getLastDie1();
-		diceRoll.getLastDie2();
 
 		int[] returnDiceResults = new int[3];
 
@@ -133,23 +161,23 @@ public class PlayRound{
 
 // takes dice 1, dice 2, and total dice roll result, and add to the array roundRollResult
 	private static void addToRoundRollResult(int d1, int d2, int dt) {
-		rollingResults newRolledResults = new rollingResults();
-		newRolledResults.dice1 = d1;
-		newRolledResults.dice2 = d2;
-		newRolledResults.total_result = dt;	
+		RollingResults newRolledResults = new RollingResults();
+		newRolledResults.setDice1Result(d1);
+		newRolledResults.setDice2Result(d2);
+		newRolledResults.setDiceTotalResult(dt);	
 		roundRollResult = addToRoundRollResultHelper(roundRollResult, roundRollResult.length, newRolledResults);
 	}
-	private static rollingResults[] addToRoundRollResultHelper(
-	rollingResults[] arrayOfCurrentTurnDiceRolls, int currentSizeOfResultsArray, rollingResults newResult){
+	private static RollingResults[] addToRoundRollResultHelper(
+	RollingResults[] arrayOfCurrentTurnDiceRolls, int currentSizeOfResultsArray, RollingResults newResult){
 		int i;
 
 	    if (arrayOfCurrentTurnDiceRolls[0] == null) {
-	    	rollingResults[] roundRollResultInternal = new rollingResults[1];
+	    	RollingResults[] roundRollResultInternal = new RollingResults[1];
 	    	roundRollResultInternal[0] = newResult;
 	    	return roundRollResultInternal;
 	    }
 	    else {
-		    rollingResults[] roundRollResultInternal = new rollingResults[currentSizeOfResultsArray + 1]; 
+		    RollingResults[] roundRollResultInternal = new RollingResults[currentSizeOfResultsArray + 1]; 
 		    for (i = 0; i < currentSizeOfResultsArray; i++) 
 		    	roundRollResultInternal[i] = arrayOfCurrentTurnDiceRolls[i]; 
 		    roundRollResultInternal[currentSizeOfResultsArray] = newResult; 
@@ -157,6 +185,7 @@ public class PlayRound{
 	    }
 	}
 
+// Imposes result of dice: add to running total, or penalizes for skunk.
 	private static void rollEvaluation(SkunkPlayer player, SkunkPlayer[] playerArrayInput, int dice1, int dice2, int diceTotal){
 		StdOut.println("Player: " + player.getName());
 		StdOut.println("Rolled: " + dice1 + " and " + dice2 + ", for a total of " + diceTotal);
@@ -191,17 +220,31 @@ public class PlayRound{
 		resetRoundDiceTotal();
 	}
 	private static boolean skunkCheckToBreak(int dice1result, int dice2result) {
-		if (dice1result == 1 || dice2result == 1) {
+		if (dice1result == 1 || dice2result == 1)
 			return true;
-		}
 		else
 			return false;
 	}
 
-// Player ends turn, so they get their round's points.
+// Option 6: Player ends turn, so they get their round's points.
 	private static void endTurn(SkunkPlayer inputPlayer) {
 		StdOut.println(inputPlayer.getName() + " has chosen to end their turn...");
 		inputPlayer.setPlayerDiceTotal(roundDiceTotal); 
+	}
+
+// End of Player's Turn Evaluation.
+	private static void endOfTurnEvaluation(SkunkPlayer ParInputPlayer, int chipsBeforeInput) {
+		StdOut.println("Player: " + ParInputPlayer.getName());
+		int i = 0;
+		if (roundRollResult[0] != null) {
+			for (RollingResults printResults :  roundRollResult) {
+				i++;
+				StdOut.println("Roll " + i + ": [Dice 1: " + printResults.getDice1Result() + "], [Dice 2: " + printResults.getDice2Result() + "], [Dice Total: " + printResults.getDiceTotalResult() + "]");
+			}
+		}
+		StdOut.println("Points Earned: " + roundDiceTotal);
+		int chipsLost = chipsBeforeInput - ParInputPlayer.getPlayerChipsTotal();
+		StdOut.println("Chips Lost: " + chipsLost);
 	}
 	
 	public static void main(String[] args){

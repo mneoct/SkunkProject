@@ -7,14 +7,14 @@ public class SkunkPlayer {
 	
 	//constructor
 	public SkunkPlayer(String inputName)	{
-		SetName(inputName);
+		setName(inputName);
 	}
 	
 	// getters and setters
 	public String getName() {
         return this.name;
     }
-	public void SetName(String inputName) {
+	public void setName(String inputName) {
         this.name = inputName;
     }
     
