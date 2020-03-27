@@ -1,10 +1,11 @@
 import java.util.Scanner;
 import edu.princeton.cs.introcs.*;
 // TODO:
-// Should negative chips (debt) be allowed???
+// Should negative chips (debt) be allowed??? 
 // allow removal of players at beginning (i.e. undo adding players...)
 // allow quitting in middle of game??
-// Resolve accessibility after figuring out classes, methods.
+// Continuous: Resolve accessibility after figuring out classes, methods.
+// Adjust output: More separators, less verbose but informative.
 
 public class SkunkApp { // main program
 	private static final int MAX_PLAYERS = 8;

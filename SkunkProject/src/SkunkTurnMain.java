@@ -5,55 +5,6 @@ import edu.princeton.cs.introcs.*;
 public class SkunkTurnMain{
 	private static int roundDiceTotal = 0;
 	private static Scanner playersChoice = new Scanner(System.in);	
-	
-// Keeps track of all rolls in a turn
-//TODO: make proper getter, setter, and reset for rollingResults values...
-	public static class RollingResults {
-		private int dice1; 
-		private int dice2;
-		private int total_result;
-		
-		public RollingResults() {
-			setDice1Result(0);
-			setDice2Result(0);
-			setDiceTotalResult(0);
-		}
-		
-		public int getDice1Result() {
-	        return this.dice1;
-	    }
-	    public void setDice1Result(int num) {
-	        this.dice1 = num;
-	    }
-		public void resetDice1() {
-	        this.dice1 = 0;
-		}
-		
-		public int getDice2Result() {
-	        return this.dice2;
-	    }
-	    public void setDice2Result(int num) {
-	        this.dice2 = num;
-	    }
-		public void resetDice2() {
-	        this.dice2 = 0;
-		}
-		
-		public int getDiceTotalResult() {
-	        return this.total_result;
-	    }
-	    public void setDiceTotalResult(int num) {
-	        this.total_result = num;
-	    }
-		public void resetDiceTotal() {
-	        this.total_result = 0;
-		}
-	}
-	
-	private static RollingResults[] roundRollResult = new RollingResults[1];
-	private static void resetRoundRollResult() {
-		roundRollResult =  new RollingResults[1]; 
-	}
 
 // roundDiceTotal: getter, setter, reset 
 	private static void setRoundDiceTotal(int addDiceToRound) {
@@ -70,7 +21,7 @@ public class SkunkTurnMain{
 // TODO: break into smaller bits... ?? 
 	public static void playerTurn(SkunkPlayer inputPlayer, SkunkPlayer[] playersArrayRound){
 		StdOut.println(inputPlayer.getName() + "'s turn...");
-		resetRoundRollResult();
+		SkunkTurnDiceRollsArray.resetRoundRollResult();
 		int chipsBefore = inputPlayer.getPlayerChipsTotal();
 		
 		while(true){
@@ -158,24 +109,27 @@ public class SkunkTurnMain{
 
 // takes dice 1, dice 2, and total dice roll result, and add to the array roundRollResult
 	private static void addToRoundRollResult(int d1, int d2, int dt) {
-		RollingResults newRolledResults = new RollingResults();
+		SkunkTurnDiceRollsArray newRolledResults = new SkunkTurnDiceRollsArray();
 		newRolledResults.setDice1Result(d1);
 		newRolledResults.setDice2Result(d2);
 		newRolledResults.setDiceTotalResult(dt);	
-		roundRollResult = addToRoundRollResultHelper(roundRollResult, roundRollResult.length, newRolledResults);
+		SkunkTurnDiceRollsArray.roundRollResult = addToRoundRollResultHelper(
+				SkunkTurnDiceRollsArray.roundRollResult, 
+				SkunkTurnDiceRollsArray.roundRollResult.length, 
+				newRolledResults);
 	}
 	
-	private static RollingResults[] addToRoundRollResultHelper(
-	RollingResults[] arrayOfCurrentTurnDiceRolls, int currentSizeOfResultsArray, RollingResults newResult){
+	private static SkunkTurnDiceRollsArray[] addToRoundRollResultHelper(
+	SkunkTurnDiceRollsArray[] arrayOfCurrentTurnDiceRolls, int currentSizeOfResultsArray, SkunkTurnDiceRollsArray newResult){
 		int i;
 
 	    if (arrayOfCurrentTurnDiceRolls[0] == null) {
-	    	RollingResults[] roundRollResultInternal = new RollingResults[1];
+	    	SkunkTurnDiceRollsArray[] roundRollResultInternal = new SkunkTurnDiceRollsArray[1];
 	    	roundRollResultInternal[0] = newResult;
 	    	return roundRollResultInternal;
 	    }
 	    else {
-		    RollingResults[] roundRollResultInternal = new RollingResults[currentSizeOfResultsArray + 1]; 
+		    SkunkTurnDiceRollsArray[] roundRollResultInternal = new SkunkTurnDiceRollsArray[currentSizeOfResultsArray + 1]; 
 		    for (i = 0; i < currentSizeOfResultsArray; i++) 
 		    	roundRollResultInternal[i] = arrayOfCurrentTurnDiceRolls[i]; 
 		    roundRollResultInternal[currentSizeOfResultsArray] = newResult; 
@@ -210,8 +164,8 @@ public class SkunkTurnMain{
 	private static void endOfTurnEvaluation(SkunkPlayer ParInputPlayer, int chipsBeforeInput) {
 		StdOut.println("Player: " + ParInputPlayer.getName());
 		int i = 0;
-		if (roundRollResult[0] != null) {
-			for (RollingResults printResults :  roundRollResult) {
+		if (SkunkTurnDiceRollsArray.roundRollResult[0] != null) {
+			for (SkunkTurnDiceRollsArray printResults : SkunkTurnDiceRollsArray.roundRollResult) {
 				i++;
 				StdOut.println("Roll " + i + ": [Dice 1: " + printResults.getDice1Result() 
 				+ "], [Dice 2: " + printResults.getDice2Result() 
