@@ -85,7 +85,7 @@ public class SkunkTurnMain{
 	// evaluate consequence (add to running total, or skunk penalty), then check if break due to skunk.
 	private static boolean completeDieRollEvent(SkunkPlayer parInputPlayer, SkunkPlayer[] parPlayersArrayRound){
 		int[] diceResult = rollingDice();
-		addToRoundRollResult(diceResult[0], diceResult[1], diceResult[2]);
+		SkunkTurnDiceRollsArray.addToRoundRollResult(diceResult[0], diceResult[1], diceResult[2]);
 		rollEvaluation(parInputPlayer, parPlayersArrayRound, diceResult[0], diceResult[1], diceResult[2]);
 		if (SkunkTurnPenaltyEvents.skunkCheckToBreak(diceResult[0], diceResult[1]) == true)
 			return true;
@@ -105,36 +105,6 @@ public class SkunkTurnMain{
 		returnDiceResults[2] = diceRoll.getLastRoll();
 		
 		return returnDiceResults;
-	}
-
-// takes dice 1, dice 2, and total dice roll result, and add to the array roundRollResult
-	private static void addToRoundRollResult(int d1, int d2, int dt) {
-		SkunkTurnDiceRollsArray newRolledResults = new SkunkTurnDiceRollsArray();
-		newRolledResults.setDice1Result(d1);
-		newRolledResults.setDice2Result(d2);
-		newRolledResults.setDiceTotalResult(dt);	
-		SkunkTurnDiceRollsArray.roundRollResult = addToRoundRollResultHelper(
-				SkunkTurnDiceRollsArray.roundRollResult, 
-				SkunkTurnDiceRollsArray.roundRollResult.length, 
-				newRolledResults);
-	}
-	
-	private static SkunkTurnDiceRollsArray[] addToRoundRollResultHelper(
-	SkunkTurnDiceRollsArray[] arrayOfCurrentTurnDiceRolls, int currentSizeOfResultsArray, SkunkTurnDiceRollsArray newResult){
-		int i;
-
-	    if (arrayOfCurrentTurnDiceRolls[0] == null) {
-	    	SkunkTurnDiceRollsArray[] roundRollResultInternal = new SkunkTurnDiceRollsArray[1];
-	    	roundRollResultInternal[0] = newResult;
-	    	return roundRollResultInternal;
-	    }
-	    else {
-		    SkunkTurnDiceRollsArray[] roundRollResultInternal = new SkunkTurnDiceRollsArray[currentSizeOfResultsArray + 1]; 
-		    for (i = 0; i < currentSizeOfResultsArray; i++) 
-		    	roundRollResultInternal[i] = arrayOfCurrentTurnDiceRolls[i]; 
-		    roundRollResultInternal[currentSizeOfResultsArray] = newResult; 
-		    return roundRollResultInternal; 
-	    }
 	}
 
 // Imposes result of dice: add to running total, or penalizes for skunk.

@@ -1,5 +1,4 @@
 // Keeps track of all rolls in a turn
-//TODO: make proper getter, setter, and reset for rollingResults values...
 
 public class SkunkTurnDiceRollsArray {
 	private int dice1; 
@@ -47,5 +46,33 @@ public class SkunkTurnDiceRollsArray {
         this.total_result = 0;
 	}
 	
+// takes dice 1, dice 2, and total dice roll result, and add to the array roundRollResult
+	public static void addToRoundRollResult(int d1, int d2, int dt) {
+		SkunkTurnDiceRollsArray newRolledResults = new SkunkTurnDiceRollsArray();
+		newRolledResults.setDice1Result(d1);
+		newRolledResults.setDice2Result(d2);
+		newRolledResults.setDiceTotalResult(dt);	
+		roundRollResult = addToRoundRollResultHelper(
+				roundRollResult, 
+				roundRollResult.length, 
+				newRolledResults);
+	}
+	
+	private static SkunkTurnDiceRollsArray[] addToRoundRollResultHelper(
+	SkunkTurnDiceRollsArray[] arrayOfCurrentTurnDiceRolls, int currentSizeOfResultsArray, SkunkTurnDiceRollsArray newResult){
+		int i;
 
+	    if (arrayOfCurrentTurnDiceRolls[0] == null) {
+	    	SkunkTurnDiceRollsArray[] roundRollResultInternal = new SkunkTurnDiceRollsArray[1];
+	    	roundRollResultInternal[0] = newResult;
+	    	return roundRollResultInternal;
+	    }
+	    else {
+		    SkunkTurnDiceRollsArray[] roundRollResultInternal = new SkunkTurnDiceRollsArray[currentSizeOfResultsArray + 1]; 
+		    for (i = 0; i < currentSizeOfResultsArray; i++) 
+		    	roundRollResultInternal[i] = arrayOfCurrentTurnDiceRolls[i]; 
+		    roundRollResultInternal[currentSizeOfResultsArray] = newResult; 
+		    return roundRollResultInternal; 
+	    }
+	}
 }
