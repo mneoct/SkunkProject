@@ -57,6 +57,18 @@ public class Dice
 
 	public static final int NUM_TRIALS = 360;
 	
+	public static int[] rollingDice() {
+		Dice diceRoll = new Dice();
+
+		int[] returnDiceResults = new int[3];
+
+		returnDiceResults[0] = diceRoll.getLastDie1();
+		returnDiceResults[1] = diceRoll.getLastDie2();
+		returnDiceResults[2] = diceRoll.getLastRoll();
+		
+		return returnDiceResults;
+	}
+	
 	public static void main(String[] args)
 	{
 		// simulate repeated rolls of Dice, counting the many double skunks

@@ -121,7 +121,7 @@ public class SkunkPlayerManagement {
 			StdOut.println("\t"+player.getName() + ": " + player.getPlayerDiceTotal());
 	}
 	
-	public static void printPlayersSheet(SkunkPlayer[] playersArrayInput){
+	public static void displayChipsAll(SkunkPlayer[] playersArrayInput){
 		for (SkunkPlayer player : playersArrayInput)
 			StdOut.println(player.getName()+":"+player.getPlayerChipsTotal());
 		StdOut.println();

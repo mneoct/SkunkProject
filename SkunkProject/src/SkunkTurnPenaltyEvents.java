@@ -15,7 +15,7 @@ public class SkunkTurnPenaltyEvents {
 		skunkEvent(SINGLE_SKUNK_PENALTY, inputPlayer);
 	}
 	
-	public static void doubleSkunk(SkunkPlayer inputPlayer, SkunkPlayer[] playersArrayInput){
+	public static void doubleSkunk(SkunkPlayer inputPlayer){
 		StdOut.println("Double Skunk Detected!");
 		StdOut.println(inputPlayer.getName() + " has lost their own dice points!");
 		inputPlayer.resetDice();

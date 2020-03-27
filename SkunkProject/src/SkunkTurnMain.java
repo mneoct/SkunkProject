@@ -33,7 +33,7 @@ public class SkunkTurnMain{
 			else if (enteredOption == 2)
 				SkunkPlayerManagement.displayDiceAll(playersArrayRound);
 			else if (enteredOption == 3)
-				SkunkPlayerManagement.printPlayersSheet(playersArrayRound);
+				SkunkPlayerManagement.displayChipsAll(playersArrayRound);
 			else if (enteredOption == 4)
 				StdOut.println("Kitty: " + SkunkKitty.getKitty());
 			else if (enteredOption == 5) {
@@ -56,11 +56,11 @@ public class SkunkTurnMain{
 	}
 
 // Selection menu: takes numeric user input; returning 999 renders the result invalid.
-//TODO: Maybe break?
+//TODO: Maybe break into smaller bits?
 	private static int numericOptionSelection() {
-		StdOut.println("select option: \n"
+		StdOut.println("Select option: \n"
 				+ "\t1. View current round's dice total\n"
-				+ "\t2. View all players' Dice Total\n"
+				+ "\t2. View all players' dice points\n"
 				+ "\t3. View all players' chips\n"
 				+ "\t4. View kitty\n"
 				+ "\t5. Roll dice\n"
@@ -69,6 +69,7 @@ public class SkunkTurnMain{
 		
 		int optionSelected;
 		String inputOption = playersChoice.nextLine();
+		
 		try {
 			optionSelected = Integer.parseInt(inputOption);
 		}
@@ -84,7 +85,7 @@ public class SkunkTurnMain{
 // Option 5: Roll dice, add results to roundRollResult,
 	// evaluate consequence (add to running total, or skunk penalty), then check if break due to skunk.
 	private static boolean completeDieRollEvent(SkunkPlayer parInputPlayer, SkunkPlayer[] parPlayersArrayRound){
-		int[] diceResult = rollingDice();
+		int[] diceResult = Dice.rollingDice();
 		SkunkTurnDiceRollsArray.addToRoundRollResult(diceResult[0], diceResult[1], diceResult[2]);
 		rollEvaluation(parInputPlayer, parPlayersArrayRound, diceResult[0], diceResult[1], diceResult[2]);
 		if (SkunkTurnPenaltyEvents.skunkCheckToBreak(diceResult[0], diceResult[1]) == true)
@@ -93,26 +94,12 @@ public class SkunkTurnMain{
 			return false;
 	}
 
-// dice rolling
-	// TODO: new class, or fold into dice?
-	private static int[] rollingDice() {
-		Dice diceRoll = new Dice();
-
-		int[] returnDiceResults = new int[3];
-
-		returnDiceResults[0] = diceRoll.getLastDie1();
-		returnDiceResults[1] = diceRoll.getLastDie2();
-		returnDiceResults[2] = diceRoll.getLastRoll();
-		
-		return returnDiceResults;
-	}
-
 // Imposes result of dice: add to running total, or penalizes for skunk.
 	private static void rollEvaluation(SkunkPlayer player, SkunkPlayer[] playerArrayInput, int dice1, int dice2, int diceTotal){
 		StdOut.println("Player: " + player.getName());
 		StdOut.println("Rolled: " + dice1 + " and " + dice2 + ", for a total of " + diceTotal);
 		if (dice1 == 1 && dice2 == 1)
-			SkunkTurnPenaltyEvents.doubleSkunk(player, playerArrayInput);
+			SkunkTurnPenaltyEvents.doubleSkunk(player);
 		else if (dice1 == 1 || dice2 == 1)
 			SkunkTurnPenaltyEvents.singleSkunk(player);
 		else {

@@ -33,7 +33,7 @@ public class SkunkApp { // main program
 			
 			StdOut.println("Post-Game Evaluation...");
 			SkunkPlayerManagement.removePlayers();
-			SkunkPlayerManagement.printPlayersSheet(SkunkPlayerManagement.playersArray);
+			SkunkPlayerManagement.displayChipsAll(SkunkPlayerManagement.playersArray);
 			
 			StdOut.println("Type 'end' to end the tournament, else it will continue");
 			String tournamentContinueChoice = exitInput.nextLine();
@@ -63,7 +63,7 @@ public class SkunkApp { // main program
 		SkunkTournament();
 		
 		StdOut.println("Final Report...");
-		SkunkPlayerManagement.printPlayersSheet(SkunkPlayerManagement.playersArray);
+		SkunkPlayerManagement.displayChipsAll(SkunkPlayerManagement.playersArray);
 
 		StdOut.println("Tournament has ended...");
 		myObj.close();

@@ -104,7 +104,7 @@ public class SkunkGame {
 		playersLastStretch[indexOfWinner].setPlayerChipsTotal(SkunkKitty.getKitty());
 		StdOut.println("End of Game...");
 		StdOut.println("Now Showing Players Sheet");
-		SkunkPlayerManagement.printPlayersSheet(playersLastStretch);
+		SkunkPlayerManagement.displayChipsAll(playersLastStretch);
 	}
 	private static void plunderingDefeated(SkunkPlayer beingEvaluated) {
 		if (beingEvaluated.getPlayerDiceTotal() > 0){
