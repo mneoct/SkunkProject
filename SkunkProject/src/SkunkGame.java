@@ -13,14 +13,14 @@ public class SkunkGame {
 		SkunkPlayerManagement.resetPlayersDice();
 		
 		while(true) {
-			PlayRound.resetRoundDiceTotal();
+			SkunkTurnMain.resetRoundDiceTotal();
 			StdOut.println("Players' Dice Total in Current Game:");
 			SkunkPlayerManagement.displayDiceAll(playersArrayGame);
 			StdOut.println();
 			
 			currentlyPlaying = playersArrayGame[currentPlayerIndex];
 			printRandomQuotes(currentlyPlaying);
-			PlayRound.playerTurn(currentlyPlaying, playersArrayGame); 
+			SkunkTurnMain.playerTurn(currentlyPlaying, playersArrayGame); 
 			StdOut.println();
 
 			if (currentlyPlaying.getPlayerDiceTotal() > OVERFLOW_SCORE){
@@ -61,13 +61,13 @@ public class SkunkGame {
 		
 		while (indexPlayerRolling != incomingHillKingIndex+0) {
 			indexPlayerRolling = resetIndexOfLoopsArray(indexPlayerRolling, playersLastStretch.length);
-			PlayRound.resetRoundDiceTotal();
+			SkunkTurnMain.resetRoundDiceTotal();
 			SkunkPlayer playerPlaying = playersLastStretch[indexPlayerRolling];
 			StdOut.println();
 			StdOut.println(playerPlaying.getName() + " is now rolling...");
 			StdOut.println();
 			
-			PlayRound.playerTurn(playerPlaying, playersLastStretch);
+			SkunkTurnMain.playerTurn(playerPlaying, playersLastStretch);
 			StdOut.println();
 			
 			StdOut.println(playerPlaying.getName()

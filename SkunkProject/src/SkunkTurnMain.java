@@ -2,11 +2,8 @@ import java.util.Scanner;
 import edu.princeton.cs.introcs.*;
 
 //TODO: MAJOR -- getters and setters ==> implement proper accessibility.
-public class PlayRound{
+public class SkunkTurnMain{
 	private static int roundDiceTotal = 0;
-	private static final int SINGLE_SKUNK_PENALTY = 2;
-	private static final int DBL_SKUNK_PENALTY = 4;
-
 	private static Scanner playersChoice = new Scanner(System.in);	
 	
 // Keeps track of all rolls in a turn
@@ -139,7 +136,7 @@ public class PlayRound{
 		int[] diceResult = rollingDice();
 		addToRoundRollResult(diceResult[0], diceResult[1], diceResult[2]);
 		rollEvaluation(parInputPlayer, parPlayersArrayRound, diceResult[0], diceResult[1], diceResult[2]);
-		if (skunkCheckToBreak(diceResult[0], diceResult[1]) == true)
+		if (SkunkTurnPenaltyEvents.skunkCheckToBreak(diceResult[0], diceResult[1]) == true)
 			return true;
 		else
 			return false;
@@ -191,9 +188,9 @@ public class PlayRound{
 		StdOut.println("Player: " + player.getName());
 		StdOut.println("Rolled: " + dice1 + " and " + dice2 + ", for a total of " + diceTotal);
 		if (dice1 == 1 && dice2 == 1)
-			doubleSkunk(player, playerArrayInput);
+			SkunkTurnPenaltyEvents.doubleSkunk(player, playerArrayInput);
 		else if (dice1 == 1 || dice2 == 1)
-			singleSkunk(player);
+			SkunkTurnPenaltyEvents.singleSkunk(player);
 		else {
 			setRoundDiceTotal(diceTotal);
 			StdOut.println("Points in Current Turn: " + roundDiceTotal);
@@ -201,32 +198,6 @@ public class PlayRound{
 			int personalTotalIfQuitNow = player.getPlayerDiceTotal() + roundDiceTotal;
 			StdOut.println("If " + player.getName() + " ends their turn now, they will have " + personalTotalIfQuitNow + " points.");
 		}
-	}
-
-// skunk events
-	private static void skunkEvent(int penalty, SkunkPlayer inputPlayer) { 
-		inputPlayer.setPlayerChipsTotal(-penalty);  
-		SkunkKitty.setKitty(penalty);
-		resetRoundDiceTotal();
-	}
-	
-	private static void singleSkunk(SkunkPlayer inputPlayer) { 
-		StdOut.println("Single Skunk Detected!");
-		skunkEvent(SINGLE_SKUNK_PENALTY, inputPlayer);
-	}
-	
-	private static void doubleSkunk(SkunkPlayer inputPlayer, SkunkPlayer[] playersArrayInput){
-		StdOut.println("Double Skunk Detected!");
-		StdOut.println(inputPlayer.getName() + " has lost their own dice points!");
-		inputPlayer.resetDice();
-		skunkEvent(DBL_SKUNK_PENALTY, inputPlayer);
-	}
-	
-	private static boolean skunkCheckToBreak(int dice1result, int dice2result) {
-		if (dice1result == 1 || dice2result == 1)
-			return true;
-		else
-			return false;
 	}
 
 // Option 6: Player ends turn, so they get their round's points.
