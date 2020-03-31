@@ -1,7 +1,8 @@
 import edu.princeton.cs.introcs.StdOut;
 
 public class SkunkTurnPenaltyEvents {
-	private static final int SINGLE_SKUNK_PENALTY = 2;
+	private static final int SINGLE_SKUNK_PENALTY = 1;
+	private static final int SINGLE_SKUNK_DEUCE_PENALTY = 1;
 	private static final int DBL_SKUNK_PENALTY = 4;
 	
 	private static void skunkEvent(int penalty, SkunkPlayer inputPlayer) { 
@@ -13,6 +14,11 @@ public class SkunkTurnPenaltyEvents {
 	public static void singleSkunk(SkunkPlayer inputPlayer) { 
 		StdOut.println("Single Skunk Detected!");
 		skunkEvent(SINGLE_SKUNK_PENALTY, inputPlayer);
+	}
+	
+	public static void singleSkunkDeuce(SkunkPlayer inputPlayer) { 
+		StdOut.println("Single Skunk with Deuce Detected!");
+		skunkEvent(SINGLE_SKUNK_DEUCE_PENALTY, inputPlayer);
 	}
 	
 	public static void doubleSkunk(SkunkPlayer inputPlayer){

@@ -100,6 +100,8 @@ public class SkunkTurnMain{
 		StdOut.println("Rolled: " + dice1 + " and " + dice2 + ", for a total of " + diceTotal);
 		if (dice1 == 1 && dice2 == 1)
 			SkunkTurnPenaltyEvents.doubleSkunk(player);
+		else if (diceTotal == 3)
+			SkunkTurnPenaltyEvents.singleSkunkDeuce(player);
 		else if (dice1 == 1 || dice2 == 1)
 			SkunkTurnPenaltyEvents.singleSkunk(player);
 		else {

@@ -3,11 +3,11 @@ import java.util.Random;
 import edu.princeton.cs.introcs.StdOut;
 
 public class SkunkGame {
-	private static int OVERFLOW_SCORE = SkunkApp.getOVERFLOW_SCORE();
+	private final static int OVERFLOW_SCORE = SkunkApp.getOverflowScore();
 	
 //TODO: Break into smaller bits..	
-	static void playGame(SkunkPlayer[] playersArrayGame) { 	// break into smaller bits...
-		SkunkPlayer currentlyPlaying; // playGame()'s ref to current player.		
+	protected static void playGame(SkunkPlayer[] playersArrayGame) { 	// break into smaller bits...
+		SkunkPlayer currentlyPlaying; 		
 		int currentPlayerIndex = randomStartPlayer(playersArrayGame.length);
 		SkunkKitty.resetKitty();
 		SkunkPlayerManagement.resetPlayersDice();

@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import edu.princeton.cs.introcs.*;
+import edu.princeton.cs.introcs.StdOut;
 // TODO:
 // Should negative chips (debt) be allowed??? 
 // allow removal of players at beginning (i.e. undo adding players...)
@@ -13,17 +13,17 @@ public class SkunkApp { // main program
 	private final static int TOTAL_CHIPS = 100; // = 400, set lower for test games faster...
 	private static Scanner myObj = new Scanner(System.in);
 	
-	public static int getOVERFLOW_SCORE() {
+	public static int getOverflowScore() {
         return OVERFLOW_SCORE;
     }
-	public static int getMAX_PLAYERS() {
+	public static int getMaxPlayers() {
         return MAX_PLAYERS;
     }
-	public static int getTOTAL_CHIPS() {
+	public static int getTotalChips() {
         return TOTAL_CHIPS;
     }
 
-	public static void SkunkTournament() {
+	public static void skunkTournament() {
 		Scanner exitInput = new Scanner(System.in);	
 		while (true) {
 			StdOut.println("New Game has been started...");
@@ -36,9 +36,9 @@ public class SkunkApp { // main program
 			SkunkPlayerManagement.displayChipsAll(SkunkPlayerManagement.playersArray);
 			
 			StdOut.println("Type 'end' to end the tournament, else it will continue");
-			String tournamentContinueChoice = exitInput.nextLine();
+			String tournamentContinueChoice = exitInput.nextLine().toLowerCase();
 			
-			if (tournamentContinueChoice.toLowerCase().equals("end")) {
+			if (tournamentContinueChoice.equals("end")) {
 				StdOut.println("Understood. Tournament is shutting down...");
 				StdOut.println();
 				break;
@@ -60,7 +60,7 @@ public class SkunkApp { // main program
 		StdOut.println();
 		// SkunkPlayerManagement.distributeChips();
 
-		SkunkTournament();
+		skunkTournament();
 		
 		StdOut.println("Final Report...");
 		SkunkPlayerManagement.displayChipsAll(SkunkPlayerManagement.playersArray);

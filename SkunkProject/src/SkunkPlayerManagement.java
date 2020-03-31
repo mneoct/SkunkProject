@@ -4,7 +4,7 @@ import edu.princeton.cs.introcs.StdOut;
 
 public class SkunkPlayerManagement {	
 	public static Scanner myObj = new Scanner(System.in);
-	private static int MAX_PLAYERS = SkunkApp.getMAX_PLAYERS();
+	private static int MAX_PLAYERS = SkunkApp.getMaxPlayers();
 	public static SkunkPlayer[] playersArray;
 	
 	// Alternative: ask how many players first so internalPlayersArray is initialized
@@ -103,7 +103,7 @@ public class SkunkPlayerManagement {
 	
 	public static void distributeChips() {
 		StdOut.println("Distribution of chips to players initiated...");
-		int chipDistributed = SkunkApp.getTOTAL_CHIPS() / playersArray.length;
+		int chipDistributed = SkunkApp.getTotalChips() / playersArray.length;
 		for (SkunkPlayer player : playersArray) {
 			player.setPlayerChipsTotal(chipDistributed);
 			StdOut.println(player.getName() + " has been given " + chipDistributed + " chips.");
