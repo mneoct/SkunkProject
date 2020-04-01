@@ -67,19 +67,23 @@ public class SkunkTurnMain{
 				+ "\t6. End round");
 		StdOut.println();
 		
-		int optionSelected;
+		StdOut.print("Option Selected: ");
+		int optionSelected = getPlayerChoiceInput();
+		StdOut.println();
+		return optionSelected;
+	}
+
+	private static int getPlayerChoiceInput() {
+		int choice;
 		String inputOption = playersChoice.nextLine();
 		
 		try {
-			optionSelected = Integer.parseInt(inputOption);
+			choice = Integer.parseInt(inputOption);
 		}
-		catch (Exception e){
-			optionSelected = 999;
+		catch (NumberFormatException e){
+			choice = 999;
 		}
-		
-		StdOut.println("Option Selected: " + optionSelected);
-		StdOut.println();
-		return optionSelected;
+		return choice;
 	}
 	
 // Option 5: Roll dice, add results to roundRollResult,
