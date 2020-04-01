@@ -95,7 +95,7 @@ public class SkunkTurnMain{
 	}
 
 // Imposes result of dice: add to running total, or penalizes for skunk.
-	private static void rollEvaluation(SkunkPlayer player, SkunkPlayer[] playerArrayInput, int dice1, int dice2, int diceTotal){
+	private static void rollEvaluation(SkunkPlayer player, SkunkPlayer[] playerArrayInput, int dice1, int dice2, int diceTotal) {
 		StdOut.println("Player: " + player.getName());
 		StdOut.println("Rolled: " + dice1 + " and " + dice2 + ", for a total of " + diceTotal);
 		if (dice1 == 1 && dice2 == 1)

@@ -3,7 +3,7 @@ import java.util.Random;
 import edu.princeton.cs.introcs.StdOut;
 
 public class SkunkGame {
-	private final static int OVERFLOW_SCORE = SkunkApp.getOverflowScore();
+	private final static int OVERFLOW_SCORE = SkunkMain.getOverflowScore();
 	
 //TODO: Break into smaller bits..	
 	protected static void playGame(SkunkPlayer[] playersArrayGame) { 	// break into smaller bits...

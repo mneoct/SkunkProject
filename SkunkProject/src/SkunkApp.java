@@ -1,72 +1,46 @@
-import java.util.Scanner;
-import edu.princeton.cs.introcs.StdOut;
-// TODO:
-// Should negative chips (debt) be allowed??? 
-// allow removal of players at beginning (i.e. undo adding players...)
-// allow quitting in middle of game??
-// Continuous: Resolve accessibility after figuring out classes, methods.
-// Adjust output: More separators, less verbose but informative.
+/**
+*
+* The Main program for our Skunk.
+* @author Jon Doe
+*/
+public class SkunkApp 
+{
+	public SkunkUI skunkUI;
+	public SkunkMain skunkMain;
+	private int numberOfPlayers;
+	public String[] playerNames;
 
-public class SkunkApp { // main program
-	private static final int MAX_PLAYERS = 8;
-	private static final int OVERFLOW_SCORE = 50; // = 100, set lower to test games faster...
-	private final static int TOTAL_CHIPS = 100; // = 400, set lower for test games faster...
-	private static Scanner myObj = new Scanner(System.in);
-	
-	public static int getOverflowScore() {
-        return OVERFLOW_SCORE;
-    }
-	public static int getMaxPlayers() {
-        return MAX_PLAYERS;
-    }
-	public static int getTotalChips() {
-        return TOTAL_CHIPS;
-    }
-
-	public static void skunkTournament() {
-		Scanner exitInput = new Scanner(System.in);	
-		while (true) {
-			StdOut.println("New Game has been started...");
-			StdOut.println("Resetting Individual Dice Totals and Kitty to 0");
-			StdOut.println();
-			SkunkGame.playGame(SkunkPlayerManagement.playersArray);
-			
-			StdOut.println("Post-Game Evaluation...");
-			SkunkPlayerManagement.removePlayers();
-			SkunkPlayerManagement.displayChipsAll(SkunkPlayerManagement.playersArray);
-			
-			StdOut.println("Type 'end' to end the tournament, else it will continue");
-			String tournamentContinueChoice = exitInput.nextLine().toLowerCase();
-			
-			if (tournamentContinueChoice.equals("end")) {
-				StdOut.println("Understood. Tournament is shutting down...");
-				StdOut.println();
-				break;
-			}
-			else if (SkunkPlayerManagement.playersArray.length == 1) {
-				StdOut.println("We have a grand champion!");
-				break;
-			}
-		}
-		exitInput.close();
+	public final int getNumberOfPlayers() {
+		return numberOfPlayers;
 	}
 	
-	public static void main(String[] args){
-		
-		StdOut.println("Tournament has began...");
-		StdOut.println("Now registering players...");
-		StdOut.println();
-		SkunkPlayerManagement.playersArray = SkunkPlayerManagement.addPlayers();
-		StdOut.println();
-		// SkunkPlayerManagement.distributeChips();
-
-		skunkTournament();
-		
-		StdOut.println("Final Report...");
-		SkunkPlayerManagement.displayChipsAll(SkunkPlayerManagement.playersArray);
-
-		StdOut.println("Tournament has ended...");
-		myObj.close();
-		
+	public final void setNumberOfPlayers(final int numOfPlayers) {
+		this.numberOfPlayers = numOfPlayers;
 	}
+	
+	public final void createArrayPlayerNames(final int size) {
+		this.playerNames = new String[size];
+	}
+	
+	public SkunkApp()
+	{
+		skunkUI = new SkunkUI(skunkMain);
+		skunkMain = new SkunkMain(skunkUI);
+	}
+
+	/**
+	 * Runs the app within an event loop
+	 * 
+	 * @return
+	 */
+	public void run()
+	{
+		skunkMain.run();
+	}
+
+	public static void main(String[] args)
+	{
+		new SkunkApp().run();
+	}
+
 }
