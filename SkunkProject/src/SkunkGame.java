@@ -10,7 +10,7 @@ public class SkunkGame {
 		SkunkPlayer currentlyPlaying; 		
 		int currentPlayerIndex = randomStartPlayer(playersArrayGame.length);
 		SkunkKitty.resetKitty();
-		SkunkPlayerManagement.resetPlayersDice();
+		SkunkPlayerManagement.resetAllPlayersDice();
 		
 		while(true) {
 			SkunkTurnMain.resetRoundDiceTotal();
@@ -20,7 +20,7 @@ public class SkunkGame {
 			
 			currentlyPlaying = playersArrayGame[currentPlayerIndex];
 			printRandomQuotes(currentlyPlaying);
-			SkunkTurnMain.playerTurn(currentlyPlaying, playersArrayGame); 
+			SkunkTurnAction.playerTurn(currentlyPlaying, playersArrayGame); 
 			StdOut.println();
 
 			if (currentlyPlaying.getPlayerDiceTotal() > OVERFLOW_SCORE){
@@ -67,7 +67,7 @@ public class SkunkGame {
 			StdOut.println(playerPlaying.getName() + " is now rolling...");
 			StdOut.println();
 			
-			SkunkTurnMain.playerTurn(playerPlaying, playersLastStretch);
+			SkunkTurnAction.playerTurn(playerPlaying, playersLastStretch);
 			StdOut.println();
 			
 			StdOut.println(playerPlaying.getName()

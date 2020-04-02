@@ -55,7 +55,7 @@ public class SkunkMain { // main program
 			SkunkGame.playGame(SkunkPlayerManagement.playersArray);
 			
 			userInterface.println("Post-Game Evaluation...");
-			SkunkPlayerManagement.removePlayers();
+			SkunkPlayerManagement.playersArray = SPMRemovePlayer.removePlayers(SkunkPlayerManagement.playersArray);
 			SkunkPlayerManagement.displayChipsAll(SkunkPlayerManagement.playersArray);
 			
 			boolean continueTournament = skunkEndTournament(SkunkPlayerManagement.playersArray);
