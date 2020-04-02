@@ -1,3 +1,5 @@
+import edu.princeton.cs.introcs.StdOut;
+
 //TODO: MAJOR -- getters and setters ==> implement proper accessibility.
 public class SkunkTurnMain{
 	private static int roundDiceTotal = 0;
@@ -11,6 +13,9 @@ public class SkunkTurnMain{
 	}
 	public static int getRoundDiceTotal() {
 		return roundDiceTotal;
+	}
+	public static void displayRoundDiceTotal() {
+		StdOut.println("\tCurrent Dice Total: " + SkunkTurnMain.getRoundDiceTotal());
 	}
 	
 	public static void main(String[] args){

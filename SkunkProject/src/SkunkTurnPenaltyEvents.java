@@ -29,10 +29,7 @@ public class SkunkTurnPenaltyEvents {
 	}
 	
 	public static boolean skunkCheckToBreak(int dice1result, int dice2result) {
-		if (dice1result == 1 || dice2result == 1)
-			return true;
-		else
-			return false;
+		return (dice1result == 1 || dice2result == 1) ? true : false;
 	}
 
 }

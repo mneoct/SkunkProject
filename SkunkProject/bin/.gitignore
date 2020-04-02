@@ -1,9 +1,2 @@
-/SkunkUI.class
-/UI.class
-/SkunkDomain.class
-/SkunkMain.class
-/SkunkApp.class
-/SkunkPlayerManagementUI.class
-/SPMAddPlayer.class
-/SPMRemovePlayer.class
-/SkunkTurnAction.class
+/SkunkTurnRollDice.class
+/SkunkTurnMenuSelection.class
