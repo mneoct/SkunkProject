@@ -1,8 +1,9 @@
 /**
 *
 * The Main program for our Skunk.
-* @author Jon Doe
+* 
 */
+
 public class SkunkApp 
 {
 	public SkunkUI skunkUI;

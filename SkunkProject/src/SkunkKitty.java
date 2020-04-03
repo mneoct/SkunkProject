@@ -11,9 +11,11 @@ public class SkunkKitty {
 	public static void displayKitty() {
 		StdOut.println("\tKitty: " + SkunkKitty.getKitty());
 	}
+	
 	public static void setKitty(int value){
 		kitty = kitty + value;
 	}
+	
 	public static void resetKitty(){
 		kitty = 0;
 	}

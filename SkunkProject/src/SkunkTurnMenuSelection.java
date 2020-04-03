@@ -13,16 +13,23 @@ public class SkunkTurnMenuSelection {
 	private static String option4 = "View kitty";
 	private static String option5 = "Roll dice";
 	private static String option6 = "End round";
-	private static String[] optionText = {option1, option2, option3, option4, option5, option6};
+	private static final String[] optionText = {option1, option2, option3, option4, option5, option6};
 	
-	public static int numericOptionSelection() {
+	public static String[] getOptionText() {
+		return optionText;
+	}
+	
+	public static void optionSelection(String[] textArray) {
 		StdOut.println("Select option:");
-		for (int i = 0; i < optionText.length; i++) {
+		for (int i = 0; i < textArray.length; i++) {
 			int j = i + 1;
-			StdOut.println("\t" + j + ": " + optionText[i] );
+			StdOut.println("\t" + j + ": " + textArray[i] );
 		}
 		StdOut.println();
 		StdOut.print("Option Selected: ");
+	}
+	
+	public static int optionSelectionChoose() {
 		int optionSelected = getPlayerChoiceInput();
 		StdOut.println();
 		return optionSelected;

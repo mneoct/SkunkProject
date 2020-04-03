@@ -2,7 +2,6 @@ import edu.princeton.cs.introcs.StdOut;
 
 public class SkunkTurnAction {
 	
-
 	// A Player's Turn: Select option, see result, continue to play until player ends turn or gets skunk.
 	// TODO: break into smaller bits... ?? 
 	public static void playerTurn(SkunkPlayer inputPlayer, SkunkPlayer[] playersArrayRound){
@@ -12,7 +11,8 @@ public class SkunkTurnAction {
 		
 		while(true){
 			StdOut.println();
-			int enteredOption = SkunkTurnMenuSelection.numericOptionSelection();
+			SkunkTurnMenuSelection.optionSelection(SkunkTurnMenuSelection.getOptionText());
+			int enteredOption = SkunkTurnMenuSelection.optionSelectionChoose();
 			
 			if (enteredOption == 1) {
 				SkunkTurnMain.displayRoundDiceTotal();
@@ -27,12 +27,12 @@ public class SkunkTurnAction {
 				if (SkunkTurnRollDice.getIsSkunk()){
 					break;
 				}
-				
 			}
 			else if (enteredOption == 6) {
-				endTurn(inputPlayer);
+				SkunkTurnChooseEnd.endTurn(inputPlayer);
 				break;
 			}
+			
 			else {
 				StdOut.println("Invalid input.");
 				StdOut.println("Please select a valid option...");
@@ -44,27 +44,20 @@ public class SkunkTurnAction {
 		endOfTurnEvaluation(inputPlayer, chipsBefore);
 	}
 	
-
-	// Option 6: Player ends turn, so they get their round's points.
-		private static void endTurn(SkunkPlayer inputPlayer) {
-			StdOut.println("\t" + inputPlayer.getName() + " has chosen to end their turn...");
-			inputPlayer.setPlayerDiceTotal(SkunkTurnMain.getRoundDiceTotal()); 
-		}
-
-	// End of Player's Turn Evaluation.
-		private static void endOfTurnEvaluation(SkunkPlayer ParInputPlayer, int chipsBeforeInput) {
-			StdOut.println("\tPlayer: " + ParInputPlayer.getName());
-			int i = 0;
-			if (SkunkTurnDiceRollsArray.roundRollResult[0] != null) {
-				for (SkunkTurnDiceRollsArray printResults : SkunkTurnDiceRollsArray.roundRollResult) {
-					i++;
-					StdOut.println("\tRoll " + i + ": [Dice 1: " + printResults.getDice1Result() 
-					+ "], [Dice 2: " + printResults.getDice2Result() 
-					+ "], [Dice Total: " + printResults.getDiceTotalResult() + "]");
-				}
+// End of Player's Turn Evaluation.
+	private static void endOfTurnEvaluation(SkunkPlayer ParInputPlayer, int chipsBeforeInput) {
+		int i = 0;
+		StdOut.println("\tPlayer: " + ParInputPlayer.getName());
+		if (SkunkTurnDiceRollsArray.roundRollResult[0] != null) {
+			for (SkunkTurnDiceRollsArray printResults : SkunkTurnDiceRollsArray.roundRollResult) {
+				i++;
+				StdOut.println("\tRoll " + i + ": [Dice 1: " + printResults.getDice1Result() 
+				+ "], [Dice 2: " + printResults.getDice2Result() 
+				+ "], [Dice Total: " + printResults.getDiceTotalResult() + "]");
 			}
-			StdOut.println("\tPoints Earned: " + SkunkTurnMain.getRoundDiceTotal());
-			int chipsLost = chipsBeforeInput - ParInputPlayer.getPlayerChipsTotal();
-			StdOut.println("\tChips Lost: " + chipsLost);
 		}
+		StdOut.println("\tPoints Earned: " + SkunkTurnMain.getRoundDiceTotal());
+		int chipsLost = chipsBeforeInput - ParInputPlayer.getPlayerChipsTotal();
+		StdOut.println("\tChips Lost: " + chipsLost);
+	}
 }

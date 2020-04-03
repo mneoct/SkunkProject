@@ -31,10 +31,10 @@ public class SkunkTurnRollDice {
 			SkunkTurnPenaltyEvents.singleSkunk(player);
 		} else {
 			SkunkTurnMain.setRoundDiceTotal(diceTotal);
+			int personalTotalIfQuitNow = player.getPlayerDiceTotal() + SkunkTurnMain.getRoundDiceTotal();
 			StdOut.println("\tPoints in Current Turn: " + SkunkTurnMain.getRoundDiceTotal());
 			StdOut.println("");
 			StdOut.println("\t" + player.getName() + " has " + player.getPlayerDiceTotal() + " points.");
-			int personalTotalIfQuitNow = player.getPlayerDiceTotal() + SkunkTurnMain.getRoundDiceTotal();
 			StdOut.println("\tIf " + player.getName() + " ends their turn now, they will have " + personalTotalIfQuitNow + " points.");
 		}
 	}
