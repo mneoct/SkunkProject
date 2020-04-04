@@ -3,7 +3,7 @@ import java.util.Random;
 import edu.princeton.cs.introcs.StdOut;
 
 public class SkunkGame {
-	private final static int OVERFLOW_SCORE = SkunkMain.getOverflowScore();
+	private static final int OVERFLOW_SCORE = 30; // = 100, set lower to test games faster...
 	
 //TODO: Break into smaller bits..	
 	protected static void playGame(SkunkPlayer[] playersArrayGame) { 	// break into smaller bits...
@@ -48,7 +48,8 @@ public class SkunkGame {
 		Random rand = new Random(); 
 		return rand.nextInt(lengthOfArray); 
 	}
-	
+
+
 //TODO: Break into smaller bits...	
 	private static int lastStretch(SkunkPlayer[] playersLastStretch, int currentGoal, int incomingHillKingIndex){
 		int goalToReach = currentGoal;
@@ -87,7 +88,8 @@ public class SkunkGame {
 		}
 		return indexCurrentKingHill;
 	}
-	
+
+// Move to own classes
 	private static void tabulateWinnings(SkunkPlayer[] playersLastStretch, int indexOfWinner){
 		int currentlyEvaluating = indexOfWinner + 1;
 		StdOut.println();
@@ -137,7 +139,9 @@ public class SkunkGame {
 		playerEvaluated.setPlayerChipsTotal(-plunderedChips);
 		SkunkKitty.setKitty(plunderedChips);
 	}
-	
+
+// Given current index of an array being looped through, and the length of the array,
+	// this resets the index to 0 if index >= length (i.e. attempts to avoid indexoutofbounds).
 	private static int resetIndexOfLoopsArray(int arrayCurrentIndex, int arrayLength) {
 		if (arrayCurrentIndex >= arrayLength) {
 			arrayCurrentIndex = 0;
@@ -146,9 +150,13 @@ public class SkunkGame {
 	}
 	
 	private static void printRandomQuotes(SkunkPlayer playerRefText) {
+		String playerName = playerRefText.getName();
 		String [] arr = {
-        	"Fortune favors the bold. Are you bold, " + playerRefText.getName() + "?",
-        	"I wonder what will " + playerRefText.getName() + " do?"};
+        	"Fortune favors the bold. Are you bold, " +playerName + "?",
+        	"I wonder what will " + playerName + " do?",
+        	"Fortune be with you, " + playerName + "..."
+        };
+		
         Random random = new Random();
         int select = random.nextInt(arr.length); 
         System.out.println(arr[select]); 
