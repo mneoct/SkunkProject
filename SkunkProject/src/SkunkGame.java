@@ -49,7 +49,6 @@ public class SkunkGame {
 		return rand.nextInt(lengthOfArray); 
 	}
 
-
 //TODO: Break into smaller bits...	
 	private static int lastStretch(SkunkPlayer[] playersLastStretch, int currentGoal, int incomingHillKingIndex){
 		int goalToReach = currentGoal;
