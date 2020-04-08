@@ -3,7 +3,7 @@ public class SkunkPlayer {
 	
 	private String name;
 	private int playerGameScoreDiceTotal = 0; 
-	private int playerChipTotal = 10; 
+	private int playerChipTotal = 0; 
 	
 	//constructor
 	public SkunkPlayer(String inputName)	{

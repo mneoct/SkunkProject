@@ -56,7 +56,7 @@ public class SkunkMain { // main program
 		userInterface.println("");
 		SkunkPlayerManagement.playersArray = SPMAddPlayer.addPlayers();
 		userInterface.println("");
-		// SkunkPlayerManagement.distributeChips();
+		SkunkPlayerManagement.distributeChips();
 
 		skunkTournament();
 		
