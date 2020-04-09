@@ -14,7 +14,7 @@ public class SkunkPlayer {
 	public String getName() {
         return this.name;
     }
-	public void setName(String inputName) {
+	private void setName(String inputName) {
         this.name = inputName;
     }
     

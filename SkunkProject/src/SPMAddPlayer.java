@@ -46,7 +46,7 @@ public class SPMAddPlayer {
 		return internalPlayersArray;
 	}
 	
-	private static SkunkPlayer[] addPlayerToArrayMain(SkunkPlayer[] playersArray, String newName) {
+	static SkunkPlayer[] addPlayerToArrayMain(SkunkPlayer[] playersArray, String newName) {
 		SkunkPlayer[] newArray = playersArray;
 		if (newArray == null) {
 			newArray = new SkunkPlayer[1];

@@ -1,10 +1,15 @@
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class SkunkPlayerManagementTest {
+	@BeforeClass
+	public static void executeFirst() {
+		SkunkPlayerManagement.playersArray = SPMAddPlayer.addPlayers();
+	}
+	
 	@Test
 	public void testDistributionOfChips() {
 		// checks that chips are distributed, kind of.
-		SkunkPlayerManagement.playersArray = SPMAddPlayer.addPlayers();
 		SkunkPlayerManagement.distributeChips();
 		int chipsTotal = 0;
 		for (SkunkPlayer player : SkunkPlayerManagement.playersArray) {
@@ -16,7 +21,6 @@ public class SkunkPlayerManagementTest {
 	@Test
 	public void testResetDice() {
 		// Checks that the dice total of players can be set, then reset
-		SkunkPlayerManagement.playersArray = SPMAddPlayer.addPlayers();
 		for (SkunkPlayer player : SkunkPlayerManagement.playersArray) {
 			player.setPlayerDiceTotal(200);
 			assert (player.getPlayerDiceTotal() == 200);
@@ -25,5 +29,15 @@ public class SkunkPlayerManagementTest {
 			player.resetDice();
 			assert (player.getPlayerDiceTotal() == 0);
 		}
+	}
+	
+	@Test
+	public void testSkunk() {
+		SkunkKitty.setKitty(100);
+		assert (SkunkKitty.getKitty() == 100);
+		SkunkKitty.setKitty(-50);
+		assert (SkunkKitty.getKitty() == 50);
+		SkunkKitty.resetKitty();
+		assert (SkunkKitty.getKitty() == 0);
 	}
 }

@@ -3,3 +3,14 @@
 /SkunkTurnChooseEnd.class
 /SkunkTournament.class
 /SkunkPlayerManagementTest.class
+/SPMAddPlayer.class
+/SPMRemovePlayer.class
+/SkunkMain.class
+/SkunkTurnAction.class
+/SkunkTurnDiceRollsArray.class
+/SkunkTurnMain.class
+/SkunkTurnPenaltyEvents.class
+/SkunkUI.class
+/UI.class
+/SkunkTurnTest.class
+/TabulateWinnings.class
