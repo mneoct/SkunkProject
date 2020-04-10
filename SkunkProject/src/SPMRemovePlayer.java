@@ -10,13 +10,11 @@ public class SPMRemovePlayer {
 			for (int i = 0; i < passedPlayersArray.length + 1; i++) {
 				if (i >= passedPlayersArray.length) {
 					StdOut.println("Done.");
-					StdOut.println();
 					break outerloop;
 				}
 				if (passedPlayersArray[i].getPlayerChipsTotal() <= 0) {
 					StdOut.println("Removing " + passedPlayersArray[i].getName());
-					passedPlayersArray = removePlayerFromArray(passedPlayersArray, passedPlayersArray.length, i);			
-					StdOut.println();
+					passedPlayersArray = removePlayerFromArray(passedPlayersArray, i);			
 					break innerloop;
 				}
 			}
@@ -25,10 +23,11 @@ public class SPMRemovePlayer {
 		return passedPlayersArray;
 	}
 	
-	private static SkunkPlayer[] removePlayerFromArray(SkunkPlayer[] passedPlayersArray, int currentPlayersCount, int playerRemovedIndex){
+	private static SkunkPlayer[] removePlayerFromArray(SkunkPlayer[] passedPlayersArray, int playerRemovedIndex){
 	    int j = 0;
-	    SkunkPlayer newSkunkArray[] = new SkunkPlayer[currentPlayersCount - 1]; 
-	    for (int i = 0; i < currentPlayersCount; i++)
+	    int playerCount = passedPlayersArray.length;
+	    SkunkPlayer[] newSkunkArray = new SkunkPlayer[playerCount - 1]; 
+	    for (int i = 0; i < playerCount; i++)
 	    	if (i != playerRemovedIndex) {
 	    		newSkunkArray[j] = passedPlayersArray[i]; 
 	    		j++;

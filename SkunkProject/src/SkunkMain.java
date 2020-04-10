@@ -27,14 +27,19 @@ public class SkunkMain { // main program
 			SkunkPlayerManagement.playersArray = SPMRemovePlayer.removePlayers(SkunkPlayerManagement.playersArray);
 			SkunkPlayerManagement.displayChipsAll(SkunkPlayerManagement.playersArray);
 			
-			boolean continueTournament = skunkEndTournament(SkunkPlayerManagement.playersArray);
+			boolean continueTournament = skunkCheckEndTournament(SkunkPlayerManagement.playersArray);
 			if (continueTournament) {
 				break;
 			}
 		}
 	}
 	
-	public boolean skunkEndTournament(SkunkPlayer[] arrayPlayers) {
+	public boolean skunkCheckEndTournament(SkunkPlayer[] arrayPlayers) {
+		if (arrayPlayers.length == 1) {
+			userInterface.println("We have a grand champion!");
+			return true;
+		} 
+		
 		String endTournamentPrompt = "Type 'end' to end the tournament, else it will continue";
 		String tournamentContinueChoice = userInterface.promptReadAndReturn(endTournamentPrompt);
 		
@@ -42,10 +47,7 @@ public class SkunkMain { // main program
 			userInterface.println("Understood. Tournament is shutting down...");
 			return true;
 		}
-		else if (arrayPlayers.length == 1) {
-			userInterface.println("We have a grand champion!");
-			return true;
-		} else {
+		else {
 			return false;
 		}
 	}
