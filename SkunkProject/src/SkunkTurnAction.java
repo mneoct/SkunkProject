@@ -11,7 +11,7 @@ public class SkunkTurnAction {
 		
 		while(true){
 			StdOut.println();
-			SkunkTurnMenuSelection.optionSelection(SkunkTurnMenuSelection.getOptionText());
+			SkunkTurnMenuSelection.optionSelectionTextSkunk();
 			int enteredOption = SkunkTurnMenuSelection.optionSelectionChoose();
 			
 			if (enteredOption == 1) {

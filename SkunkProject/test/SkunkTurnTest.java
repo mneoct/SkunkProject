@@ -20,5 +20,21 @@ public class SkunkTurnTest {
 		
 		SkunkTurnMain.resetRoundDiceTotal();
 		assert (SkunkTurnMain.getRoundDiceTotal() == 0);
-	}	
+	}
+	
+	public boolean testNumberLoop(int[] arrayPossibleInt, int testedInt) {
+		for (int x: arrayPossibleInt) {
+			if (testedInt == x)
+					return true;
+		}
+		return false;
+	}
+	
+	@Test
+	public void testSelectionChoice() {
+		SkunkTurnMenuSelection.optionSelectionTextSkunk();
+		int choice = SkunkTurnMenuSelection.optionSelectionChoose();
+		int[] choicePossible = {1,2,3,4,5,6,999};
+		assert(testNumberLoop(choicePossible, choice));
+	}
 }

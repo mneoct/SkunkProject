@@ -19,7 +19,7 @@ public class SkunkTurnMenuSelection {
 		return optionText;
 	}
 	
-	public static void optionSelection(String[] textArray) {
+	private static void optionSelectionText(String[] textArray) {
 		StdOut.println("Select option:");
 		for (int i = 0; i < textArray.length; i++) {
 			int j = i + 1;
@@ -28,6 +28,10 @@ public class SkunkTurnMenuSelection {
 		StdOut.println();
 		StdOut.print("Option Selected: ");
 	}
+	
+	public static void optionSelectionTextSkunk() {
+		optionSelectionText(optionText);
+	} 
 	
 	public static int optionSelectionChoose() {
 		int optionSelected = getPlayerChoiceInput();
@@ -41,7 +45,7 @@ public class SkunkTurnMenuSelection {
 	}
 	
 	// https://mkyong.com/java/java-how-to-check-if-a-string-is-numeric/ -- 2nd code. modified to use ? :
-	public static boolean isNumeric(final String str) {
+	private static boolean isNumeric(final String str) {
         return (str == null || str.length() == 0) ? false : str.chars().allMatch(Character::isDigit);
     }
 }
