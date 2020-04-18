@@ -19,9 +19,7 @@ public class SkunkTurnRollDice {
 
 // Imposes result of dice: add to running total, or penalizes for skunk.
 	private static void rollEvaluation(SkunkPlayer player, int dice1, int dice2, int diceTotal) {
-		StdOut.println("\tPlayer: " + player.getName());
-		StdOut.println("\tRolled: " + dice1 + " and " + dice2 + ", for a total of " + diceTotal);
-		StdOut.println("");
+		rollEvaluationStartTextHelper(player,dice1,dice2,diceTotal);
 		
 		if (dice1 == 1 && dice2 == 1) {
 			SkunkTurnPenaltyEvents.doubleSkunk(player);
@@ -32,10 +30,20 @@ public class SkunkTurnRollDice {
 		} else {
 			SkunkTurnMain.setRoundDiceTotal(diceTotal);
 			int personalTotalIfQuitNow = player.getPlayerDiceTotal() + SkunkTurnMain.getRoundDiceTotal();
-			StdOut.println("\tPoints in Current Turn: " + SkunkTurnMain.getRoundDiceTotal());
-			StdOut.println("");
-			StdOut.println("\t" + player.getName() + " has " + player.getPlayerDiceTotal() + " points.");
-			StdOut.println("\tIf " + player.getName() + " ends their turn now, they will have " + personalTotalIfQuitNow + " points.");
+			rollEvaluationGoodRollTextHelper(player, personalTotalIfQuitNow);
 		}
+	}
+	
+	private static void rollEvaluationStartTextHelper (SkunkPlayer player, int dice1, int dice2, int diceTotal){
+		StdOut.println("\tPlayer: " + player.getName());
+		StdOut.println("\tRolled: " + dice1 + " and " + dice2 + ", for a total of " + diceTotal);
+		StdOut.println("");
+	}
+	
+	private static void rollEvaluationGoodRollTextHelper(SkunkPlayer player, int ifStopDicePoints){
+		StdOut.println("\tPoints in Current Turn: " + SkunkTurnMain.getRoundDiceTotal());
+		StdOut.println("");
+		StdOut.println("\t" + player.getName() + " has " + player.getPlayerDiceTotal() + " points.");
+		StdOut.println("\tIf " + player.getName() + " ends their turn now, they will have " + ifStopDicePoints + " points.");
 	}
 }

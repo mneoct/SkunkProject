@@ -1,11 +1,9 @@
-import java.util.Scanner;
-
+import edu.princeton.cs.introcs.StdIn;
 import edu.princeton.cs.introcs.StdOut;
 
 public class SkunkTurnMenuSelection {
 	// Selection menu: takes numeric user input; returning 999 renders the result invalid.
 	//TODO: Maybe break into smaller bits?
-	private static Scanner playersChoice = new Scanner(System.in);
 	
 	private static String option1 = "View current round's dice total";
 	private static String option2 = "View all players' dice points";
@@ -40,12 +38,9 @@ public class SkunkTurnMenuSelection {
 	}
 
 	private static int getPlayerChoiceInput() {
-		String inputOption = playersChoice.nextLine();
-		return (isNumeric(inputOption)) ? Integer.parseInt(inputOption) : 999;
+		String inputOption = StdIn.readLine();
+		return (UtilityMethods.isNumeric(inputOption)) ? Integer.parseInt(inputOption) : 999;
 	}
 	
-	// https://mkyong.com/java/java-how-to-check-if-a-string-is-numeric/ -- 2nd code. modified to use ? :
-	private static boolean isNumeric(final String str) {
-        return (str == null || str.length() == 0) ? false : str.chars().allMatch(Character::isDigit);
-    }
+
 }

@@ -1,9 +1,7 @@
-import java.util.Scanner;
-
+import edu.princeton.cs.introcs.StdIn;
 import edu.princeton.cs.introcs.StdOut;
 
 public class SPMAddPlayer {
-	public static Scanner playerNameInput = new Scanner(System.in);
 	private static final int MAX_PLAYERS = 8;
 	
 	// Alternative: ask how many players first so internalPlayersArray is initialized
@@ -14,7 +12,7 @@ public class SPMAddPlayer {
 			StdOut.println("Adding New Player...");
 			StdOut.println("Enter ... to continue without adding");
 			StdOut.print("Enter the new player's name:");
-			String userName = playerNameInput.nextLine();
+			String userName = StdIn.readLine();
 			StdOut.println();
 			
 			if (userName.equals("...")) {

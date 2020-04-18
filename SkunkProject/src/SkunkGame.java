@@ -30,7 +30,7 @@ public class SkunkGame {
 			}
 			else {
 				currentPlayerIndex += 1;
-				currentPlayerIndex = resetIndexOfLoopsArray(currentPlayerIndex, playersArrayGame.length);
+				currentPlayerIndex = UtilityMethods.resetIndexOfLoopsArray(currentPlayerIndex, playersArrayGame.length);
 			}
 			
 			StdOut.println("Next player's turn...");
@@ -62,7 +62,7 @@ public class SkunkGame {
 		
 		while (indexPlayerRolling != incomingHillKingIndex+0) {
 			
-			indexPlayerRolling = resetIndexOfLoopsArray(indexPlayerRolling, playersLastStretch.length);
+			indexPlayerRolling = UtilityMethods.resetIndexOfLoopsArray(indexPlayerRolling, playersLastStretch.length);
 			SkunkTurnMain.resetRoundDiceTotal();
 			SkunkPlayer playerPlaying = playersLastStretch[indexPlayerRolling];
 			String playerPlayingName = playerPlaying.getName();
@@ -83,19 +83,10 @@ public class SkunkGame {
 			}
 			
 			indexPlayerRolling += 1;
-			indexPlayerRolling = resetIndexOfLoopsArray(indexPlayerRolling, playersLastStretch.length);
+			indexPlayerRolling = UtilityMethods.resetIndexOfLoopsArray(indexPlayerRolling, playersLastStretch.length);
 			
 		}
 		return indexCurrentKingHill;
-	}
-
-// Given current index of an array being looped through, and the length of the array,
-	// this resets the index to 0 if index >= length (i.e. attempts to avoid indexoutofbounds).
-	public static int resetIndexOfLoopsArray(int arrayCurrentIndex, int arrayLength) {
-		if (arrayCurrentIndex >= arrayLength) {
-			arrayCurrentIndex = 0;
-		}
-		return arrayCurrentIndex;
 	}
 	
 	private static void printRandomQuotes(SkunkPlayer playerRefText) {

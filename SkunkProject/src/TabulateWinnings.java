@@ -7,7 +7,7 @@ public class TabulateWinnings {
 		StdOut.println();
 
 		while (currentlyEvaluating != indexOfWinner){
-			currentlyEvaluating = SkunkGame.resetIndexOfLoopsArray(currentlyEvaluating, playersLastStretch.length);
+			currentlyEvaluating = UtilityMethods.resetIndexOfLoopsArray(currentlyEvaluating, playersLastStretch.length);
 			
 			SkunkPlayer playerBeingEvaluated = playersLastStretch[currentlyEvaluating];
 			String PlayerName = playerBeingEvaluated.getName();
@@ -19,7 +19,7 @@ public class TabulateWinnings {
 			
 			plunderingDefeated(playerBeingEvaluated);
 			currentlyEvaluating += 1;
-			currentlyEvaluating = SkunkGame.resetIndexOfLoopsArray(currentlyEvaluating, playersLastStretch.length);
+			currentlyEvaluating = UtilityMethods.resetIndexOfLoopsArray(currentlyEvaluating, playersLastStretch.length);
 		}
 		
 		int kittyChips = SkunkKitty.getKitty();
