@@ -102,11 +102,11 @@ public class SkunkGame {
         System.out.println(arr[select]); 
 	}
 
-	public static void main(String[] args){
-		SkunkPlayerManagement.playersArray = SPMAddPlayer.addPlayers();
-		SkunkGame.playGame(SkunkPlayerManagement.playersArray);
-		SkunkPlayerManagement.playersArray = SPMRemovePlayer.removePlayers(SkunkPlayerManagement.playersArray);
-		StdOut.println("Final Report...");
-		SkunkPlayerManagement.displayChipsAll(SkunkPlayerManagement.playersArray);
-	}
+//	public static void main(String[] args){
+//		SkunkPlayerManagement.playersArray = SPMAddPlayer.addPlayers();
+//		SkunkGame.playGame(SkunkPlayerManagement.playersArray);
+//		SkunkPlayerManagement.playersArray = SPMRemovePlayer.removePlayers(SkunkPlayerManagement.playersArray);
+//		StdOut.println("Final Report...");
+//		SkunkPlayerManagement.displayChipsAll(SkunkPlayerManagement.playersArray);
+//	}
 }

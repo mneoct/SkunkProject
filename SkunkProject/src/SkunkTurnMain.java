@@ -20,9 +20,9 @@ public class SkunkTurnMain{
 		StdOut.println("\tCurrent Dice Total: " + SkunkTurnMain.getRoundDiceTotal());
 	}
 	
-	public static void main(String[] args){
-		SkunkPlayer[] testPlayerArray = new SkunkPlayer[1];
-		testPlayerArray[0] = new SkunkPlayer("Test Player");
-		SkunkTurnAction.playerTurn(testPlayerArray[0], testPlayerArray);
-	}
+//	public static void main(String[] args){
+//		SkunkPlayer[] testPlayerArray = new SkunkPlayer[1];
+//		testPlayerArray[0] = new SkunkPlayer("Test Player");
+//		SkunkTurnAction.playerTurn(testPlayerArray[0], testPlayerArray);
+//	}
 }

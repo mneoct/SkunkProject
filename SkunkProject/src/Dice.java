@@ -1,5 +1,3 @@
-import edu.princeton.cs.introcs.*;
-
 /**
  * Dice represents a single pair of rollable Die objects, randomly generating
  * sums of their two values
@@ -50,6 +48,7 @@ public class Dice
 		this.lastRoll = die1.getLastRoll() + die2.getLastRoll();
 	}
 
+	@Override
 	public String toString()
 	{
 		return "Dice with last roll: " + getLastRoll() + " => " + die1.getLastRoll() + " + " + die2.getLastRoll();
@@ -69,23 +68,23 @@ public class Dice
 		return returnDiceResults;
 	}
 	
-	public static void main(String[] args)
-	{
-		// simulate repeated rolls of Dice, counting the many double skunks
-		
-		Dice dice = new Dice();
-		int doubleSkunkCount = 0;
-
-		for (int i = 0; i < NUM_TRIALS; i++)
-		{
-			dice.roll();
-			StdOut.println(dice);
-
-			if (dice.getLastRoll() == 2)
-				doubleSkunkCount++;
-		}
-
-		StdOut.println("Actual count: " + doubleSkunkCount);
-		StdOut.println("Expected count: " + (NUM_TRIALS / 36.0));
-	}
+//	public static void main(String[] args)
+//	{
+//		// simulate repeated rolls of Dice, counting the many double skunks
+//		
+//		Dice dice = new Dice();
+//		int doubleSkunkCount = 0;
+//
+//		for (int i = 0; i < NUM_TRIALS; i++)
+//		{
+//			dice.roll();
+//			StdOut.println(dice);
+//
+//			if (dice.getLastRoll() == 2)
+//				doubleSkunkCount++;
+//		}
+//
+//		StdOut.println("Actual count: " + doubleSkunkCount);
+//		StdOut.println("Expected count: " + (NUM_TRIALS / 36.0));
+//	}
 }

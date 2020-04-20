@@ -16,7 +16,7 @@ public class SkunkMain { // main program
 	}
 	
 	//TODO: Check: should be own class? Anyway to further break down?
-	public void skunkTournament() {
+	void skunkTournament() {
 		while (true) {
 			userInterface.println("New Game has been started...");
 			userInterface.println("Resetting Individual Dice Totals and Kitty to 0");
@@ -34,7 +34,7 @@ public class SkunkMain { // main program
 		}
 	}
 	
-	public boolean skunkCheckEndTournament(SkunkPlayer[] arrayPlayers) {
+	boolean skunkCheckEndTournament(SkunkPlayer[] arrayPlayers) {
 		if (arrayPlayers.length == 1) {
 			userInterface.println("We have a grand champion!");
 			return true;
@@ -52,7 +52,7 @@ public class SkunkMain { // main program
 		}
 	}
 	
-	public void run(){	
+	void run(){	
 		userInterface.println("Tournament has began...");
 		userInterface.println("Now registering players...");
 		userInterface.println("");
@@ -66,9 +66,5 @@ public class SkunkMain { // main program
 		SkunkPlayerManagement.displayChipsAll(SkunkPlayerManagement.playersArray);
 
 		userInterface.println("Tournament has ended...");
-	}
-	
-	public static void main(String[] args){	
-//
 	}
 }

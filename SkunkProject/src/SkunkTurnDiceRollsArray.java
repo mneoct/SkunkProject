@@ -12,6 +12,7 @@ public class SkunkTurnDiceRollsArray {
 	}
 	
 	static SkunkTurnDiceRollsArray[] roundRollResult = new SkunkTurnDiceRollsArray[1];
+	
 	static void resetRoundRollResult() {
 		roundRollResult =  new SkunkTurnDiceRollsArray[1]; 
 	}
@@ -22,19 +23,14 @@ public class SkunkTurnDiceRollsArray {
     public void setDice1Result(int num) {
         this.dice1 = num;
     }
-	public void resetDice1() {
-        this.dice1 = 0;
-	}
-	
+
 	public int getDice2Result() {
         return this.dice2;
     }
     public void setDice2Result(int num) {
         this.dice2 = num;
     }
-	public void resetDice2() {
-        this.dice2 = 0;
-	}
+
 	
 	public int getDiceTotalResult() {
         return this.total_result;
@@ -42,10 +38,7 @@ public class SkunkTurnDiceRollsArray {
     public void setDiceTotalResult(int num) {
         this.total_result = num;
     }
-	public void resetDiceTotal() {
-        this.total_result = 0;
-	}
-	
+
 // takes dice 1, dice 2, and total dice roll result, and add to the array roundRollResult
 	public static void addToRoundRollResult(int d1, int d2, int dt) {
 		SkunkTurnDiceRollsArray newRolledResults = new SkunkTurnDiceRollsArray();
@@ -69,8 +62,9 @@ public class SkunkTurnDiceRollsArray {
 	    }
 	    else {
 		    SkunkTurnDiceRollsArray[] roundRollResultInternal = new SkunkTurnDiceRollsArray[currentSizeOfResultsArray + 1]; 
-		    for (i = 0; i < currentSizeOfResultsArray; i++) 
-		    	roundRollResultInternal[i] = arrayOfCurrentTurnDiceRolls[i]; 
+		    for (i = 0; i < currentSizeOfResultsArray; i++) {
+				roundRollResultInternal[i] = arrayOfCurrentTurnDiceRolls[i];
+			} 
 		    roundRollResultInternal[currentSizeOfResultsArray] = newResult; 
 		    return roundRollResultInternal; 
 	    }

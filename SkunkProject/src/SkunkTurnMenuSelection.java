@@ -13,9 +13,9 @@ public class SkunkTurnMenuSelection {
 	private static String option6 = "End round";
 	private static final String[] optionText = {option1, option2, option3, option4, option5, option6};
 	
-	public static String[] getOptionText() {
-		return optionText;
-	}
+//	public static String[] getOptionText() {
+//		return optionText;
+//	}
 	
 	private static void optionSelectionText(String[] textArray) {
 		StdOut.println("Select option:");
