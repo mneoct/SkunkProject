@@ -57,7 +57,7 @@ public class SkunkGame {
 			SkunkPlayerManagement.displayDiceAll(playersArrayGame);
 			StdOut.println();
 			
-			internalCurrentlyPlaying = playersArrayGame[currentPlayerIndex];
+			internalCurrentlyPlaying = playersArrayGame[internalCurrentPlayerIndex];
 			playATurn(internalCurrentlyPlaying, playersArrayGame);
 
 			final boolean overFlowCheckBreak = overflowOrNextPlayer(internalCurrentlyPlaying);
