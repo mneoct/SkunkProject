@@ -1,5 +1,7 @@
 import org.junit.Test;
 
+import skunk.Die;
+
 public class TestDie {
 	@Test
 	public void testDieNoZero() {

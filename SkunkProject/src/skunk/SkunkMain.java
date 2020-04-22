@@ -1,3 +1,4 @@
+package skunk;
 // TODO:
 // Should negative chips (debt) be allowed??? 
 // allow removal of players at beginning (i.e. undo adding players...)

@@ -1,3 +1,4 @@
+package skunk;
 // Keeps track of all rolls in a turn
 
 public class SkunkTurnDiceRollsArray {
@@ -20,14 +21,14 @@ public class SkunkTurnDiceRollsArray {
 	public int getDice1Result() {
         return this.dice1;
     }
-    public void setDice1Result(int num) {
+    public final void setDice1Result(final int num) {
         this.dice1 = num;
     }
 
 	public int getDice2Result() {
         return this.dice2;
     }
-    public void setDice2Result(int num) {
+    public final void setDice2Result(int num) {
         this.dice2 = num;
     }
 
@@ -35,7 +36,7 @@ public class SkunkTurnDiceRollsArray {
 	public int getDiceTotalResult() {
         return this.total_result;
     }
-    public void setDiceTotalResult(int num) {
+    public final void setDiceTotalResult(int num) {
         this.total_result = num;
     }
 

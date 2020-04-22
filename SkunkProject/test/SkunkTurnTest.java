@@ -1,6 +1,11 @@
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import skunk.SPMAddPlayer;
+import skunk.SkunkPlayer;
+import skunk.SkunkTurnMain;
+import skunk.SkunkTurnMenuSelection;
+
 public class SkunkTurnTest {
 	@BeforeClass
 	public static void executeFirst() {

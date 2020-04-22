@@ -1,6 +1,11 @@
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import skunk.SPMAddPlayer;
+import skunk.SkunkKitty;
+import skunk.SkunkPlayer;
+import skunk.SkunkPlayerManagement;
+
 public class SkunkPlayerManagementTest {
 	@BeforeClass
 	public static void executeFirst() {

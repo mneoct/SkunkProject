@@ -1,3 +1,4 @@
+package skunk;
 import java.util.Random;
 
 import edu.princeton.cs.introcs.StdOut;
@@ -99,7 +100,7 @@ public class SkunkGame {
 		
         Random random = new Random();
         int select = random.nextInt(arr.length); 
-        System.out.println(arr[select]); 
+       StdOut.println(arr[select]); 
 	}
 
 //	public static void main(String[] args){

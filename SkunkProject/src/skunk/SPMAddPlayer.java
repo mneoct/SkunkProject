@@ -1,3 +1,4 @@
+package skunk;
 import edu.princeton.cs.introcs.StdIn;
 import edu.princeton.cs.introcs.StdOut;
 
@@ -44,7 +45,7 @@ public class SPMAddPlayer {
 		return internalPlayersArray;
 	}
 	
-	static SkunkPlayer[] addPlayerToArrayMain(SkunkPlayer[] playersArray, String newName) {
+	public static SkunkPlayer[] addPlayerToArrayMain(SkunkPlayer[] playersArray, String newName) {
 		SkunkPlayer[] newArray = playersArray;
 		if (newArray == null) {
 			newArray = new SkunkPlayer[1];

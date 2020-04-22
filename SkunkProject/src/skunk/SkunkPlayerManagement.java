@@ -1,3 +1,4 @@
+package skunk;
 import edu.princeton.cs.introcs.StdOut;
 
 //TODO: Probably can be broken down

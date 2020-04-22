@@ -1,3 +1,4 @@
+package skunk;
 /**
 *
 * The Main program for our Skunk.

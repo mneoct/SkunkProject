@@ -1,3 +1,4 @@
+package skunk;
 /**
  * Dice represents a single pair of rollable Die objects, randomly generating
  * sums of their two values
@@ -41,7 +42,7 @@ public class Dice
 		return this.lastRoll;
 	}
 
-	public void roll()
+	public final void roll()
 	{
 		die1.roll();
 		die2.roll();

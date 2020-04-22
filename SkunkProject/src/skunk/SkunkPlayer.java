@@ -1,3 +1,4 @@
+package skunk;
 //TODO: None -- should be fine
 public class SkunkPlayer {
 	
