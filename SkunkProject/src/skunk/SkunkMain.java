@@ -7,10 +7,10 @@ package skunk;
 // Adjust output: More separators, less verbose but informative.
 
 public class SkunkMain { // main program
-	public SkunkUI skunkUI;
-	public UI userInterface;
+	public transient SkunkUI skunkUI;
+	public transient UI userInterface;
 
-	public SkunkMain(SkunkUI ui)
+	public SkunkMain(final SkunkUI ui)
 	{
 		this.skunkUI = ui;
 		this.userInterface = ui; // hide behind the interface UI

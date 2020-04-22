@@ -4,7 +4,7 @@ import edu.princeton.cs.introcs.StdOut;
 //TODO: Probably can be broken down
 public class SkunkPlayerManagement {	
 	public static SkunkPlayer[] playersArray;
-	private final static int TOTAL_CHIPS = 90; // = 400, set lower for test games faster...
+	private final static int TOTAL_CHIPS = 60; // = 400, set lower for test games faster...
 
 	public static void distributeChips() {
 		StdOut.println("Distribution of chips to players initiated...");

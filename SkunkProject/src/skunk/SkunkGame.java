@@ -4,77 +4,90 @@ import java.util.Random;
 import edu.princeton.cs.introcs.StdOut;
 
 public class SkunkGame {
-	private static final int OVERFLOW_SCORE = 30; // = 100, set lower to test games faster...
+	private static final int OVERFLOW_SCORE = 20; // = 100, set lower to test games faster...
 	
-//TODO: Break into smaller bits..	
-	protected static void playGame(SkunkPlayer[] playersArrayGame) { 	// break into smaller bits...
-		SkunkPlayer currentlyPlaying; 		
-		int currentPlayerIndex = randomStartPlayer(playersArrayGame.length);
+	protected static void playGame(final SkunkPlayer[] playersArrayGame) { 	// break into smaller bits...
+		final int startingPlayerIndex = randomStartPlayer(playersArrayGame.length);
+		final SkunkPlayer startingPlayer = playersArrayGame[startingPlayerIndex];
+		
 		SkunkKitty.resetKitty();
 		SkunkPlayerManagement.resetAllPlayersDice();
 		
+		final int indexTopPlayer = actualPlay(playersArrayGame, startingPlayer, startingPlayerIndex);
+		final SkunkPlayer topPlayer = playersArrayGame[indexTopPlayer];
+		
+		StdOut.println("Entering last stretch of current game...");
+		
+		final int topPlayerDiceTotal = topPlayer.getPlayerDiceTotal();
+		final int winnerOfGameIndex = lastStretch(playersArrayGame, topPlayerDiceTotal, indexTopPlayer);
+		final SkunkPlayer winningPlayer = playersArrayGame[winnerOfGameIndex];
+		final String winnerPlayerName = winningPlayer.getName(); // violates LoD, but why?
+		
+		StdOut.println(winnerPlayerName + " is the winner of this game...");
+		TabulateWinnings.tabulateWinnings(playersArrayGame, winnerOfGameIndex);
+	}
+	
+	public static boolean overflowOrNextPlayer(final SkunkPlayer currentlyPlaying) {
+		boolean isOverflow = false;
+		final int currentlyPlayingDice = currentlyPlaying.getPlayerDiceTotal();
+		final String currentlyPlayingName = currentlyPlaying.getName();
+
+		if (currentlyPlayingDice > OVERFLOW_SCORE){
+			StdOut.println("Dice Total of " + currentlyPlayingName + " is over " + OVERFLOW_SCORE);
+			StdOut.println();
+			isOverflow = true;
+		}
+		return isOverflow;
+	}
+	
+	public static int selectNextPlayer(final SkunkPlayer[] playersArrayGame, final int currentPlayerIndex) {
+		int internalCurrentPlayerIndex = currentPlayerIndex;
+		final SkunkPlayer[] internalPlayersArrayGame = playersArrayGame;
+		
+		internalCurrentPlayerIndex += 1;
+		internalCurrentPlayerIndex = UtilityMethods.resetIndexOfLoopsArray(internalCurrentPlayerIndex, internalPlayersArrayGame.length);
+		return internalCurrentPlayerIndex;
+	}
+
+	public static int actualPlay(final SkunkPlayer[] playersArrayGame, final SkunkPlayer currentlyPlaying, final int currentPlayerIndex) {
+		SkunkPlayer internalCurrentlyPlaying = currentlyPlaying;
+		int internalCurrentPlayerIndex = currentPlayerIndex;
 		while(true) {
-			SkunkTurnMain.resetRoundDiceTotal();
 			StdOut.println("Players' Dice Total in Current Game:");
 			SkunkPlayerManagement.displayDiceAll(playersArrayGame);
 			StdOut.println();
 			
-			currentlyPlaying = playersArrayGame[currentPlayerIndex];
-			printRandomQuotes(currentlyPlaying);
-			SkunkTurnAction.playerTurn(currentlyPlaying, playersArrayGame); 
-			StdOut.println();
+			internalCurrentlyPlaying = playersArrayGame[currentPlayerIndex];
+			playATurn(internalCurrentlyPlaying, playersArrayGame);
 
-			if (currentlyPlaying.getPlayerDiceTotal() > OVERFLOW_SCORE){
-				StdOut.println("Dice Total of " + currentlyPlaying.getName() + " is over " + OVERFLOW_SCORE);
-				StdOut.println();
+			final boolean overFlowCheckBreak = overflowOrNextPlayer(internalCurrentlyPlaying);
+			if (overFlowCheckBreak) {
 				break;
 			}
-			else {
-				currentPlayerIndex += 1;
-				currentPlayerIndex = UtilityMethods.resetIndexOfLoopsArray(currentPlayerIndex, playersArrayGame.length);
-			}
 			
-			StdOut.println("Next player's turn...");
-			StdOut.println();
+			internalCurrentPlayerIndex = selectNextPlayer(playersArrayGame, internalCurrentPlayerIndex);
 		}
-		
-		StdOut.println("Entering last stretch of current game...");
-		int winnerOfGameIndex = lastStretch(playersArrayGame, currentlyPlaying.getPlayerDiceTotal(), currentPlayerIndex);
-		
-		StdOut.println(playersArrayGame[winnerOfGameIndex].getName() + " is the winner of this game...");
-		TabulateWinnings.tabulateWinnings(playersArrayGame, winnerOfGameIndex);
+		return internalCurrentPlayerIndex;
 	}
 	
-	private static int randomStartPlayer(int lengthOfArray) {
-		StdOut.println("Choosing random player to start...");
-		Random rand = new Random(); 
-		return rand.nextInt(lengthOfArray); 
-	}
-
-//TODO: Break into smaller bits...	
-	private static int lastStretch(SkunkPlayer[] playersLastStretch, int currentGoal, int incomingHillKingIndex){
+	private static int lastStretch(final SkunkPlayer[] playersLastStretch, final int currentGoal, final int incomingHillKingIndex){
 		int goalToReach = currentGoal;
 		int indexCurrentKingHill = incomingHillKingIndex + 0; 
-		int indexPlayerRolling = incomingHillKingIndex + 1; // start with next player...
+		int indexPlayerRolling = selectNextPlayer(playersLastStretch, indexCurrentKingHill);
+		
+		SkunkPlayer playerPlaying;
+		final String topScorerName = playersLastStretch[indexCurrentKingHill].getName();
 		
 		StdOut.println("Last Stretch");
-		StdOut.println("Current Top Scorer: " + playersLastStretch[indexCurrentKingHill].getName());
+		StdOut.println("Current Top Scorer: " + topScorerName);
 		StdOut.println("Score to Defeat: " + goalToReach);
 		
 		while (indexPlayerRolling != incomingHillKingIndex+0) {
+			playerPlaying = playersLastStretch[indexPlayerRolling];
+			playATurn(playerPlaying, playersLastStretch);
 			
-			indexPlayerRolling = UtilityMethods.resetIndexOfLoopsArray(indexPlayerRolling, playersLastStretch.length);
-			SkunkTurnMain.resetRoundDiceTotal();
-			SkunkPlayer playerPlaying = playersLastStretch[indexPlayerRolling];
-			String playerPlayingName = playerPlaying.getName();
-			
-			StdOut.println();
-			StdOut.println(playerPlayingName + " is now rolling...");
-			SkunkTurnAction.playerTurn(playerPlaying, playersLastStretch);
-			StdOut.println();
-			
-			int playerPlayingDiceTotal = playerPlaying.getPlayerDiceTotal();
-			
+			final int playerPlayingDiceTotal = playerPlaying.getPlayerDiceTotal();
+			final String playerPlayingName = playerPlaying.getName();
 			StdOut.println(playerPlayingName + "'s score: " + playerPlayingDiceTotal);
 			
 			if (playerPlayingDiceTotal > goalToReach) {
@@ -83,24 +96,35 @@ public class SkunkGame {
 				StdOut.println(playerPlayingName + " is now the new top scorer, with " + playerPlayingDiceTotal);
 			}
 			
-			indexPlayerRolling += 1;
-			indexPlayerRolling = UtilityMethods.resetIndexOfLoopsArray(indexPlayerRolling, playersLastStretch.length);
-			
+			indexPlayerRolling = selectNextPlayer(playersLastStretch, indexPlayerRolling);
 		}
 		return indexCurrentKingHill;
 	}
 	
-	private static void printRandomQuotes(SkunkPlayer playerRefText) {
-		String playerName = playerRefText.getName();
-		String [] arr = {
+	public static void playATurn(final SkunkPlayer playerPlaying, final SkunkPlayer[] arrayPlayers) {
+		SkunkTurnMain.resetRoundDiceTotal();
+		printRandomQuotes(playerPlaying);
+		SkunkTurnAction.playerTurn(playerPlaying, arrayPlayers); 
+	}
+	
+	private static int randomStartPlayer(final int lengthOfArray) {
+		StdOut.println("Choosing random player to start...");
+		final Random rand = new Random(); 
+		return rand.nextInt(lengthOfArray); 
+	}
+	
+	private static void printRandomQuotes(final SkunkPlayer playerRefText) {
+		final String playerName = playerRefText.getName();
+		final String [] arr = {
         	"Fortune favors the bold. Are you bold, " +playerName + "?",
         	"I wonder what will " + playerName + " do?",
         	"Fortune be with you, " + playerName + "..."
         };
 		
-        Random random = new Random();
-        int select = random.nextInt(arr.length); 
-       StdOut.println(arr[select]); 
+        final Random random = new Random();
+        final int select = random.nextInt(arr.length); 
+        final String quoteString = arr[select];
+        StdOut.println(quoteString); 
 	}
 
 //	public static void main(String[] args){

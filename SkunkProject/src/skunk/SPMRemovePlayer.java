@@ -6,6 +6,7 @@ public class SPMRemovePlayer {
 		SkunkPlayer[] internalPassedPlayersArray = passedPlayersArray;
 		StdOut.println("Now checking for eliminated players...");
 		StdOut.println();
+		
 		outerloop:
 		while (true) {
 			innerloop:
@@ -21,7 +22,6 @@ public class SPMRemovePlayer {
 				}
 			}
 		}
-		StdOut.println("Confirmation");
 		return internalPassedPlayersArray;
 	}
 	
