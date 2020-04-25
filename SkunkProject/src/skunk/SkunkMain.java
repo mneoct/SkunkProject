@@ -9,6 +9,7 @@ package skunk;
 public class SkunkMain { // main program
 	public transient SkunkUI skunkUI;
 	public transient UI userInterface;
+	private final static String endTournamentPrompt = "Type 'end' to end the tournament, else it will continue";
 
 	public SkunkMain(final SkunkUI ui)
 	{
@@ -17,7 +18,7 @@ public class SkunkMain { // main program
 	}
 	
 	//TODO: Check: should be own class? Anyway to further break down?
-	void skunkTournament() {
+	public void skunkTournament() {
 		while (true) {
 			userInterface.println("New Game has been started...");
 			userInterface.println("Resetting Individual Dice Totals and Kitty to 0");
@@ -28,32 +29,34 @@ public class SkunkMain { // main program
 			SkunkPlayerManagement.playersArray = SPMRemovePlayer.removePlayers(SkunkPlayerManagement.playersArray);
 			SkunkPlayerManagement.displayChipsAll(SkunkPlayerManagement.playersArray);
 			
-			boolean continueTournament = skunkCheckEndTournament(SkunkPlayerManagement.playersArray);
+			final boolean continueTournament = skunkCheckEndTournament(SkunkPlayerManagement.playersArray);
 			if (continueTournament) {
 				break;
 			}
 		}
 	}
 	
-	boolean skunkCheckEndTournament(SkunkPlayer[] arrayPlayers) {
+	public boolean skunkCheckEndTournament(final SkunkPlayer[] arrayPlayers) {
+		boolean isTrueEndTourney = false;
 		if (arrayPlayers.length == 1) {
 			userInterface.println("We have a grand champion!");
-			return true;
+			isTrueEndTourney = true;
 		} 
 		
-		String endTournamentPrompt = "Type 'end' to end the tournament, else it will continue";
-		String tournamentContinueChoice = userInterface.promptReadAndReturn(endTournamentPrompt);
+		final String tournamentContinueChoice = userInterface.promptReadAndReturn(endTournamentPrompt);
 		
-		if (tournamentContinueChoice.equals("end")) {
+		if ("end".equals(tournamentContinueChoice)) {
 			userInterface.println("Understood. Tournament is shutting down...");
-			return true;
+			isTrueEndTourney = true;
 		}
 		else {
-			return false;
+			isTrueEndTourney = false;
 		}
+		
+		return isTrueEndTourney;
 	}
 	
-	void run(){	
+	public void run(){	
 		userInterface.println("Tournament has began...");
 		userInterface.println("Now registering players...");
 		userInterface.println("");

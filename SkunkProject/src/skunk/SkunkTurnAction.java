@@ -5,15 +5,15 @@ public class SkunkTurnAction {
 	
 	// A Player's Turn: Select option, see result, continue to play until player ends turn or gets skunk.
 	// TODO: break into smaller bits... ?? 
-	public static void playerTurn(SkunkPlayer inputPlayer, SkunkPlayer[] playersArrayRound){
+	public static void playerTurn(final SkunkPlayer inputPlayer, final SkunkPlayer[] playersArrayRound){
 		StdOut.println(inputPlayer.getName() + "'s turn...");
 		SkunkTurnDiceRollsArray.resetRoundRollResult();
-		int chipsBefore = inputPlayer.getPlayerChipsTotal();
+		final int chipsBefore = inputPlayer.getPlayerChipsTotal();
 		
 		while(true){
 			StdOut.println();
 			SkunkTurnMenuSelection.optionSelectionTextSkunk();
-			int enteredOption = SkunkTurnMenuSelection.optionSelectionChoose();
+			final int enteredOption = SkunkTurnMenuSelection.optionSelectionChoose();
 			
 			if (enteredOption == 1) {
 				SkunkTurnMain.displayRoundDiceTotal();
@@ -46,7 +46,7 @@ public class SkunkTurnAction {
 	}
 	
 // End of Player's Turn Evaluation.
-	private static void endOfTurnEvaluation(SkunkPlayer ParInputPlayer, int chipsBeforeInput) {
+	private static void endOfTurnEvaluation(final SkunkPlayer ParInputPlayer, final int chipsBeforeInput) {
 		int i = 0;
 		StdOut.println("\tPlayer: " + ParInputPlayer.getName());
 		if (SkunkTurnDiceRollsArray.roundRollResult[0] != null) {
@@ -58,7 +58,7 @@ public class SkunkTurnAction {
 			}
 		}
 		StdOut.println("\tPoints Earned: " + SkunkTurnMain.getRoundDiceTotal());
-		int chipsLost = chipsBeforeInput - ParInputPlayer.getPlayerChipsTotal();
+		final int chipsLost = chipsBeforeInput - ParInputPlayer.getPlayerChipsTotal();
 		StdOut.println("\tChips Lost: " + chipsLost);
 	}
 }

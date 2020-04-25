@@ -3,7 +3,7 @@ import edu.princeton.cs.introcs.StdOut;
 
 // TODO: None -- should be fine. 
 public class SkunkKitty {
-	private static int kitty = 0;
+	private static int kitty;
 
 	public static int getKitty(){ 
 		return kitty; 
@@ -13,7 +13,7 @@ public class SkunkKitty {
 		StdOut.println("\tKitty: " + SkunkKitty.getKitty());
 	}
 	
-	public static void setKitty(int value){
+	public static void setKitty(final int value){
 		kitty = kitty + value;
 	}
 	

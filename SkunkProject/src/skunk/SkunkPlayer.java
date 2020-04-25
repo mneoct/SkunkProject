@@ -3,11 +3,11 @@ package skunk;
 public class SkunkPlayer {
 	
 	private String name;
-	private int playerGameScoreDiceTotal = 0; 
-	private int playerChipTotal = 0; 
+	private int playerGameScoreDiceTotal; 
+	private int playerChipTotal; 
 	
 	//constructor
-	public SkunkPlayer(String inputName)	{
+	public SkunkPlayer(final String inputName)	{
 		setName(inputName);
 	}
 	
@@ -15,14 +15,14 @@ public class SkunkPlayer {
 	public String getName() {
         return this.name;
     }
-	private void setName(String inputName) {
+	private void setName(final String inputName) {
         this.name = inputName;
     }
     
 	public int getPlayerDiceTotal() {
         return this.playerGameScoreDiceTotal;
     }
-    public void setPlayerDiceTotal(int num) {
+    public void setPlayerDiceTotal(final int num) {
         this.playerGameScoreDiceTotal = playerGameScoreDiceTotal + num;
     }
 	public void resetDice() {
@@ -32,7 +32,7 @@ public class SkunkPlayer {
 	public int getPlayerChipsTotal() {
         return this.playerChipTotal;
     }
-    public void setPlayerChipsTotal(int num){
+    public void setPlayerChipsTotal(final int num){
         this.playerChipTotal = playerChipTotal + num;
     }
 }
