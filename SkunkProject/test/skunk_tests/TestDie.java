@@ -1,3 +1,4 @@
+package skunk_tests;
 import org.junit.Test;
 
 import skunk.Die;

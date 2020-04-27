@@ -1,3 +1,7 @@
+package skunk_tests;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -20,29 +24,48 @@ public class SkunkPlayerManagementTest {
 		for (SkunkPlayer player : SkunkPlayerManagement.playersArray) {
 			chipsTotal += player.getPlayerChipsTotal();
 		}
-		assert (chipsTotal <= 400);
+		assertTrue ("chips not distributed properly", 
+				chipsTotal <= 400);
+	}
+	
+	@Test
+	public void testSetDice() {
+		// Checks that the dice total of players can be set
+		for (SkunkPlayer player : SkunkPlayerManagement.playersArray) {
+			player.setPlayerDiceTotal(200);
+			assertSame ("error setting dice", 
+					200, player.getPlayerDiceTotal());
+		}
 	}
 	
 	@Test
 	public void testResetDice() {
-		// Checks that the dice total of players can be set, then reset
-		for (SkunkPlayer player : SkunkPlayerManagement.playersArray) {
-			player.setPlayerDiceTotal(200);
-			assert (player.getPlayerDiceTotal() == 200);
-		}
+		// Checks that the dice total of players can be reset
 		for (SkunkPlayer player : SkunkPlayerManagement.playersArray) {
 			player.resetDice();
-			assert (player.getPlayerDiceTotal() == 0);
+			assertSame ("reset dice does not make it zero", 
+					0, player.getPlayerDiceTotal());
 		}
+	}	
+	
+	@Test
+	public void testKittyAdd() {
+		SkunkKitty.setKitty(100);
+		assertSame ("Failed to set negative values for kitty", 
+				100, SkunkKitty.getKitty());
 	}
 	
 	@Test
-	public void testSkunk() {
-		SkunkKitty.setKitty(100);
-		assert (SkunkKitty.getKitty() == 100);
+	public void testKittySubtract() {
 		SkunkKitty.setKitty(-50);
-		assert (SkunkKitty.getKitty() == 50);
+		assertSame ("Failed to set positive values for kitty", 
+				50, SkunkKitty.getKitty());
+	}
+	
+	@Test
+	public void testResetKitty() {
 		SkunkKitty.resetKitty();
-		assert (SkunkKitty.getKitty() == 0);
+		assertSame ("Failed to reset kitty", 
+				0, SkunkKitty.getKitty());
 	}
 }
