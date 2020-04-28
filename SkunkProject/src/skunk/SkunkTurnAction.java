@@ -16,21 +16,18 @@ public class SkunkTurnAction {
 			final int enteredOption = SkunkTurnMenuSelection.optionSelectionChoose();
 			
 			if (enteredOption == 1) {
-				SkunkTurnMain.displayRoundDiceTotal();
-			} else if (enteredOption == 2) {
-				SkunkPlayerManagement.displayDiceAll(playersArrayRound);
-			} else if (enteredOption == 3) {
-				SkunkPlayerManagement.displayChipsAll(playersArrayRound);
-			} else if (enteredOption == 4) {
-				SkunkKitty.displayKitty();
-			} else if (enteredOption == 5) {
-				SkunkTurnRollDice.completeDieRollEvent(inputPlayer);
-				if (SkunkTurnRollDice.getIsSkunk()){
+				SkunkTurnChoice1Stats.displayResults(inputPlayer, playersArrayRound);
+			} 
+			
+			else if (enteredOption == 2) {
+				SkunkTurnChoice2Roll.completeDieRollEvent(inputPlayer);
+				if (SkunkTurnChoice2Roll.getIsSkunk()){
 					break;
 				}
 			}
-			else if (enteredOption == 6) {
-				SkunkTurnChooseEnd.endTurn(inputPlayer);
+			
+			else if (enteredOption == 3) {
+				SkunkTurnChoice3End.endTurn(inputPlayer);
 				break;
 			}
 			
@@ -57,7 +54,7 @@ public class SkunkTurnAction {
 				+ "], [Dice Total: " + printResults.getDiceTotalResult() + "]");
 			}
 		}
-		StdOut.println("\tPoints Earned: " + SkunkTurnMain.getRoundDiceTotal());
+		StdOut.println("\tPoints Earned: " + SkunkTurnDiceData.getRoundDiceTotal());
 		final int chipsLost = chipsBeforeInput - ParInputPlayer.getPlayerChipsTotal();
 		StdOut.println("\tChips Lost: " + chipsLost);
 	}

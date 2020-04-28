@@ -30,8 +30,8 @@ public class TabulateWinnings {
 		StdOut.println("End of Game...");
 		StdOut.println("Now Showing Players Sheet");
 		
-		playersLastStretch[indexOfWinner].setPlayerChipsTotal(kittyChips);
-		SkunkPlayerManagement.displayChipsAll(playersLastStretch);
+		playersLastStretch[indexOfWinner].addToPlayerChipsTotal(kittyChips);
+		SkunkTurnChoice1Stats.displayResults(playersLastStretch);
 	}
 	
 	public static void plunderingDefeated(SkunkPlayer beingEvaluated) {
@@ -49,7 +49,7 @@ public class TabulateWinnings {
 		StdOut.println("Therefore, " + plunderedChips + " chips are added to the winnings...");
 		StdOut.println("And, " + playerName + " has lost " + plunderedChips + " chips.");
 		
-		playerEvaluated.setPlayerChipsTotal(-plunderedChips);
+		playerEvaluated.addToPlayerChipsTotal(-plunderedChips);
 		SkunkKitty.setKitty(plunderedChips);
 	}
 }

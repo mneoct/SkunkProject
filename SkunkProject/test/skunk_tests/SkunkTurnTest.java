@@ -1,46 +1,46 @@
 package skunk_tests;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-import skunk.SPMAddPlayer;
-import skunk.SkunkPlayer;
-import skunk.SkunkTurnMain;
+import skunk.SkunkTurnDiceData;
 import skunk.SkunkTurnMenuSelection;
 
 public class SkunkTurnTest {
-	@BeforeClass
-	public static void executeFirst() {
-		SkunkPlayer[] testPlayerArray = new SkunkPlayer[1];
-		testPlayerArray[0] = new SkunkPlayer("Cat");
-		SPMAddPlayer.addPlayerToArrayMain(testPlayerArray, "Dog");
+	@Test
+	public void testResetRoundDice() {
+		SkunkTurnDiceData.resetRoundDiceTotal();
+		assert (SkunkTurnDiceData.getRoundDiceTotal() == 0);
 	}
 	
 	@Test
-	public void testDistributionOfChips() {
-		// checks that chips are distributed, kind of.
-		SkunkTurnMain.setRoundDiceTotal(15);
-		assert (SkunkTurnMain.getRoundDiceTotal() == 15);
-		
-		SkunkTurnMain.setRoundDiceTotal(-5);
-		assert (SkunkTurnMain.getRoundDiceTotal() == 10);
-		
-		SkunkTurnMain.resetRoundDiceTotal();
-		assert (SkunkTurnMain.getRoundDiceTotal() == 0);
-	}
-	
-	public boolean testNumberLoop(int[] arrayPossibleInt, int testedInt) {
-		for (int x: arrayPossibleInt) {
-			if (testedInt == x)
-					return true;
-		}
-		return false;
+	public void testPositiveRoundDice() {
+		SkunkTurnDiceData.resetRoundDiceTotal();
+		SkunkTurnDiceData.setRoundDiceTotal(15);
+		assert (SkunkTurnDiceData.getRoundDiceTotal() == 15);
 	}
 	
 	@Test
+	public void testNegativeRoundDice() {
+		SkunkTurnDiceData.resetRoundDiceTotal();
+		SkunkTurnDiceData.setRoundDiceTotal(-5);
+		assert (SkunkTurnDiceData.getRoundDiceTotal() == -5);
+	}
+	
+	@Test
+	// kind of an odd test in that we are testing manually.
 	public void testSelectionChoice() {
-		SkunkTurnMenuSelection.optionSelectionTextSkunk();
-		int choice = SkunkTurnMenuSelection.optionSelectionChoose();
 		int[] choicePossible = {1,2,3,4,5,6,999};
-		assert(testNumberLoop(choicePossible, choice));
+		assert(testSelectionChoiceLoop(choicePossible));
+	}
+	
+	public boolean testSelectionChoiceLoop(int[] arrayPossibleInt) {
+		boolean isWorking = true;
+		for (int x: arrayPossibleInt) {
+			SkunkTurnMenuSelection.optionSelectionTextSkunk();
+			int choice = SkunkTurnMenuSelection.optionSelectionChoose();
+			if (choice != x) {
+				isWorking = false;
+			}
+		}
+		return isWorking;
 	}
 }

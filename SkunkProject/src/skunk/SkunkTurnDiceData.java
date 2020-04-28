@@ -1,7 +1,7 @@
 package skunk;
 import edu.princeton.cs.introcs.StdOut;
 
-public class SkunkTurnMain{
+public class SkunkTurnDiceData{
 	private static int roundDiceTotal = 0;
 
 // roundDiceTotal: getter, setter, reset 
@@ -18,7 +18,7 @@ public class SkunkTurnMain{
 	}
 	
 	public static void displayRoundDiceTotal() {
-		StdOut.println("\tCurrent Dice Total: " + SkunkTurnMain.getRoundDiceTotal());
+		StdOut.println("\tCurrent Dice Total: " + SkunkTurnDiceData.getRoundDiceTotal());
 	}
 	
 //	public static void main(String[] args){

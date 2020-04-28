@@ -23,11 +23,11 @@ public class SkunkMain { // main program
 			userInterface.println("New Game has been started...");
 			userInterface.println("Resetting Individual Dice Totals and Kitty to 0");
 			userInterface.println("");
-			SkunkGame.playGame(SkunkPlayerManagement.playersArray);
+			SkunkGame.oneGame(SkunkPlayerManagement.playersArray);
 			
 			userInterface.println("Post-Game Evaluation...");
 			SkunkPlayerManagement.playersArray = SPMRemovePlayer.removePlayers(SkunkPlayerManagement.playersArray);
-			SkunkPlayerManagement.displayChipsAll(SkunkPlayerManagement.playersArray);
+			SkunkTurnChoice1Stats.displayResults(SkunkPlayerManagement.playersArray);
 			
 			final boolean continueTournament = skunkCheckEndTournament(SkunkPlayerManagement.playersArray);
 			if (continueTournament) {
@@ -67,7 +67,7 @@ public class SkunkMain { // main program
 		skunkTournament();
 		
 		userInterface.println("Final Report...");
-		SkunkPlayerManagement.displayChipsAll(SkunkPlayerManagement.playersArray);
+		SkunkTurnChoice1Stats.displayResults(SkunkPlayerManagement.playersArray);
 
 		userInterface.println("Tournament has ended...");
 	}

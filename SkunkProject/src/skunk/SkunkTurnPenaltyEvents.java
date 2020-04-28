@@ -7,9 +7,9 @@ public class SkunkTurnPenaltyEvents {
 	private static final int DBL_SKUNK_PENALTY = 4;
 	
 	private static void skunkEvent(int penalty, SkunkPlayer inputPlayer) { 
-		inputPlayer.setPlayerChipsTotal(-penalty);  
+		inputPlayer.addToPlayerChipsTotal(-penalty);  
 		SkunkKitty.setKitty(penalty);
-		SkunkTurnMain.resetRoundDiceTotal();
+		SkunkTurnDiceData.resetRoundDiceTotal();
 	}
 	
 	public static void singleSkunk(SkunkPlayer inputPlayer) { 

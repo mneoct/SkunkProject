@@ -6,7 +6,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import skunk.SPMAddPlayer;
-import skunk.SkunkKitty;
 import skunk.SkunkPlayer;
 import skunk.SkunkPlayerManagement;
 
@@ -32,7 +31,7 @@ public class SkunkPlayerManagementTest {
 	public void testSetDice() {
 		// Checks that the dice total of players can be set
 		for (SkunkPlayer player : SkunkPlayerManagement.playersArray) {
-			player.setPlayerDiceTotal(200);
+			player.addToPlayerDiceTotal(200);
 			assertSame ("error setting dice", 
 					200, player.getPlayerDiceTotal());
 		}
@@ -48,24 +47,4 @@ public class SkunkPlayerManagementTest {
 		}
 	}	
 	
-	@Test
-	public void testKittyAdd() {
-		SkunkKitty.setKitty(100);
-		assertSame ("Failed to set negative values for kitty", 
-				100, SkunkKitty.getKitty());
-	}
-	
-	@Test
-	public void testKittySubtract() {
-		SkunkKitty.setKitty(-50);
-		assertSame ("Failed to set positive values for kitty", 
-				50, SkunkKitty.getKitty());
-	}
-	
-	@Test
-	public void testResetKitty() {
-		SkunkKitty.resetKitty();
-		assertSame ("Failed to reset kitty", 
-				0, SkunkKitty.getKitty());
-	}
 }

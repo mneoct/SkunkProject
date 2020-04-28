@@ -1,8 +1,8 @@
 package skunk;
 import edu.princeton.cs.introcs.StdOut;
 
-public class SkunkTurnRollDice {
-// Option 5: Roll dice, add results to roundRollResult,
+public class SkunkTurnChoice2Roll {
+// Option 2: Roll dice, add results to roundRollResult,
 	// evaluate consequence (add to running total, or skunk penalty), then check if break due to skunk.
 	
 	private static boolean isSkunk;
@@ -29,8 +29,8 @@ public class SkunkTurnRollDice {
 		} else if (dice1 == 1 || dice2 == 1) {
 			SkunkTurnPenaltyEvents.singleSkunk(player);
 		} else {
-			SkunkTurnMain.setRoundDiceTotal(diceTotal);
-			int personalTotalIfQuitNow = player.getPlayerDiceTotal() + SkunkTurnMain.getRoundDiceTotal();
+			SkunkTurnDiceData.setRoundDiceTotal(diceTotal);
+			int personalTotalIfQuitNow = player.getPlayerDiceTotal() + SkunkTurnDiceData.getRoundDiceTotal();
 			rollEvaluationGoodRollTextHelper(player, personalTotalIfQuitNow);
 		}
 	}
@@ -42,7 +42,7 @@ public class SkunkTurnRollDice {
 	}
 	
 	private static void rollEvaluationGoodRollTextHelper(SkunkPlayer player, int ifStopDicePoints){
-		StdOut.println("\tPoints in Current Turn: " + SkunkTurnMain.getRoundDiceTotal());
+		StdOut.println("\tPoints in Current Turn: " + SkunkTurnDiceData.getRoundDiceTotal());
 		StdOut.println("");
 		StdOut.println("\t" + player.getName() + " has " + player.getPlayerDiceTotal() + " points.");
 		StdOut.println("\tIf " + player.getName() + " ends their turn now, they will have " + ifStopDicePoints + " points.");

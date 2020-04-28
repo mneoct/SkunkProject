@@ -6,17 +6,14 @@ public class SkunkTurnMenuSelection {
 	// Selection menu: takes numeric user input; returning 999 renders the result invalid.
 	//TODO: Maybe break into smaller bits?
 	
-	private static String option1 = "View current round's dice total";
-	private static String option2 = "View all players' dice points";
-	private static String option3 = "View all players' chips";
-	private static String option4 = "View kitty";
-	private static String option5 = "Roll dice";
-	private static String option6 = "End round";
-	private static final String[] optionText = {option1, option2, option3, option4, option5, option6};
+	private static String option1 = "View Scoreboard of Game";
+	private static String option2 = "Roll dice";
+	private static String option3 = "End round";
+	private static final String[] optionText = {option1, option2, option3};
 	
-//	public static String[] getOptionText() {
-//		return optionText;
-//	}
+	public static void optionSelectionTextSkunk() {
+		optionSelectionText(optionText);
+	} 
 	
 	private static void optionSelectionText(String[] textArray) {
 		StdOut.println("Select option:");
@@ -27,11 +24,7 @@ public class SkunkTurnMenuSelection {
 		StdOut.println();
 		StdOut.print("Option Selected: ");
 	}
-	
-	public static void optionSelectionTextSkunk() {
-		optionSelectionText(optionText);
-	} 
-	
+		
 	public static int optionSelectionChoose() {
 		int optionSelected = getPlayerChoiceInput();
 		StdOut.println();

@@ -15,14 +15,14 @@ public class SkunkPlayer {
 	public String getName() {
         return this.name;
     }
-	private void setName(final String inputName) {
+	public void setName(final String inputName) {
         this.name = inputName;
     }
     
 	public int getPlayerDiceTotal() {
         return this.playerGameScoreDiceTotal;
     }
-    public void setPlayerDiceTotal(final int num) {
+    public void addToPlayerDiceTotal(final int num) {
         this.playerGameScoreDiceTotal = playerGameScoreDiceTotal + num;
     }
 	public void resetDice() {
@@ -32,7 +32,7 @@ public class SkunkPlayer {
 	public int getPlayerChipsTotal() {
         return this.playerChipTotal;
     }
-    public void setPlayerChipsTotal(final int num){
+    public void addToPlayerChipsTotal(final int num){
         this.playerChipTotal = playerChipTotal + num;
     }
 }
