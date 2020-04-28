@@ -15,25 +15,25 @@ public class SkunkTurnMenuSelection {
 		optionSelectionText(optionText);
 	} 
 	
-	private static void optionSelectionText(String[] textArray) {
+	private static void optionSelectionText(final String[] textArray) {
 		StdOut.println("Select option:");
 		for (int i = 0; i < textArray.length; i++) {
-			int j = i + 1;
-			StdOut.println("\t" + j + ": " + textArray[i] );
+			final int j = i + 1;
+			StdOut.println("\t" + j + ": " + textArray[i]);
 		}
 		StdOut.println();
 		StdOut.print("Option Selected: ");
 	}
 		
 	public static int optionSelectionChoose() {
-		int optionSelected = getPlayerChoiceInput();
+		final int optionSelected = getPlayerChoiceInput();
 		StdOut.println();
 		return optionSelected;
 	}
 
 	private static int getPlayerChoiceInput() {
-		String inputOption = StdIn.readLine();
-		return (UtilityMethods.isNumeric(inputOption)) ? Integer.parseInt(inputOption) : 999;
+		final String inputOption = StdIn.readLine();
+		return UtilityMethods.isNumeric(inputOption) ? Integer.parseInt(inputOption) : 999;
 	}
 	
 

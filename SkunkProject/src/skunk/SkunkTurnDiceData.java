@@ -2,10 +2,10 @@ package skunk;
 import edu.princeton.cs.introcs.StdOut;
 
 public class SkunkTurnDiceData{
-	private static int roundDiceTotal = 0;
+	private static int roundDiceTotal;
 
 // roundDiceTotal: getter, setter, reset 
-	public static void setRoundDiceTotal(int addDiceToRound) {
+	public static void setRoundDiceTotal(final int addDiceToRound) {
 		roundDiceTotal += addDiceToRound;
 	}
 	

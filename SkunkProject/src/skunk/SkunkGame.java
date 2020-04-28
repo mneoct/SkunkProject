@@ -75,7 +75,7 @@ public class SkunkGame {
 	}
 	
 	public static void playATurn(final SkunkPlayer playerPlaying, final SkunkPlayer[] arrayPlayers) {
-		String name = playerPlaying.getName();
+		final String name = playerPlaying.getName();
 		SkunkTurnDiceData.resetRoundDiceTotal();
 		UtilityMethods.printRandomQuotes(name);
 		SkunkTurnAction.playerTurn(playerPlaying, arrayPlayers); 

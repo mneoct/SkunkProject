@@ -12,27 +12,27 @@ public class SkunkPlayer {
 	}
 	
 	// getters and setters
-	public String getName() {
+	public final String getName() {
         return this.name;
     }
-	public void setName(final String inputName) {
+	public final void setName(final String inputName) {
         this.name = inputName;
     }
     
-	public int getPlayerDiceTotal() {
+	public final int getPlayerDiceTotal() {
         return this.playerGameScoreDiceTotal;
     }
-    public void addToPlayerDiceTotal(final int num) {
+    public final void addToPlayerDiceTotal(final int num) {
         this.playerGameScoreDiceTotal = playerGameScoreDiceTotal + num;
     }
-	public void resetDice() {
+	public final void resetDice() {
         this.playerGameScoreDiceTotal = 0;
 	}
 	
-	public int getPlayerChipsTotal() {
+	public final int getPlayerChipsTotal() {
         return this.playerChipTotal;
     }
-    public void addToPlayerChipsTotal(final int num){
+    public final void addToPlayerChipsTotal(final int num){
         this.playerChipTotal = playerChipTotal + num;
     }
 }

@@ -6,21 +6,22 @@ public class SkunkTurnDiceRollsArray {
 	private int dice2;
 	private int total_result;
 	
+	public static SkunkTurnDiceRollsArray[] roundRollResult = new SkunkTurnDiceRollsArray[1];
+
 	public SkunkTurnDiceRollsArray() {
 		setDice1Result(0);
 		setDice2Result(0);
 		setDiceTotalResult(0);
 	}
 	
-	static SkunkTurnDiceRollsArray[] roundRollResult = new SkunkTurnDiceRollsArray[1];
-	
-	static void resetRoundRollResult() {
+	public static void resetRoundRollResult() {
 		roundRollResult =  new SkunkTurnDiceRollsArray[1]; 
 	}
 	
 	public int getDice1Result() {
         return this.dice1;
     }
+	
     public final void setDice1Result(final int num) {
         this.dice1 = num;
     }
@@ -28,20 +29,19 @@ public class SkunkTurnDiceRollsArray {
 	public int getDice2Result() {
         return this.dice2;
     }
-    public final void setDice2Result(int num) {
+    public final void setDice2Result(final int num) {
         this.dice2 = num;
     }
 
-	
 	public int getDiceTotalResult() {
         return this.total_result;
     }
-    public final void setDiceTotalResult(int num) {
+    public final void setDiceTotalResult(final int num) {
         this.total_result = num;
     }
 
 // takes dice 1, dice 2, and total dice roll result, and add to the array roundRollResult
-	public static void addToRoundRollResult(int d1, int d2, int dt) {
+	public static void addToRoundRollResult(final int d1, final int d2, final int dt) {
 		SkunkTurnDiceRollsArray newRolledResults = new SkunkTurnDiceRollsArray();
 		newRolledResults.setDice1Result(d1);
 		newRolledResults.setDice2Result(d2);
@@ -53,21 +53,24 @@ public class SkunkTurnDiceRollsArray {
 	}
 	
 	private static SkunkTurnDiceRollsArray[] addToRoundRollResultHelper(
-	SkunkTurnDiceRollsArray[] arrayOfCurrentTurnDiceRolls, int currentSizeOfResultsArray, SkunkTurnDiceRollsArray newResult){
+			final SkunkTurnDiceRollsArray[] arrayOfCurrentTurnDiceRolls, 
+			final int currentSizeOfResultsArray, final SkunkTurnDiceRollsArray newResult){
 		int i;
-
-	    if (arrayOfCurrentTurnDiceRolls[0] == null) {
-	    	SkunkTurnDiceRollsArray[] roundRollResultInternal = new SkunkTurnDiceRollsArray[1];
+		SkunkTurnDiceRollsArray[] roundRollResultInternal;
+	    
+		if (arrayOfCurrentTurnDiceRolls[0] == null) {
+	    	roundRollResultInternal = new SkunkTurnDiceRollsArray[1];
 	    	roundRollResultInternal[0] = newResult;
-	    	return roundRollResultInternal;
 	    }
-	    else {
-		    SkunkTurnDiceRollsArray[] roundRollResultInternal = new SkunkTurnDiceRollsArray[currentSizeOfResultsArray + 1]; 
+	    
+		else {
+		    roundRollResultInternal = new SkunkTurnDiceRollsArray[currentSizeOfResultsArray + 1]; 
 		    for (i = 0; i < currentSizeOfResultsArray; i++) {
 				roundRollResultInternal[i] = arrayOfCurrentTurnDiceRolls[i];
 			} 
 		    roundRollResultInternal[currentSizeOfResultsArray] = newResult; 
-		    return roundRollResultInternal; 
 	    }
+		
+    	return roundRollResultInternal;
 	}
 }

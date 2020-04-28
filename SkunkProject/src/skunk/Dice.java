@@ -11,6 +11,7 @@ package skunk;
 
 public class Dice
 {
+	public static final int NUM_TRIALS = 360;
 
 	private int lastRoll;
 	private Die die1;
@@ -23,7 +24,7 @@ public class Dice
 		this.roll();
 	}
 
-	public Dice(Die die1, Die die2) 
+	public Dice(final Die die1, final Die die2) 
 	{
 		this.die1 = die1;
 		this.die2 = die2;
@@ -55,10 +56,9 @@ public class Dice
 		return "Dice with last roll: " + getLastRoll() + " => " + die1.getLastRoll() + " + " + die2.getLastRoll();
 	}
 
-	public static final int NUM_TRIALS = 360;
 	
 	public static int[] rollingDice() {
-		Dice diceRoll = new Dice();
+		final Dice diceRoll = new Dice();
 
 		int[] returnDiceResults = new int[3];
 

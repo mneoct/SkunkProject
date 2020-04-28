@@ -21,7 +21,7 @@ public class SkunkTurnAction {
 			
 			else if (enteredOption == 2) {
 				SkunkTurnChoice2Roll.completeDieRollEvent(inputPlayer);
-				if (SkunkTurnChoice2Roll.getIsSkunk()){
+				if (SkunkTurnChoice2Roll.isSkunkGet()){
 					break;
 				}
 			}
