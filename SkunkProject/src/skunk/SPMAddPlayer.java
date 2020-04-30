@@ -16,6 +16,10 @@ public class SPMAddPlayer {
 			String userName = StdIn.readLine();
 			StdOut.println();
 			
+			if( userName.length() < 3) {
+				StdOut.println("The user name is invalid, Please enter at least 3 Characters");
+				continue;
+			}
 			if (userName.equals("...")) {
 				if (internalPlayersArray == null || internalPlayersArray.length < 2) {
 					StdOut.println("Insufficient players.");
