@@ -16,10 +16,22 @@ public class SPMAddPlayer {
 			String userName = StdIn.readLine();
 			StdOut.println();
 			
+			
 			if( userName.length() < 3) {
 				StdOut.println("The user name is invalid, Please enter at least 3 Characters");
 				continue;
 			}
+			
+			if (internalPlayersArray != null) {
+				for(SkunkPlayer i : internalPlayersArray) {
+					if(userName == i.getName()) {
+						StdOut.println("This User already exists");
+						continue;
+					}
+				
+				}
+			}
+			
 			if (userName.equals("...")) {
 				if (internalPlayersArray == null || internalPlayersArray.length < 2) {
 					StdOut.println("Insufficient players.");
@@ -29,7 +41,9 @@ public class SPMAddPlayer {
 					StdOut.println("Players have been registered.");
 					break;
 				}
-			} else {
+				
+			} 
+			   else {
 				internalPlayersArray = addPlayerToArrayMain(internalPlayersArray, userName);
 			}
 			
