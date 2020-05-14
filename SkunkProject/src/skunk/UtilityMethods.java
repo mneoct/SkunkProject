@@ -8,7 +8,7 @@ import edu.princeton.cs.introcs.StdOut;
 public class UtilityMethods {
 	// Given current index of an array being looped through, and the length of the array,
 	// this resets the index to 0 if index >= length (i.e. attempts to avoid indexoutofbounds).
-	public static int resetIndexOfLoopsArray(int arrayCurrentIndex, int arrayLength) {
+	public static int resetIndexOfLoopsArray(final int arrayCurrentIndex, final int arrayLength) {
 		int arrayIndex = arrayCurrentIndex;
 		if (arrayIndex >= arrayLength) {
 			arrayIndex = 0;
@@ -18,7 +18,7 @@ public class UtilityMethods {
 	
 	// https://mkyong.com/java/java-how-to-check-if-a-string-is-numeric/ -- 2nd code. modified to use ? :
 	public static boolean isNumeric(final String str) {
-        return (str == null || str.length() == 0) ? false : str.chars().allMatch(Character::isDigit);
+        return str == null || str.length() == 0 ? false : str.chars().allMatch(Character::isDigit);
     }
 	
 	public static void printRandomQuotes(final String playerRefName) {
@@ -35,10 +35,9 @@ public class UtilityMethods {
         StdOut.println(quoteString); 
 	}
 	
-	public static String promptReadAndReturn(String question)
+	public static String promptReadAndReturn(final String question)
 	{
 		StdOut.print(question + " => ");
-		String result = StdIn.readLine();
-		return result;
+		return StdIn.readLine();
 	}
 }
