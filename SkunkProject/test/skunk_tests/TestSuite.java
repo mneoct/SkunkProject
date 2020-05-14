@@ -13,7 +13,8 @@ import org.junit.runners.Suite;
 	SkunkTurnDiceDataTest.class,
 	TabulateWinningsTest.class,
 	testAddRemovePlayer.class,
-	testPlayerTurn.class
+	testPlayerTurn.class,
+	CallClassFake.class
 	})
 public class TestSuite {
 

@@ -14,6 +14,6 @@ public class TestRunnerClass {
 		}
 		
 		System.out.println();
-		System.out.println("Test Suite execution was successful: "+ result.wasSuccessful());
+		System.out.println("All is in working order: "+ result.wasSuccessful());
 	}
 }
