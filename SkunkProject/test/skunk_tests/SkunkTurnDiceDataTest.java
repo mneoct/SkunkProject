@@ -1,18 +1,23 @@
 package skunk_tests;
 import org.junit.Test;
 
+import edu.princeton.cs.introcs.StdOut;
 import skunk.SkunkTurnDiceData;
-import skunk.SkunkTurnMenuSelection;
 
-public class SkunkTurnTest {
+public class SkunkTurnDiceDataTest {
 	@Test
 	public void testResetRoundDice() {
+		StdOut.println("");
+		StdOut.println("<<<Testing that Round's Dice is reset correctly...>>>");
+
 		SkunkTurnDiceData.resetRoundDiceTotal();
 		assert (SkunkTurnDiceData.getRoundDiceTotal() == 0);
 	}
 	
 	@Test
 	public void testPositiveRoundDice() {
+		StdOut.println("");
+		StdOut.println("<<<Testing that Round's Dice is increased correctly...>>>");
 		SkunkTurnDiceData.resetRoundDiceTotal();
 		SkunkTurnDiceData.setRoundDiceTotal(15);
 		assert (SkunkTurnDiceData.getRoundDiceTotal() == 15);
@@ -20,27 +25,10 @@ public class SkunkTurnTest {
 	
 	@Test
 	public void testNegativeRoundDice() {
+		StdOut.println("");
+		StdOut.println("<<<Testing that Round's Dice is subtracted from correctly...>>>");
 		SkunkTurnDiceData.resetRoundDiceTotal();
 		SkunkTurnDiceData.setRoundDiceTotal(-5);
 		assert (SkunkTurnDiceData.getRoundDiceTotal() == -5);
-	}
-	
-	@Test
-	// kind of an odd test in that we are testing manually.
-	public void testSelectionChoice() {
-		int[] choicePossible = {1,2,3,4,5,6,999};
-		assert(testSelectionChoiceLoop(choicePossible));
-	}
-	
-	public boolean testSelectionChoiceLoop(int[] arrayPossibleInt) {
-		boolean isWorking = true;
-		for (int x: arrayPossibleInt) {
-			SkunkTurnMenuSelection.optionSelectionTextSkunk();
-			int choice = SkunkTurnMenuSelection.optionSelectionChoose();
-			if (choice != x) {
-				isWorking = false;
-			}
-		}
-		return isWorking;
 	}
 }

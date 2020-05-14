@@ -11,6 +11,7 @@ public class SkunkPlayer {
 		setName(inputName);
 	}
 	
+	// All tested in SkunkPlayerTest
 	// getters and setters
 	public final String getName() {
         return this.name;
@@ -34,5 +35,9 @@ public class SkunkPlayer {
     }
     public final void addToPlayerChipsTotal(final int num){
         this.playerChipTotal = playerChipTotal + num;
+    }
+    
+    public final void resetPlayerChips(){
+        this.playerChipTotal = 0;
     }
 }

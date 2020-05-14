@@ -1,6 +1,7 @@
 package skunk;
 import edu.princeton.cs.introcs.StdOut;
 
+// tested in testAddRemovePlayer.java
 public class SPMRemovePlayer {
 	public static SkunkPlayer[] removePlayers(SkunkPlayer[] passedPlayersArray) {
 		SkunkPlayer[] internalPassedPlayersArray = passedPlayersArray;

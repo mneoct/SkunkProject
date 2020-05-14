@@ -1,8 +1,8 @@
 package skunk;
 import edu.princeton.cs.introcs.StdOut;
 
-public class TabulateWinnings {
-// Move to own classes
+// tested in TabulateWinningsTest.java
+public final class TabulateWinnings {
 	public static void tabulateWinnings(SkunkPlayer[] playersLastStretch, int indexOfWinner){
 		int currentlyEvaluating = indexOfWinner + 1;
 		StdOut.println();

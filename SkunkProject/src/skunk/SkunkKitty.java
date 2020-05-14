@@ -2,6 +2,8 @@ package skunk;
 import edu.princeton.cs.introcs.StdOut;
 
 // TODO: None -- should be fine. 
+// All methods tested in SkunkKitty
+// No check for adding non-integers since that's a different overload
 public class SkunkKitty {
 	private static int kitty;
 

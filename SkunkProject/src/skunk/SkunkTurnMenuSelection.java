@@ -2,9 +2,9 @@ package skunk;
 import edu.princeton.cs.introcs.StdIn;
 import edu.princeton.cs.introcs.StdOut;
 
+// tested as part of testEndTurn;
 public class SkunkTurnMenuSelection {
 	// Selection menu: takes numeric user input; returning 999 renders the result invalid.
-	//TODO: Maybe break into smaller bits?
 	
 	private static String option1 = "View Scoreboard of Game";
 	private static String option2 = "Roll dice";

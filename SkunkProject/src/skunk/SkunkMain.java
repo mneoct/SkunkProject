@@ -5,10 +5,12 @@ package skunk;
 // allow quitting in middle of game??
 // Continuous: Resolve accessibility after figuring out classes, methods.
 // Adjust output: More separators, less verbose but informative.
+import edu.princeton.cs.introcs.StdOut;
 
 public class SkunkMain { // main program
 	public transient SkunkUI skunkUI;
 	public transient UI userInterface;
+	
 	private final static String endTournamentPrompt = "Type 'end' to end the tournament, else it will continue";
 
 	public SkunkMain(final SkunkUI ui)
@@ -18,14 +20,17 @@ public class SkunkMain { // main program
 	}
 	
 	//TODO: Check: should be own class? Anyway to further break down?
-	public void skunkTournament() {
+	public static void skunkTournament() {
 		while (true) {
-			userInterface.println("New Game has been started...");
-			userInterface.println("Resetting Individual Dice Totals and Kitty to 0");
-			userInterface.println("");
+			StdOut.println("New Game has been started...");
+			StdOut.println("Resetting Individual Dice Totals and Kitty to 0");
+			StdOut.println("");
 			SkunkGame.oneGame(SkunkPlayerManagement.playersArray);
 			
-			userInterface.println("Post-Game Evaluation...");
+			StdOut.println("<<<>>>");
+			StdOut.println("");
+			
+			StdOut.println("Post-Game Evaluation...");
 			SkunkPlayerManagement.playersArray = SPMRemovePlayer.removePlayers(SkunkPlayerManagement.playersArray);
 			SkunkTurnChoice1Stats.displayResults(SkunkPlayerManagement.playersArray);
 			
@@ -36,39 +41,42 @@ public class SkunkMain { // main program
 		}
 	}
 	
-	public boolean skunkCheckEndTournament(final SkunkPlayer[] arrayPlayers) {
+	// Tested in SkunkTourneyEndTests: one player left/choose continue/choose end.
+	public static boolean skunkCheckEndTournament(final SkunkPlayer[] arrayPlayers) {
 		boolean isTrueEndTourney = false;
-		if (arrayPlayers.length == 1) {
-			userInterface.println("We have a grand champion!");
+		if (arrayPlayers.length <= 1) {
+			StdOut.println("We have a grand champion!");
 			isTrueEndTourney = true;
 		} 
 		
-		final String tournamentContinueChoice = userInterface.promptReadAndReturn(endTournamentPrompt);
-		
-		if ("end".equals(tournamentContinueChoice)) {
-			userInterface.println("Understood. Tournament is shutting down...");
-			isTrueEndTourney = true;
+		else  {
+			final String tournamentContinueChoice = UtilityMethods.promptReadAndReturn(endTournamentPrompt);
+			
+			if ("end".equals(tournamentContinueChoice)) {
+				StdOut.println("Understood. Tournament is shutting down...");
+				isTrueEndTourney = true;
+			}
 		}
-		else {
-			isTrueEndTourney = false;
-		}
-		
 		return isTrueEndTourney;
 	}
 	
 	public void run(){	
-		userInterface.println("Tournament has began...");
-		userInterface.println("Now registering players...");
-		userInterface.println("");
+		StdOut.println("Tournament has began...");
+		StdOut.println("Now registering players...");
+		StdOut.println("");
 		SkunkPlayerManagement.playersArray = SPMAddPlayer.addPlayers();
-		userInterface.println("");
+		StdOut.println("");
+		StdOut.println("<<<>>>");
+		StdOut.println("");
 		SkunkPlayerManagement.distributeChips();
-
+		StdOut.println("");
+		StdOut.println("<<<>>>");
+		StdOut.println("");
 		skunkTournament();
 		
-		userInterface.println("Final Report...");
+		StdOut.println("Final Report...");
 		SkunkTurnChoice1Stats.displayResults(SkunkPlayerManagement.playersArray);
 
-		userInterface.println("Tournament has ended...");
+		StdOut.println("Tournament has ended...");
 	}
 }

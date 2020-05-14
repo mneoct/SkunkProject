@@ -1,6 +1,7 @@
 package skunk;
 import edu.princeton.cs.introcs.StdOut;
 
+// tested in SkunkTurnDiceDataTest
 public class SkunkTurnDiceData{
 	private static int roundDiceTotal;
 
@@ -20,10 +21,4 @@ public class SkunkTurnDiceData{
 	public static void displayRoundDiceTotal() {
 		StdOut.println("\tCurrent Dice Total: " + SkunkTurnDiceData.getRoundDiceTotal());
 	}
-	
-//	public static void main(String[] args){
-//		SkunkPlayer[] testPlayerArray = new SkunkPlayer[1];
-//		testPlayerArray[0] = new SkunkPlayer("Test Player");
-//		SkunkTurnAction.playerTurn(testPlayerArray[0], testPlayerArray);
-//	}
 }

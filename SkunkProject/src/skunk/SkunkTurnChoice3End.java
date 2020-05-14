@@ -1,6 +1,7 @@
 package skunk;
 import edu.princeton.cs.introcs.StdOut;
 
+// tested in testPlayerTurn
 public class SkunkTurnChoice3End {
 // Option 3: Player ends turn, so they get their round's points.
 	public static void endTurn(final SkunkPlayer inputPlayer) {

@@ -1,6 +1,7 @@
 package skunk;
 import edu.princeton.cs.introcs.StdOut;
 
+// inevitably tested in SkunkTurnChoice2RollTest
 public class SkunkTurnPenaltyEvents {
 	private static final int SINGLE_SKUNK_PENALTY = 1;
 	private static final int SINGLE_SKUNK_DEUCE_PENALTY = 2;

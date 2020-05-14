@@ -2,11 +2,10 @@ package skunk;
 import edu.princeton.cs.introcs.StdIn;
 import edu.princeton.cs.introcs.StdOut;
 
-public class SPMAddPlayer {
+// tested in testAddRemovePlayer.java [manual for check features]
+public final class SPMAddPlayer {
 	private static final int MAX_PLAYERS = 8;
 	
-	// Alternative: ask how many players first so internalPlayersArray is initialized
-	// with the right number of slots, so it doesn't kill/resurrect itself.
 	public static SkunkPlayer[] addPlayers(){	// long, but kind of tricky to break..?
 		SkunkPlayer[] internalPlayersArray = null;
 		while (true) {
@@ -16,20 +15,25 @@ public class SPMAddPlayer {
 			String userName = StdIn.readLine();
 			StdOut.println();
 			
-			
-			if( userName.length() < 3) {
+			if(userName.length() < 3) {
 				StdOut.println("The user name is invalid, Please enter at least 3 Characters");
 				continue;
 			}
 			
+			boolean isAlreadyTaken = false;
 			if (internalPlayersArray != null) {
+				
 				for(SkunkPlayer i : internalPlayersArray) {
-					if(userName == i.getName()) {
-						StdOut.println("This User already exists");
+					if(userName.equals(i.getName())) {
+						StdOut.println("This player already exists");
+						isAlreadyTaken = true;
 						continue;
 					}
-				
 				}
+			}
+			
+			if (isAlreadyTaken == true){
+				continue;
 			}
 			
 			if (userName.equals("...")) {
@@ -41,9 +45,7 @@ public class SPMAddPlayer {
 					StdOut.println("Players have been registered.");
 					break;
 				}
-				
-			} 
-			   else {
+			} else {
 				internalPlayersArray = addPlayerToArrayMain(internalPlayersArray, userName);
 			}
 			
@@ -84,5 +86,4 @@ public class SPMAddPlayer {
         newSkunkArray[currentPlayersCount] = newPlayerToBeAdded; 
         return newSkunkArray; 
     }
-	
 }

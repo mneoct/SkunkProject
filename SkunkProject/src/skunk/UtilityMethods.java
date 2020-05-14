@@ -2,6 +2,7 @@ package skunk;
 
 import java.util.Random;
 
+import edu.princeton.cs.introcs.StdIn;
 import edu.princeton.cs.introcs.StdOut;
 
 public class UtilityMethods {
@@ -20,7 +21,7 @@ public class UtilityMethods {
         return (str == null || str.length() == 0) ? false : str.chars().allMatch(Character::isDigit);
     }
 	
-	protected static void printRandomQuotes(final String playerRefName) {
+	public static void printRandomQuotes(final String playerRefName) {
 		final String playerName = playerRefName;
 		final String [] arr = {
         	"Fortune favors the bold. Are you bold, " +playerName + "?",
@@ -32,5 +33,12 @@ public class UtilityMethods {
         final int select = random.nextInt(arr.length); 
         final String quoteString = arr[select];
         StdOut.println(quoteString); 
+	}
+	
+	public static String promptReadAndReturn(String question)
+	{
+		StdOut.print(question + " => ");
+		String result = StdIn.readLine();
+		return result;
 	}
 }

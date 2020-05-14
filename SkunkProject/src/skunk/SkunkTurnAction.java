@@ -3,10 +3,13 @@ import edu.princeton.cs.introcs.StdOut;
 
 public class SkunkTurnAction {
 	
-	// A Player's Turn: Select option, see result, continue to play until player ends turn or gets skunk.
-	// TODO: break into smaller bits... ?? 
+// Tested manually in testPlayerTurn
 	public static void playerTurn(final SkunkPlayer inputPlayer, final SkunkPlayer[] playersArrayRound){
-		StdOut.println(inputPlayer.getName() + "'s turn...");
+		StdOut.println("");
+		StdOut.println("<<<" + inputPlayer.getName() + "'s turn... >>>");
+		final String name = inputPlayer.getName();
+		UtilityMethods.printRandomQuotes(name);
+		SkunkTurnDiceData.resetRoundDiceTotal();
 		SkunkTurnDiceRollsArray.resetRoundRollResult();
 		final int chipsBefore = inputPlayer.getPlayerChipsTotal();
 		
@@ -40,10 +43,12 @@ public class SkunkTurnAction {
 		StdOut.println("End Turn confirmed...");
 		
 		endOfTurnEvaluation(inputPlayer, chipsBefore);
+		
+		StdOut.println("");
 	}
 	
 // End of Player's Turn Evaluation.
-	private static void endOfTurnEvaluation(final SkunkPlayer ParInputPlayer, final int chipsBeforeInput) {
+	public static void endOfTurnEvaluation(final SkunkPlayer ParInputPlayer, final int chipsBeforeInput) {
 		int i = 0;
 		StdOut.println("\tPlayer: " + ParInputPlayer.getName());
 		if (SkunkTurnDiceRollsArray.roundRollResult[0] != null) {

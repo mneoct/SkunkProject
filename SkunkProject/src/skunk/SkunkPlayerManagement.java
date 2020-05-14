@@ -4,9 +4,11 @@ import java.util.Random;
 import edu.princeton.cs.introcs.StdOut;
 
 // PMD's localvariablecouldbefinal == NOT on for each.
+// All tested in SkunkPlayerManagementTest
+
 public class SkunkPlayerManagement {	
 	public static SkunkPlayer[] playersArray;
-	private final static int TOTAL_CHIPS = 4; // = 400, set lower for test games faster...
+	private final static int TOTAL_CHIPS = 400; // = 400, set lower for test games faster...
 
 	public static void distributeChips() {
 		StdOut.println("Distribution of chips to players initiated...");

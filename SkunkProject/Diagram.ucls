@@ -1,62 +1,497 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.4" icons="true" always-add-relationships="true" generalizations="true" realizations="true" 
   associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="SkunkApp" project="SkunkProject" file="/SkunkProject/src/SkunkApp.java" 
+  <class id="1" language="java" name="skunk.SkunkGame" project="SkunkProject_TP1" 
+    file="/SkunkProject_TP1/src/skunk/SkunkGame.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="242" x="445" y="13"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="skunk.SkunkTurnChoice1Stats" project="SkunkProject_TP1" 
+    file="/SkunkProject_TP1/src/skunk/SkunkTurnChoice1Stats.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="253" x="5" y="417"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="skunk.SPMRemovePlayer" project="SkunkProject_TP1" 
+    file="/SkunkProject_TP1/src/skunk/SPMRemovePlayer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="299" x="727" y="13"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="skunk.SkunkMain" project="SkunkProject_TP1" 
+    file="/SkunkProject_TP1/src/skunk/SkunkMain.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="440" x="986" y="-180"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="skunk.SkunkTurnChoice2Roll" project="SkunkProject_TP1" 
+    file="/SkunkProject_TP1/src/skunk/SkunkTurnChoice2Roll.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="294" x="319" y="417"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="skunk.SkunkTurnPenaltyEvents" project="SkunkProject_TP1" 
+    file="/SkunkProject_TP1/src/skunk/SkunkTurnPenaltyEvents.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="228" x="-12" y="718"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="skunk.SkunkUI" project="SkunkProject_TP1" 
+    file="/SkunkProject_TP1/src/skunk/SkunkUI.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="203" x="762" y="-391"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="skunk.SkunkPlayerManagement" project="SkunkProject_TP1" 
+    file="/SkunkProject_TP1/src/skunk/SkunkPlayerManagement.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="189" width="282" x="1438" y="718"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="skunk.SkunkTurnChoice3End" project="SkunkProject_TP1" 
+    file="/SkunkProject_TP1/src/skunk/SkunkTurnChoice3End.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="156" x="984" y="718"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="skunk.Dice" project="SkunkProject_TP1" 
+    file="/SkunkProject_TP1/src/skunk/Dice.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="243" width="137" x="-210" y="718"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="skunk.SkunkKitty" project="SkunkProject_TP1" 
+    file="/SkunkProject_TP1/src/skunk/SkunkKitty.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="112" x="-271" y="1065"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="skunk.TabulateWinnings" project="SkunkProject_TP1" 
+    file="/SkunkProject_TP1/src/skunk/TabulateWinnings.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="255" x="445" y="242"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="skunk.SkunkTurnDiceRollsArray" project="SkunkProject_TP1" 
+    file="/SkunkProject_TP1/src/skunk/SkunkTurnDiceRollsArray.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="297" width="573" x="361" y="718"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="skunk.SkunkTurnAction" project="SkunkProject_TP1" 
+    file="/SkunkProject_TP1/src/skunk/SkunkTurnAction.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="235" x="777" y="242"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="skunk.SkunkTurnMenuSelection" project="SkunkProject_TP1" 
+    file="/SkunkProject_TP1/src/skunk/SkunkTurnMenuSelection.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="239" x="1073" y="417"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="skunk.UtilityMethods" project="SkunkProject_TP1" 
+    file="/SkunkProject_TP1/src/skunk/UtilityMethods.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="203" x="1377" y="1065"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="skunk.SkunkTurnDiceData" project="SkunkProject_TP1" 
+    file="/SkunkProject_TP1/src/skunk/SkunkTurnDiceData.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="165" x="258" y="1065"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="skunk.SPMAddPlayer" project="SkunkProject_TP1" 
+    file="/SkunkProject_TP1/src/skunk/SPMAddPlayer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="153" width="330" x="1066" y="13"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="skunk.Die" project="SkunkProject_TP1" file="/SkunkProject_TP1/src/skunk/Die.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="277" y="164"/>    
+    <position height="153" width="102" x="-119" y="1065"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="SkunkPlayer" project="SkunkProject" file="/SkunkProject/src/SkunkPlayer.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="261" width="162" x="1008" y="90"/>    
+  <class id="20" language="java" name="skunk.SkunkPlayer" project="SkunkProject_TP1" 
+    file="/SkunkProject_TP1/src/skunk/SkunkPlayer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="279" width="176" x="1161" y="1065"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="SkunkPlayerManagement" project="SkunkProject" 
-    file="/SkunkProject/src/SkunkPlayerManagement.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="666" y="439"/>    
+  <class id="21" language="java" name="skunk.SkunkApp" project="SkunkProject_TP1" 
+    file="/SkunkProject_TP1/src/skunk/SkunkApp.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="113" x="986" y="-548"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="SkunkGame" project="SkunkProject" file="/SkunkProject/src/SkunkGame.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="330" x="513" y="-56"/>    
+  <interface id="22" language="java" name="skunk.UI" project="SkunkProject_TP1" 
+    file="/SkunkProject_TP1/src/skunk/UI.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="203" x="181" y="13"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
-  </class>  
-  <association id="5">    
-    <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="6" name="playersArray">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="7" minimum="0" maximum="2147483647">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
+  </interface>  
+  <dependency id="23">    
+    <bendpoint x="1021" y="417"/>    
+    <bendpoint x="1170" y="718"/>    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <association id="24">    
+    <bendpoint x="995" y="-391"/>    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="25" name="skunkMain"/>      
+      <multiplicity id="26" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
+    <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="8">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="3"/>  
+  <dependency id="27">    
+    <bendpoint x="288" y="417"/>    
+    <bendpoint x="288" y="718"/>    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="20"/>  
   </dependency>  
-  <dependency id="9">    
+  <association id="28">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="29" name="roundRollResult"/>      
+      <multiplicity id="30" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="31">    
+    <bendpoint x="-43" y="718"/>    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
+  <dependency id="32">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <dependency id="33">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <realization id="34">    
+    <bendpoint x="480" y="-180"/>    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="22"/>  
+  </realization>  
+  <dependency id="35">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <dependency id="36">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="18"/>  
+  </dependency>  
+  <dependency id="37">    
+    <bendpoint x="1344" y="718"/>    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <dependency id="38">    
+    <bendpoint x="1342" y="242"/>    
+    <bendpoint x="1342" y="417"/>    
+    <bendpoint x="1323" y="718"/>    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="39">    
+    <bendpoint x="1426" y="13"/>    
+    <bendpoint x="1426" y="242"/>    
+    <bendpoint x="1426" y="417"/>    
+    <bendpoint x="1407" y="718"/>    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="40">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="41">    
+    <bendpoint x="414" y="13"/>    
+    <bendpoint x="414" y="242"/>    
     <end type="SOURCE" refId="4"/>    
     <end type="TARGET" refId="2"/>  
   </dependency>  
+  <dependency id="42">    
+    <bendpoint x="1000" y="417"/>    
+    <bendpoint x="1212" y="718"/>    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <association id="43">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="44" name="die1"/>      
+      <multiplicity id="45" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="46">    
+    <bendpoint x="1363" y="417"/>    
+    <bendpoint x="1386" y="718"/>    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <dependency id="47">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
+  <dependency id="48">    
+    <bendpoint x="664" y="417"/>    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="13"/>  
+  </dependency>  
+  <dependency id="49">    
+    <bendpoint x="-283" y="242"/>    
+    <bendpoint x="-283" y="417"/>    
+    <bendpoint x="-283" y="718"/>    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="50">    
+    <bendpoint x="1447" y="13"/>    
+    <bendpoint x="1447" y="242"/>    
+    <bendpoint x="1447" y="417"/>    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <dependency id="51">    
+    <bendpoint x="267" y="718"/>    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
+  <dependency id="52">    
+    <bendpoint x="246" y="718"/>    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="53">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="54">    
+    <bendpoint x="1384" y="242"/>    
+    <bendpoint x="1384" y="417"/>    
+    <bendpoint x="1365" y="718"/>    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <association id="55">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="56" name="playersArray"/>      
+      <multiplicity id="57" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="58">    
+    <bendpoint x="1363" y="242"/>    
+    <bendpoint x="1405" y="417"/>    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <dependency id="59">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <dependency id="60">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <dependency id="61">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
+  <dependency id="62">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="63">    
+    <bendpoint x="1750" y="13"/>    
+    <bendpoint x="1750" y="242"/>    
+    <bendpoint x="1750" y="417"/>    
+    <bendpoint x="1750" y="718"/>    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <dependency id="64">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="65">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
+  <dependency id="66">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <association id="67">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="68" name="skunkMain"/>      
+      <multiplicity id="69" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="70">    
+    <bendpoint x="309" y="718"/>    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <association id="71">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="72" name="userInterface"/>      
+      <multiplicity id="73" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="74">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <association id="75">    
+    <end type="SOURCE" refId="21" navigable="false">      
+      <attribute id="76" name="skunkUI"/>      
+      <multiplicity id="77" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="78">    
+    <bendpoint x="889" y="417"/>    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="79">    
+    <bendpoint x="-241" y="718"/>    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="80">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <dependency id="81">    
+    <bendpoint x="643" y="417"/>    
+    <bendpoint x="330" y="718"/>    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
+  <dependency id="82">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="83">    
+    <bendpoint x="-262" y="417"/>    
+    <bendpoint x="-262" y="718"/>    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <association id="84">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="85" name="skunkUI"/>      
+      <multiplicity id="86" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="87">    
+    <bendpoint x="1042" y="242"/>    
+    <bendpoint x="1042" y="417"/>    
+    <bendpoint x="1191" y="718"/>    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="20"/>  
+  </dependency>  
+  <dependency id="88">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="13"/>  
+  </dependency>  
+  <dependency id="89">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="6"/>  
+  </dependency>  
+  <association id="90">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="91" name="die2"/>      
+      <multiplicity id="92" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="19" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

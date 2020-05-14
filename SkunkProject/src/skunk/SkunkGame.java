@@ -1,176 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 package skunk;
 import edu.princeton.cs.introcs.StdOut;
 
@@ -179,7 +6,9 @@ public class SkunkGame {
 	
 	public static void oneGame(final SkunkPlayer[] playersArrayGame) { 	// break into smaller bits...
 		final int startingPlayerIndex = SkunkPlayerManagement.randomStartPlayer(playersArrayGame.length);
-		
+		StdOut.println("");
+		StdOut.println("<<<>>>");
+		StdOut.println("");
 		SkunkKitty.resetKitty();
 		SkunkPlayerManagement.resetAllPlayersDice();
 		
@@ -188,10 +17,18 @@ public class SkunkGame {
 		
 		StdOut.println("Entering last stretch of current game...");
 		
+		StdOut.println("");
+		StdOut.println("<<<!!!>>>");
+		StdOut.println("");
+		
 		final int topPlayerDiceTotal = topPlayer.getPlayerDiceTotal();
 		final int winnerOfGameIndex = lastStretch(playersArrayGame, topPlayerDiceTotal, indexTopPlayer);
 		final SkunkPlayer winningPlayer = playersArrayGame[winnerOfGameIndex];
 		final String winnerPlayerName = winningPlayer.getName();
+		
+		StdOut.println("");
+		StdOut.println("<<<>>>");
+		StdOut.println("");
 		
 		StdOut.println(winnerPlayerName + " is the winner of this game...");
 		TabulateWinnings.tabulateWinnings(playersArrayGame, winnerOfGameIndex);
@@ -240,17 +77,13 @@ public class SkunkGame {
 				indexCurrentKingHill = indexPlayerRolling + 0;
 				goalToReach = playerPlayingDiceTotal;
 				StdOut.println(playerPlayingName + " is now the new top scorer, with " + playerPlayingDiceTotal);
-			}
-			
+			}		
 			indexPlayerRolling = SkunkPlayerManagement.selectNextPlayer(playersLastStretch, indexPlayerRolling);
 		}
 		return indexCurrentKingHill;
 	}
 	
 	public static void playATurn(final SkunkPlayer playerPlaying, final SkunkPlayer[] arrayPlayers) {
-		final String name = playerPlaying.getName();
-		SkunkTurnDiceData.resetRoundDiceTotal();
-		UtilityMethods.printRandomQuotes(name);
 		SkunkTurnAction.playerTurn(playerPlaying, arrayPlayers); 
 	}
 	
@@ -264,7 +97,7 @@ public class SkunkGame {
 		}
 		return isOverflow;
 	}
-	
+
 //	public static void main(String[] args){
 //		SkunkPlayerManagement.playersArray = SPMAddPlayer.addPlayers();
 //		SkunkGame.playGame(SkunkPlayerManagement.playersArray);
