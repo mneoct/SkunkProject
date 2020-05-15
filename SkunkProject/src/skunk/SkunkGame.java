@@ -6,11 +6,14 @@ public class SkunkGame {
 	
 	public static void oneGame(final SkunkPlayer[] playersArrayGame) { 	// break into smaller bits...
 		final int startingPlayerIndex = SkunkPlayerManagement.randomStartPlayer(playersArrayGame.length);
+		StdOut.println("New Game has been started...");
+		StdOut.println("Resetting Individual Dice Totals and Kitty to 0");
+		SkunkKitty.resetKitty();
+		SkunkPlayerManagement.resetAllPlayersDice();
 		StdOut.println("");
 		StdOut.println("<<<>>>");
 		StdOut.println("");
-		SkunkKitty.resetKitty();
-		SkunkPlayerManagement.resetAllPlayersDice();
+
 		
 		final int indexTopPlayer = gamePlay(playersArrayGame, startingPlayerIndex);
 		final SkunkPlayer topPlayer = playersArrayGame[indexTopPlayer];

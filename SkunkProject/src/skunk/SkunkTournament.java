@@ -8,9 +8,6 @@ public class SkunkTournament {
 	public static void skunkTournament() {
 		boolean continueTournament = true;
 		while (continueTournament) {
-			StdOut.println("New Game has been started...");
-			StdOut.println("Resetting Individual Dice Totals and Kitty to 0");
-			StdOut.println("");
 			SkunkGame.oneGame(SkunkPlayerManagement.playersArray);
 			
 			StdOut.println("<<<>>>");
@@ -19,6 +16,9 @@ public class SkunkTournament {
 			StdOut.println("Post-Game Evaluation...");
 			SkunkPlayerManagement.playersArray = SPMRemovePlayer.removePlayers(SkunkPlayerManagement.playersArray);
 			SkunkTurnChoice1Stats.displayResults(SkunkPlayerManagement.playersArray);
+			
+			StdOut.println("<<<>>>");
+			StdOut.println("");
 			
 			continueTournament = skunkContinueTourney(SkunkPlayerManagement.playersArray);
 			if (!continueTournament) {

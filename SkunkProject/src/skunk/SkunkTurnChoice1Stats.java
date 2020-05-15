@@ -4,7 +4,6 @@ import edu.princeton.cs.introcs.StdOut;
 public class SkunkTurnChoice1Stats {	
 	public static void displayResults(final SkunkPlayer[] playersArrayRound) {
 		SkunkPlayerManagement.displayPlayersChipsAndDiceTotal(playersArrayRound);
-		SkunkKitty.displayKitty();
 		StdOut.println("");
 	}
 	
@@ -12,6 +11,7 @@ public class SkunkTurnChoice1Stats {
 		final String currentPlayerName = player.getName();
 		StdOut.println("\tCurrent Player: " + currentPlayerName);
 		SkunkTurnDiceData.displayRoundDiceTotal();
+		SkunkKitty.displayKitty();
 		StdOut.println("");
 		
 		displayResults(playersArrayRound);
