@@ -21,7 +21,7 @@ public class SkunkTournament {
 			SkunkTurnChoice1Stats.displayResults(SkunkPlayerManagement.playersArray);
 			
 			continueTournament = skunkContinueTourney(SkunkPlayerManagement.playersArray);
-			if (continueTournament) {
+			if (!continueTournament) {
 				break;
 			}
 		}
