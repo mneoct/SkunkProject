@@ -12,8 +12,9 @@ import org.junit.runners.Suite;
 	SkunkTurnChoice2RollTest.class,
 	SkunkTurnDiceDataTest.class,
 	TabulateWinningsTest.class,
-	testAddRemovePlayer.class,
-	testPlayerTurn.class,
+	TestAddRemovePlayer.class,
+	TestDie.class,
+	TestPlayerTurn.class,
 	CallClassFake.class
 	})
 public class TestSuite {

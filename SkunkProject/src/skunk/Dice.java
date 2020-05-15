@@ -24,11 +24,11 @@ public class Dice
 		this.roll();
 	}
 
-	public Dice(final Die die1, final Die die2) 
-	{
-		this.die1 = die1;
-		this.die2 = die2;
-	}
+//	public Dice(final Die die1, final Die die2) 
+//	{
+//		this.die1 = die1;
+//		this.die2 = die2;
+//	}
 
 	public int getLastDie1()
 	{
@@ -56,7 +56,6 @@ public class Dice
 		return "Dice with last roll: " + getLastRoll() + " => " + die1.getLastRoll() + " + " + die2.getLastRoll();
 	}
 
-	
 	public static int[] rollingDice() {
 		final Dice diceRoll = new Dice();
 
@@ -68,24 +67,4 @@ public class Dice
 		
 		return returnDiceResults;
 	}
-	
-//	public static void main(String[] args)
-//	{
-//		// simulate repeated rolls of Dice, counting the many double skunks
-//		
-//		Dice dice = new Dice();
-//		int doubleSkunkCount = 0;
-//
-//		for (int i = 0; i < NUM_TRIALS; i++)
-//		{
-//			dice.roll();
-//			StdOut.println(dice);
-//
-//			if (dice.getLastRoll() == 2)
-//				doubleSkunkCount++;
-//		}
-//
-//		StdOut.println("Actual count: " + doubleSkunkCount);
-//		StdOut.println("Expected count: " + (NUM_TRIALS / 36.0));
-//	}
 }

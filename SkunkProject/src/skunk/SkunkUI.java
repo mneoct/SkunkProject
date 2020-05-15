@@ -13,10 +13,10 @@ public class SkunkUI implements UI
 		this.skunkMain = skunkMain;
 	}
 	
-	public void setDomain(SkunkMain skunkMain)
-	{
-		this.skunkMain = skunkMain;
-	}
+//	public void setDomain(SkunkMain skunkMain)
+//	{
+//		this.skunkMain = skunkMain;
+//	}
 
 	public String promptReadAndReturn(String question)
 	{

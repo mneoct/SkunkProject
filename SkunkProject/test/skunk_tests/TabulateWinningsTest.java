@@ -6,6 +6,7 @@ import org.junit.Test;
 
 import edu.princeton.cs.introcs.StdOut;
 import skunk.SPMAddPlayer;
+import skunk.SkunkKitty;
 import skunk.SkunkPlayerManagement;
 import skunk.TabulateWinnings;
 
@@ -16,6 +17,7 @@ public class TabulateWinningsTest {
 		StdOut.println("<<<Testing that the non-winners are evaluated properly (5 or 10 chips lost accordingly)...>>>");
 		StdOut.println("<<<Testing that the winner gets the right amount of winnings ...>>>");
 
+
 		SkunkPlayerManagement.playersArray = null;
 		SkunkPlayerManagement.playersArray = SPMAddPlayer.addPlayerToArrayMain(SkunkPlayerManagement.playersArray, "cat");
 		SkunkPlayerManagement.playersArray = SPMAddPlayer.addPlayerToArrayMain(SkunkPlayerManagement.playersArray, "dog");
@@ -24,13 +26,12 @@ public class TabulateWinningsTest {
 		SkunkPlayerManagement.playersArray = SPMAddPlayer.addPlayerToArrayMain(SkunkPlayerManagement.playersArray, "eag");
 		
 		int expectedWinnings = 0;
-		
+		SkunkKitty.resetKitty();
 		
 		for(int i = 1; i < SkunkPlayerManagement.playersArray.length; i++) {
 			if ( (i & 1) != 0 ) { 
 				SkunkPlayerManagement.playersArray[i].addToPlayerDiceTotal(5);
 				expectedWinnings += 5;
-				StdOut.println(SkunkPlayerManagement.playersArray[i].getName() + ": " + SkunkPlayerManagement.playersArray[i].getPlayerDiceTotal());
 			}
 			else {
 				expectedWinnings += 10;

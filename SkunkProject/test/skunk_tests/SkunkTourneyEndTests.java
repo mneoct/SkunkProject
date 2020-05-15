@@ -19,9 +19,9 @@ public class SkunkTourneyEndTests {
 		SkunkPlayerManagement.playersArray = SPMAddPlayer.addPlayerToArrayMain(SkunkPlayerManagement.playersArray, "cat");
 		
 		StdOut.println("Number of Players: " + SkunkPlayerManagement.playersArray.length);
-		boolean x = SkunkTournament.skunkCheckEndTournament(SkunkPlayerManagement.playersArray);
+		boolean x = SkunkTournament.skunkContinueTourney(SkunkPlayerManagement.playersArray);
 		
-		assertTrue ("Tournament not ended despite having only one player left!", x == true);
+		assertTrue ("Tournament not ended despite having only one player left!", x == false);
 	}
 	
 	@Test
@@ -33,9 +33,9 @@ public class SkunkTourneyEndTests {
 		SkunkPlayerManagement.playersArray = SPMAddPlayer.addPlayerToArrayMain(SkunkPlayerManagement.playersArray, "dog");
 
 		StdOut.println("Number of Players: " + SkunkPlayerManagement.playersArray.length);
-		boolean x = SkunkTournament.skunkCheckEndTournament(SkunkPlayerManagement.playersArray);
+		boolean x = SkunkTournament.skunkContinueTourney(SkunkPlayerManagement.playersArray);
 		
-		assertTrue ("Tournament not ended despite choosing to!", x == true);
+		assertTrue ("Tournament not ended despite choosing to!", x == false);
 	}
 	
 	@Test
@@ -47,8 +47,8 @@ public class SkunkTourneyEndTests {
 		SkunkPlayerManagement.playersArray = SPMAddPlayer.addPlayerToArrayMain(SkunkPlayerManagement.playersArray, "dog");
 
 		StdOut.println("Number of Players: " + SkunkPlayerManagement.playersArray.length);
-		boolean x = SkunkTournament.skunkCheckEndTournament(SkunkPlayerManagement.playersArray);
+		boolean x = SkunkTournament.skunkContinueTourney(SkunkPlayerManagement.playersArray);
 		
-		assertTrue ("Tournament ended despite choosing not to!", x == false);
+		assertTrue ("Tournament ended despite choosing not to!", x == true);
 	}
 }

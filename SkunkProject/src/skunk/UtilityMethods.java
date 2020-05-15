@@ -18,7 +18,8 @@ public class UtilityMethods {
 	
 	// https://mkyong.com/java/java-how-to-check-if-a-string-is-numeric/ -- 2nd code. modified to use ? :
 	public static boolean isNumeric(final String str) {
-        return str == null || str.length() == 0 ? false : str.chars().allMatch(Character::isDigit);
+        return str.length() == 0 ? false : str.chars().allMatch(Character::isDigit);
+//        return str == null || str.length() == 0 ? false : str.chars().allMatch(Character::isDigit);
     }
 	
 	public static void printRandomQuotes(final String playerRefName) {

@@ -13,7 +13,7 @@ import skunk.SkunkTurnChoice3End;
 import skunk.SkunkTurnDiceData;
 import skunk.UtilityMethods;
 
-public class testPlayerTurn {
+public class TestPlayerTurn {
 	
 	@Test
 	public void testPlayerTurnManual() {

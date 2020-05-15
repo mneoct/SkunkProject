@@ -10,7 +10,7 @@ import skunk.SPMRemovePlayer;
 import skunk.SkunkPlayerManagement;
 import skunk.SkunkTurnChoice1Stats;
 
-public class testAddRemovePlayer {
+public class TestAddRemovePlayer {
 	@Test
 	public void testAddingPlayers() {
 		StdOut.println("");
