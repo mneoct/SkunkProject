@@ -48,7 +48,8 @@ public final class TabulateWinnings {
 		String playerName = playerEvaluated.getName();
 		StdOut.println("Therefore, " + plunderedChips + " chips are added to the winnings...");
 		StdOut.println("And, " + playerName + " has lost " + plunderedChips + " chips.");
-		
+		StdOut.println();
+
 		playerEvaluated.addToPlayerChipsTotal(-plunderedChips);
 		SkunkKitty.setKitty(plunderedChips);
 	}

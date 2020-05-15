@@ -6,8 +6,8 @@ import org.junit.Test;
 
 import edu.princeton.cs.introcs.StdOut;
 import skunk.SPMAddPlayer;
-import skunk.SkunkMain;
 import skunk.SkunkPlayerManagement;
+import skunk.SkunkTournament;
 
 public class SkunkTourneyEndTests {
 
@@ -19,7 +19,7 @@ public class SkunkTourneyEndTests {
 		SkunkPlayerManagement.playersArray = SPMAddPlayer.addPlayerToArrayMain(SkunkPlayerManagement.playersArray, "cat");
 		
 		StdOut.println("Number of Players: " + SkunkPlayerManagement.playersArray.length);
-		boolean x = SkunkMain.skunkCheckEndTournament(SkunkPlayerManagement.playersArray);
+		boolean x = SkunkTournament.skunkCheckEndTournament(SkunkPlayerManagement.playersArray);
 		
 		assertTrue ("Tournament not ended despite having only one player left!", x == true);
 	}
@@ -33,7 +33,7 @@ public class SkunkTourneyEndTests {
 		SkunkPlayerManagement.playersArray = SPMAddPlayer.addPlayerToArrayMain(SkunkPlayerManagement.playersArray, "dog");
 
 		StdOut.println("Number of Players: " + SkunkPlayerManagement.playersArray.length);
-		boolean x = SkunkMain.skunkCheckEndTournament(SkunkPlayerManagement.playersArray);
+		boolean x = SkunkTournament.skunkCheckEndTournament(SkunkPlayerManagement.playersArray);
 		
 		assertTrue ("Tournament not ended despite choosing to!", x == true);
 	}
@@ -47,7 +47,7 @@ public class SkunkTourneyEndTests {
 		SkunkPlayerManagement.playersArray = SPMAddPlayer.addPlayerToArrayMain(SkunkPlayerManagement.playersArray, "dog");
 
 		StdOut.println("Number of Players: " + SkunkPlayerManagement.playersArray.length);
-		boolean x = SkunkMain.skunkCheckEndTournament(SkunkPlayerManagement.playersArray);
+		boolean x = SkunkTournament.skunkCheckEndTournament(SkunkPlayerManagement.playersArray);
 		
 		assertTrue ("Tournament ended despite choosing not to!", x == false);
 	}
