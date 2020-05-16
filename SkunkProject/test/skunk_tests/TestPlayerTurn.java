@@ -37,6 +37,7 @@ public class TestPlayerTurn {
 		}
 	}
 	
+	@Test
 	public void testEndTurn() {
 		StdOut.println("");
 		StdOut.println("<<<Auto shows display results (choice 1)>>>");
