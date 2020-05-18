@@ -3,7 +3,7 @@
   associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="skunk.SkunkGame" project="SkunkProject_TP1" 
     file="/SkunkProject_TP1/src/skunk/SkunkGame.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="189" width="242" x="445" y="13"/>    
+    <position height="189" width="242" x="886" y="221"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="skunk.SkunkTurnChoice1Stats" project="SkunkProject_TP1" 
     file="/SkunkProject_TP1/src/skunk/SkunkTurnChoice1Stats.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="253" x="5" y="417"/>    
+    <position height="117" width="253" x="453" y="625"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -21,7 +21,7 @@
   </class>  
   <class id="3" language="java" name="skunk.SPMRemovePlayer" project="SkunkProject_TP1" 
     file="/SkunkProject_TP1/src/skunk/SPMRemovePlayer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="299" x="727" y="13"/>    
+    <position height="117" width="299" x="1210" y="221"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="skunk.SkunkMain" project="SkunkProject_TP1" 
     file="/SkunkProject_TP1/src/skunk/SkunkMain.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="440" x="986" y="-180"/>    
+    <position height="99" width="123" x="1090" y="-111"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <class id="5" language="java" name="skunk.SkunkTurnChoice2Roll" project="SkunkProject_TP1" 
     file="/SkunkProject_TP1/src/skunk/SkunkTurnChoice2Roll.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="294" x="319" y="417"/>    
+    <position height="225" width="294" x="98" y="625"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </class>  
   <class id="6" language="java" name="skunk.SkunkTurnPenaltyEvents" project="SkunkProject_TP1" 
     file="/SkunkProject_TP1/src/skunk/SkunkTurnPenaltyEvents.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="228" x="-12" y="718"/>    
+    <position height="225" width="228" x="474" y="890"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="skunk.SkunkUI" project="SkunkProject_TP1" 
     file="/SkunkProject_TP1/src/skunk/SkunkUI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="203" x="762" y="-391"/>    
+    <position height="153" width="203" x="866" y="-304"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,7 +66,7 @@
   </class>  
   <class id="8" language="java" name="skunk.SkunkPlayerManagement" project="SkunkProject_TP1" 
     file="/SkunkProject_TP1/src/skunk/SkunkPlayerManagement.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="189" width="282" x="1438" y="718"/>    
+    <position height="189" width="282" x="1185" y="890"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="skunk.SkunkTurnChoice3End" project="SkunkProject_TP1" 
     file="/SkunkProject_TP1/src/skunk/SkunkTurnChoice3End.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="156" x="984" y="718"/>    
+    <position height="99" width="156" x="784" y="890"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -84,7 +84,7 @@
   </class>  
   <class id="10" language="java" name="skunk.Dice" project="SkunkProject_TP1" 
     file="/SkunkProject_TP1/src/skunk/Dice.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="243" width="137" x="-210" y="718"/>    
+    <position height="225" width="137" x="-121" y="890"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -93,7 +93,7 @@
   </class>  
   <class id="11" language="java" name="skunk.SkunkKitty" project="SkunkProject_TP1" 
     file="/SkunkProject_TP1/src/skunk/SkunkKitty.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="112" x="-271" y="1065"/>    
+    <position height="171" width="112" x="723" y="1237"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -102,7 +102,7 @@
   </class>  
   <class id="12" language="java" name="skunk.TabulateWinnings" project="SkunkProject_TP1" 
     file="/SkunkProject_TP1/src/skunk/TabulateWinnings.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="255" x="445" y="242"/>    
+    <position height="135" width="255" x="852" y="450"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -111,387 +111,425 @@
   </class>  
   <class id="13" language="java" name="skunk.SkunkTurnDiceRollsArray" project="SkunkProject_TP1" 
     file="/SkunkProject_TP1/src/skunk/SkunkTurnDiceRollsArray.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="297" width="573" x="361" y="718"/>    
+    <position height="297" width="573" x="-744" y="890"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="skunk.SkunkTurnAction" project="SkunkProject_TP1" 
+  <class id="14" language="java" name="skunk.SkunkTournament" project="SkunkProject_TP1" 
+    file="/SkunkProject_TP1/src/skunk/SkunkTournament.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="440" x="1090" y="28"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="skunk.SkunkTurnAction" project="SkunkProject_TP1" 
     file="/SkunkProject_TP1/src/skunk/SkunkTurnAction.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="235" x="777" y="242"/>    
+    <position height="117" width="235" x="577" y="450"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="skunk.SkunkTurnMenuSelection" project="SkunkProject_TP1" 
+  <class id="16" language="java" name="skunk.SkunkTurnMenuSelection" project="SkunkProject_TP1" 
     file="/SkunkProject_TP1/src/skunk/SkunkTurnMenuSelection.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="261" width="239" x="1073" y="417"/>    
+    <position height="225" width="252" x="767" y="625"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="skunk.UtilityMethods" project="SkunkProject_TP1" 
+  <class id="17" language="java" name="skunk.UtilityMethods" project="SkunkProject_TP1" 
     file="/SkunkProject_TP1/src/skunk/UtilityMethods.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="203" x="1377" y="1065"/>    
+    <position height="153" width="203" x="1061" y="1237"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="17" language="java" name="skunk.SkunkTurnDiceData" project="SkunkProject_TP1" 
+  <class id="18" language="java" name="skunk.SkunkTurnDiceData" project="SkunkProject_TP1" 
     file="/SkunkProject_TP1/src/skunk/SkunkTurnDiceData.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="165" x="258" y="1065"/>    
+    <position height="171" width="165" x="434" y="1237"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="18" language="java" name="skunk.SPMAddPlayer" project="SkunkProject_TP1" 
+  <class id="19" language="java" name="skunk.SPMAddPlayer" project="SkunkProject_TP1" 
     file="/SkunkProject_TP1/src/skunk/SPMAddPlayer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="330" x="1066" y="13"/>    
+    <position height="153" width="330" x="1591" y="28"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="skunk.Die" project="SkunkProject_TP1" file="/SkunkProject_TP1/src/skunk/Die.java" 
+  <class id="20" language="java" name="skunk.Die" project="SkunkProject_TP1" file="/SkunkProject_TP1/src/skunk/Die.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="102" x="-119" y="1065"/>    
+    <position height="153" width="102" x="-121" y="1237"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="skunk.SkunkPlayer" project="SkunkProject_TP1" 
+  <class id="21" language="java" name="skunk.SkunkPlayer" project="SkunkProject_TP1" 
     file="/SkunkProject_TP1/src/skunk/SkunkPlayer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="279" width="176" x="1161" y="1065"/>    
+    <position height="279" width="176" x="1304" y="1237"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="21" language="java" name="skunk.SkunkApp" project="SkunkProject_TP1" 
+  <class id="22" language="java" name="skunk.SkunkApp" project="SkunkProject_TP1" 
     file="/SkunkProject_TP1/src/skunk/SkunkApp.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="113" x="986" y="-548"/>    
+    <position height="117" width="113" x="1090" y="-461"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="22" language="java" name="skunk.UI" project="SkunkProject_TP1" 
+  <interface id="23" language="java" name="skunk.UI" project="SkunkProject_TP1" 
     file="/SkunkProject_TP1/src/skunk/UI.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="203" x="181" y="13"/>    
+    <position height="117" width="203" x="292" y="28"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <dependency id="23">    
-    <bendpoint x="1021" y="417"/>    
-    <bendpoint x="1170" y="718"/>    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="20"/>  
-  </dependency>  
   <association id="24">    
-    <bendpoint x="995" y="-391"/>    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="25" name="skunkMain"/>      
-      <multiplicity id="26" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="27">    
-    <bendpoint x="288" y="417"/>    
-    <bendpoint x="288" y="718"/>    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="20"/>  
-  </dependency>  
-  <association id="28">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="29" name="roundRollResult"/>      
-      <multiplicity id="30" minimum="0" maximum="2147483647"/>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="31">    
-    <bendpoint x="-43" y="718"/>    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="17"/>  
-  </dependency>  
-  <dependency id="32">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="1"/>  
-  </dependency>  
-  <dependency id="33">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="16"/>  
-  </dependency>  
-  <realization id="34">    
-    <bendpoint x="480" y="-180"/>    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="22"/>  
-  </realization>  
-  <dependency id="35">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="8"/>  
-  </dependency>  
-  <dependency id="36">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="18"/>  
-  </dependency>  
-  <dependency id="37">    
-    <bendpoint x="1344" y="718"/>    
-    <end type="SOURCE" refId="15"/>    
-    <end type="TARGET" refId="16"/>  
-  </dependency>  
-  <dependency id="38">    
-    <bendpoint x="1342" y="242"/>    
-    <bendpoint x="1342" y="417"/>    
-    <bendpoint x="1323" y="718"/>    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="20"/>  
-  </dependency>  
-  <dependency id="39">    
-    <bendpoint x="1426" y="13"/>    
-    <bendpoint x="1426" y="242"/>    
-    <bendpoint x="1426" y="417"/>    
-    <bendpoint x="1407" y="718"/>    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="20"/>  
-  </dependency>  
-  <dependency id="40">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="11"/>  
-  </dependency>  
-  <dependency id="41">    
-    <bendpoint x="414" y="13"/>    
-    <bendpoint x="414" y="242"/>    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="2"/>  
-  </dependency>  
-  <dependency id="42">    
-    <bendpoint x="1000" y="417"/>    
-    <bendpoint x="1212" y="718"/>    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="16"/>  
-  </dependency>  
-  <association id="43">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="44" name="die1"/>      
-      <multiplicity id="45" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="19" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="46">    
-    <bendpoint x="1363" y="417"/>    
-    <bendpoint x="1386" y="718"/>    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="16"/>  
-  </dependency>  
-  <dependency id="47">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="17"/>  
-  </dependency>  
-  <dependency id="48">    
-    <bendpoint x="664" y="417"/>    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="13"/>  
-  </dependency>  
-  <dependency id="49">    
-    <bendpoint x="-283" y="242"/>    
-    <bendpoint x="-283" y="417"/>    
-    <bendpoint x="-283" y="718"/>    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="11"/>  
-  </dependency>  
-  <dependency id="50">    
-    <bendpoint x="1447" y="13"/>    
-    <bendpoint x="1447" y="242"/>    
-    <bendpoint x="1447" y="417"/>    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="8"/>  
-  </dependency>  
-  <dependency id="51">    
-    <bendpoint x="267" y="718"/>    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="17"/>  
-  </dependency>  
-  <dependency id="52">    
-    <bendpoint x="246" y="718"/>    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="20"/>  
-  </dependency>  
-  <dependency id="53">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="2"/>  
-  </dependency>  
-  <dependency id="54">    
-    <bendpoint x="1384" y="242"/>    
-    <bendpoint x="1384" y="417"/>    
-    <bendpoint x="1365" y="718"/>    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="20"/>  
-  </dependency>  
-  <association id="55">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="56" name="playersArray"/>      
-      <multiplicity id="57" minimum="0" maximum="2147483647"/>    
+      <attribute id="25" name="die1"/>      
+      <multiplicity id="26" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="20" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="58">    
-    <bendpoint x="1363" y="242"/>    
-    <bendpoint x="1405" y="417"/>    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="8"/>  
-  </dependency>  
-  <dependency id="59">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="10"/>  
-  </dependency>  
-  <dependency id="60">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="5"/>  
-  </dependency>  
-  <dependency id="61">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="17"/>  
-  </dependency>  
-  <dependency id="62">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="20"/>  
-  </dependency>  
-  <dependency id="63">    
-    <bendpoint x="1750" y="13"/>    
-    <bendpoint x="1750" y="242"/>    
-    <bendpoint x="1750" y="417"/>    
-    <bendpoint x="1750" y="718"/>    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="16"/>  
-  </dependency>  
-  <dependency id="64">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="20"/>  
-  </dependency>  
-  <dependency id="65">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="12"/>  
-  </dependency>  
-  <dependency id="66">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="2"/>  
-  </dependency>  
-  <association id="67">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="68" name="skunkMain"/>      
-      <multiplicity id="69" minimum="0" maximum="1"/>    
+  <association id="27">    
+    <bendpoint x="1099" y="-304"/>    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="28" name="skunkMain"/>      
+      <multiplicity id="29" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="70">    
-    <bendpoint x="309" y="718"/>    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="20"/>  
-  </dependency>  
-  <association id="71">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="72" name="userInterface"/>      
-      <multiplicity id="73" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="22" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="74">    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="14"/>  
-  </dependency>  
-  <association id="75">    
-    <end type="SOURCE" refId="21" navigable="false">      
-      <attribute id="76" name="skunkUI"/>      
-      <multiplicity id="77" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="7" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <dependency id="78">    
-    <bendpoint x="889" y="417"/>    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="9"/>  
-  </dependency>  
-  <dependency id="79">    
-    <bendpoint x="-241" y="718"/>    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="11"/>  
-  </dependency>  
-  <dependency id="80">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="15"/>  
-  </dependency>  
-  <dependency id="81">    
-    <bendpoint x="643" y="417"/>    
-    <bendpoint x="330" y="718"/>    
+  <dependency id="30">    
+    <bendpoint x="1158" y="221"/>    
+    <bendpoint x="1158" y="450"/>    
+    <bendpoint x="1154" y="625"/>    
+    <bendpoint x="1133" y="890"/>    
     <end type="SOURCE" refId="14"/>    
     <end type="TARGET" refId="17"/>  
   </dependency>  
-  <dependency id="82">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="3"/>  
+  <dependency id="31">    
+    <bendpoint x="1091" y="625"/>    
+    <bendpoint x="1112" y="890"/>    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="21"/>  
   </dependency>  
-  <dependency id="83">    
-    <bendpoint x="-262" y="417"/>    
-    <bendpoint x="-262" y="718"/>    
-    <end type="SOURCE" refId="12"/>    
+  <dependency id="32">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="33">    
+    <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="11"/>  
   </dependency>  
-  <association id="84">    
+  <dependency id="34">    
+    <bendpoint x="1951" y="28"/>    
+    <bendpoint x="1951" y="221"/>    
+    <bendpoint x="1951" y="450"/>    
+    <bendpoint x="1951" y="625"/>    
+    <bendpoint x="1951" y="890"/>    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <association id="35">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="36" name="playersArray"/>      
+      <multiplicity id="37" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="38">    
+    <bendpoint x="1179" y="450"/>    
+    <bendpoint x="1338" y="625"/>    
+    <bendpoint x="1497" y="890"/>    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <dependency id="39">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="10"/>  
+  </dependency>  
+  <dependency id="40">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <dependency id="41">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="5"/>  
+  </dependency>  
+  <realization id="42">    
+    <bendpoint x="588" y="-111"/>    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="23"/>  
+  </realization>  
+  <dependency id="43">    
+    <bendpoint x="1497" y="450"/>    
+    <bendpoint x="1518" y="625"/>    
+    <bendpoint x="1518" y="890"/>    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <dependency id="44">    
+    <bendpoint x="732" y="890"/>    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <association id="45">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="46" name="roundRollResult"/>      
+      <multiplicity id="47" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="48">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="1"/>  
+  </dependency>  
+  <dependency id="49">    
+    <bendpoint x="1049" y="890"/>    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
+  <association id="50">    
     <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="85" name="skunkUI"/>      
-      <multiplicity id="86" minimum="0" maximum="1"/>    
+      <attribute id="51" name="skunkUI"/>      
+      <multiplicity id="52" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <dependency id="87">    
-    <bendpoint x="1042" y="242"/>    
-    <bendpoint x="1042" y="417"/>    
-    <bendpoint x="1191" y="718"/>    
-    <end type="SOURCE" refId="1"/>    
-    <end type="TARGET" refId="20"/>  
+  <dependency id="53">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="18"/>  
   </dependency>  
-  <dependency id="88">    
+  <dependency id="54">    
+    <bendpoint x="1179" y="221"/>    
+    <bendpoint x="1200" y="450"/>    
+    <bendpoint x="1200" y="625"/>    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <dependency id="55">    
+    <bendpoint x="736" y="625"/>    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="9"/>  
+  </dependency>  
+  <dependency id="56">    
+    <bendpoint x="1560" y="28"/>    
+    <bendpoint x="1560" y="221"/>    
+    <bendpoint x="1518" y="450"/>    
+    <bendpoint x="1497" y="625"/>    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <association id="57">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="58" name="skunkMain"/>      
+      <multiplicity id="59" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="60">    
+    <bendpoint x="67" y="625"/>    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="13"/>  
+  </dependency>  
+  <dependency id="61">    
+    <bendpoint x="1581" y="221"/>    
+    <bendpoint x="1581" y="450"/>    
+    <bendpoint x="1581" y="625"/>    
+    <bendpoint x="1581" y="890"/>    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <dependency id="62">    
+    <bendpoint x="46" y="450"/>    
+    <bendpoint x="46" y="625"/>    
+    <bendpoint x="46" y="890"/>    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="63">    
+    <bendpoint x="1133" y="625"/>    
+    <bendpoint x="1154" y="890"/>    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <dependency id="64">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <dependency id="65">    
+    <bendpoint x="1539" y="221"/>    
+    <bendpoint x="1539" y="450"/>    
+    <bendpoint x="1539" y="625"/>    
+    <bendpoint x="1539" y="890"/>    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <dependency id="66">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="19"/>  
+  </dependency>  
+  <association id="67">    
+    <end type="SOURCE" refId="22" navigable="false">      
+      <attribute id="68" name="skunkUI"/>      
+      <multiplicity id="69" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="70">    
+    <bendpoint x="1028" y="890"/>    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <dependency id="71">    
+    <bendpoint x="525" y="28"/>    
+    <bendpoint x="525" y="221"/>    
+    <bendpoint x="525" y="450"/>    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="72">    
+    <bendpoint x="1112" y="625"/>    
+    <bendpoint x="1091" y="890"/>    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
+  <dependency id="73">    
+    <bendpoint x="1049" y="625"/>    
+    <bendpoint x="1007" y="890"/>    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="11"/>  
+  </dependency>  
+  <dependency id="74">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="14"/>  
+  </dependency>  
+  <dependency id="75">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="16"/>  
+  </dependency>  
+  <association id="76">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="77" name="die2"/>      
+      <multiplicity id="78" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="20" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="79">    
+    <bendpoint x="1137" y="450"/>    
+    <bendpoint x="1175" y="625"/>    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <dependency id="80">    
+    <bendpoint x="422" y="625"/>    
+    <bendpoint x="422" y="890"/>    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="18"/>  
+  </dependency>  
+  <dependency id="81">    
+    <bendpoint x="443" y="890"/>    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="18"/>  
+  </dependency>  
+  <dependency id="82">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="8"/>  
+  </dependency>  
+  <dependency id="83">    
+    <bendpoint x="546" y="221"/>    
+    <bendpoint x="546" y="450"/>    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="84">    
     <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="13"/>  
   </dependency>  
+  <dependency id="85">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="18"/>  
+  </dependency>  
+  <dependency id="86">    
+    <bendpoint x="275" y="890"/>    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="18"/>  
+  </dependency>  
+  <dependency id="87">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="15"/>  
+  </dependency>  
+  <dependency id="88">    
+    <bendpoint x="1070" y="625"/>    
+    <bendpoint x="1070" y="890"/>    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
   <dependency id="89">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="2"/>  
+  </dependency>  
+  <dependency id="90">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="17"/>  
+  </dependency>  
+  <association id="91">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="92" name="userInterface"/>      
+      <multiplicity id="93" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="94">    
     <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="6"/>  
   </dependency>  
-  <association id="90">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="91" name="die2"/>      
-      <multiplicity id="92" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="19" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
+  <dependency id="95">    
+    <bendpoint x="753" y="890"/>    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <dependency id="96">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="21"/>  
+  </dependency>  
+  <dependency id="97">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="12"/>  
+  </dependency>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

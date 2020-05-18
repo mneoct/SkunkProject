@@ -48,7 +48,7 @@ public class SkunkGame {
 			final boolean overFlowCheckBreak = overflowOrNextPlayer(internalCurrentlyPlaying);
 			if (overFlowCheckBreak) {
 				final String currentlyPlayingName = internalCurrentlyPlaying.getName();
-				StdOut.println("Dice Total of " + currentlyPlayingName + " is over " + OVERFLOW_SCORE);
+				StdOut.println("Dice Total of " + currentlyPlayingName + " is at least " + OVERFLOW_SCORE);
 				break;
 			}
 			internalCurrentPlayerIndex = SkunkPlayerManagement.selectNextPlayer(playersArrayGame, internalCurrentPlayerIndex);
@@ -94,7 +94,7 @@ public class SkunkGame {
 		boolean isOverflow = false;
 		final int currentlyPlayingDice = currentlyPlaying.getPlayerDiceTotal();
 
-		if (currentlyPlayingDice > OVERFLOW_SCORE){
+		if (currentlyPlayingDice >= OVERFLOW_SCORE){
 			StdOut.println();
 			isOverflow = true;
 		}
