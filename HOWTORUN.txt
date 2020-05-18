@@ -1,0 +1,112 @@
+Assuming the skunk game is loaded into eclipse...
+
+The game itself is run from src\skunk\SkunkApp.java
+Some variables to adjust for easier evaluation.
+	SPMAddPlayer -- MAX_PLAYERS // max number of players. This will probably be weird when <= 1.
+	SkunkGame -- OVERFLOW_SCORE // the score to surpass for the final round to trigger.
+	SkunkPlayerManagement -- TOTAL_CHIPS // the total number of chips in the game
+	(not per player! will be divided among them)
+
+As mentioned in the presentation:
+
+	The 1st part is registration of players.
+	- up to 8 players, but can be changed as mentioned above.
+
+	It has safeguards against short names -- less than 3 chars,
+	empty strings (well, less than 3 so that comes along),
+	and makes sure you have at least 2 players. 
+
+	---
+
+	Next, after the setup, the first game begins.
+
+	For each player, enter the number and hit enter to execute the action.
+	- invalid inputs are accounted for, including non-numeric.
+		 -- should ask for correct input again.
+
+	Play the game. ... 
+
+	Then at the end, after the winner gets chips
+	 and dead players are removed... you have a choice
+	enter "end" without quotes to end, else the tourney continues..
+
+=========================
+For the Junit tests: start from test\skunk_tests\TestRunnerClass.java
+
+Mostly automated, but there's some required user inputs, to test they are parsed correctly. 
+Should probably set them aside so automated tests are separated and more easily tested, 
+but maybe in a future update. 
+
+I will show the sample output waiting for user input, and then what to do.
+========
+<<<Testing that Tourney continues (boolean = false) when input is not 'end'...>>>
+Number of Players: 2
+Type 'end' to end the tournament, else it will continue => 
+======
+For this, enter anything. Supposed to test that tourney continues.
+
+
+========
+<<<Testing that Tourney Ends (boolean = true) when input is 'end'...>>>
+Number of Players: 2
+Type 'end' to end the tournament, else it will continue => 
+======
+For this, enter 'end' without =quotes. 
+Sadly, did not implement code to make "End" into 'end' that kind of stuff.
+
+
+======
+<<<Test short names and stop adding early>>>
+<<<Manual Testing!...>>>
+Adding New Player...
+Enter ... to continue without adding
+Enter the new player's name:
+===
+This one will require multiple inputs, hitting enter each, as follows:
+
+	a (or anything short input)
+	aa
+	... (triple dots -- tries to stop registration, but no players so fails)
+	aaa (should add one player)
+	... (fail since only one player)
+	aaa (use the same name as the first player added -- fails since aaa already exists)
+	bbb
+	... (should be done)
+
+
+====
+<<<Manual: adding up to 8 players automatically stops the registration of players...>>>
+<<<Then, checks that players are removed by SPMRemovePlayer.removePlayers>>>
+Adding New Player...
+Enter ... to continue without adding
+Enter the new player's name:
+===
+enter any 8 names, subject to the same rules (no duplicates, no < 3 chars) 
+
+
+===
+<<<Manual: Test that each option during turn works (try all 3)>>>
+
+<<<cat's turn... >>>
+Fortune be with you, cat...
+
+Select option:
+	1: View Scoreboard of Game
+	2: Roll dice
+	3: End round
+
+Option Selected: 
+===
+short turns for 6 players. try:
+
+esdgsetg3646 or anything really - test non-valid
+(blank i.e. just hit enter) - test blank lines
+any number other than 1, 2, or 3 - not really needed but good to try.
+1
+2
+3
+and then just keep entering 1 2 or 3 randomly.
+
+===
+And that's the end of the junit tests. 
+Coverage may fluctuates between 79 to 81%
